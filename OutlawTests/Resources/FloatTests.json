@@ -1,0 +1,10 @@
+{
+    "float": 3.14,
+    "string": "Hello, Outlaw!",
+    "object": {
+        "float": 3.14,
+        "string": "Hello, Outlaw!"
+    },
+    "minValue": 1.17549e-38,
+    "maxValue": 3.40282e+38
+}

@@ -1,0 +1,10 @@
+{
+    "uint": 3,
+    "string": "Hello, Outlaw!",
+    "object": {
+        "uint": 3,
+        "string": "Hello, Outlaw!"
+    },
+    "minValue": 0,
+    "maxValue": 18446744073709551615
+}

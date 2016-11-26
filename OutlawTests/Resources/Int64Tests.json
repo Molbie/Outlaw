@@ -1,0 +1,10 @@
+{
+    "int64": -64,
+    "string": "Hello, Outlaw!",
+    "object": {
+        "int64": -64,
+        "string": "Hello, Outlaw!"
+    },
+    "minValue": -9223372036854775808,
+    "maxValue": 9223372036854775807
+}

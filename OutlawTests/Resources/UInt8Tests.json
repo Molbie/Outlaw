@@ -1,0 +1,10 @@
+{
+    "uint8": 8,
+    "string": "Hello, Outlaw!",
+    "object": {
+        "uint8": 8,
+        "string": "Hello, Outlaw!"
+    },
+    "minValue": 0,
+    "maxValue": 255
+}

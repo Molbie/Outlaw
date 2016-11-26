@@ -1,0 +1,10 @@
+{
+    "double": 3.14159265359,
+    "string": "Hello, Outlaw!",
+    "object": {
+        "double": 3.14159265359,
+        "string": "Hello, Outlaw!"
+    },
+    "minValue": 2.2250738585072e-115,
+    "maxValue": 1.79769313486232e+115
+}

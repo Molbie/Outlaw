@@ -1,0 +1,10 @@
+{
+    "uint32": 32,
+    "string": "Hello, Outlaw!",
+    "object": {
+        "uint32": 32,
+        "string": "Hello, Outlaw!"
+    },
+    "minValue": 0,
+    "maxValue": 4294967295
+}
