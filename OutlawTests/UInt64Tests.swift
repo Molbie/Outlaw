@@ -88,6 +88,7 @@ class UInt64Tests: OutlawTestCase {
     
     func testUpperBounds() {
         let value: UInt64 = try! data.value(for: "maxValue")
-        XCTAssertEqual(value, 18446744073709551615)
+        let maxValue: UInt64 = 18446744073709551615
+        XCTAssertEqual(value, maxValue)
     }
 }

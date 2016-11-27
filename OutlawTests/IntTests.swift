@@ -83,11 +83,13 @@ class IntTests: OutlawTestCase {
     
     func testLowerBounds() {
         let value: Int = try! data.value(for: "minValue")
-        XCTAssertEqual(value, -9223372036854775808)
+        let minValue: Int64 = -9223372036854775808
+        XCTAssertEqual(value, Int(minValue))
     }
     
     func testUpperBounds() {
         let value: Int = try! data.value(for: "maxValue")
-        XCTAssertEqual(value, 9223372036854775807)
+        let maxValue: Int64 = 9223372036854775807
+        XCTAssertEqual(value, Int(maxValue))
     }
 }
