@@ -8,9 +8,9 @@ env:
     - PROJECT_NAME="Outlaw"
     - PROJECT_SUFFFIX=".xcodeproj"
     - FRAMEWORK_SCHEME="Outlaw"
-    - IOS_SDK=iphonesimulator10.0
-    - TVOS_SDK=appletvsimulator9.2
-    - OSX_SDK=macosx10.11
+    - IOS_SDK=iphonesimulator10.1
+    - TVOS_SDK=appletvsimulator10.1
+    - OSX_SDK=macosx10.12
   matrix:
     - DESTINATION="OS=8.1,name=iPhone 4S"       SCHEME="$FRAMEWORK_SCHEME" SDK="$IOS_SDK"
     - DESTINATION="OS=8.2,name=iPhone 5"        SCHEME="$FRAMEWORK_SCHEME" SDK="$IOS_SDK"
