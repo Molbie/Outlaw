@@ -11,8 +11,6 @@ import XCTest
 
 
 class Int64Tests: OutlawTestCase {
-    lazy var data = OutlawTestCase.jsonData(for: "Int64Tests")
-    
     func testValue() {
         let value: Int64 = try! data.value(for: "int64")
         XCTAssertEqual(value, -64)

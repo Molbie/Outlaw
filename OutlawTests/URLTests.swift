@@ -11,8 +11,6 @@ import XCTest
 
 
 class URLTests: OutlawTestCase {
-    lazy var data = OutlawTestCase.jsonData(for: "URLTests")
-    
     func testValue() {
         let value: URL = try! data.value(for: "url")
         XCTAssertEqual(value.absoluteString, "https://developer.apple.com/")

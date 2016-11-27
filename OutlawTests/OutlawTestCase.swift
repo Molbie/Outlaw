@@ -11,13 +11,22 @@ import XCTest
 
 
 public class OutlawTestCase: XCTestCase {
-    public static func jsonUrl(for resource: String) -> URL {
-        let path = Bundle(for: OutlawTestCase.self).path(forResource: resource, ofType: "json")!
+    public func jsonUrl(for resource: String) -> URL? {
+        guard let path = Bundle(for: OutlawTestCase.self).path(forResource: resource, ofType: "json") else { return nil }
+        
         return URL(fileURLWithPath: path)
     }
     
-    public static func jsonData(for resource: String) -> [String: Any] {
-        let url = jsonUrl(for: resource)
+    public func jsonData(for resource: String) -> [String: Any] {
+        guard let url = jsonUrl(for: resource) else { return [:] }
         return try! JSON.value(from: url)
+    }
+    
+    public var data: [String: Any]!
+    
+    public override func setUp() {
+        super.setUp()
+        
+        data = jsonData(for: "\(type(of: self))")
     }
 }

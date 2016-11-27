@@ -11,8 +11,6 @@ import XCTest
 
 
 class UInt32Tests: OutlawTestCase {
-    lazy var data = OutlawTestCase.jsonData(for: "UInt32Tests")
-    
     func testValue() {
         let value: UInt32 = try! data.value(for: "uint32")
         XCTAssertEqual(value, 32)

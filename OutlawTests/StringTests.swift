@@ -11,8 +11,6 @@ import XCTest
 
 
 class StringTests: OutlawTestCase {
-    lazy var data = OutlawTestCase.jsonData(for: "StringTests")
-    
     func testValue() {
         let value: String = try! data.value(for: "string")
         XCTAssertEqual(value, "Hello, Outlaw!")

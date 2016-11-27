@@ -11,8 +11,6 @@ import XCTest
 
 
 class UIntTests: OutlawTestCase {
-    lazy var data = OutlawTestCase.jsonData(for: "UIntTests")
-    
     func testValue() {
         let value: UInt = try! data.value(for: "uint")
         XCTAssertEqual(value, 3)

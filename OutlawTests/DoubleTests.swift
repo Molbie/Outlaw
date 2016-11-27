@@ -11,8 +11,6 @@ import XCTest
 
 
 class DoubleTests: OutlawTestCase {
-    lazy var data = OutlawTestCase.jsonData(for: "DoubleTests")
-    
     func testValue() {
         let value: Double = try! data.value(for: "double")
         XCTAssertEqual(value, 3.14159265359)

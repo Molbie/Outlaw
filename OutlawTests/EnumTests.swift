@@ -11,8 +11,6 @@ import XCTest
 
 
 class EnumTests: OutlawTestCase {
-    lazy var data = OutlawTestCase.jsonData(for: "EnumTests")
-    
     func testValue() {
         let value: DayOfWeek = try! data.value(for: "enum")
         XCTAssertEqual(value, .friday)

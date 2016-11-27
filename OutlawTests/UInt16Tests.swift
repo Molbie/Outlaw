@@ -11,8 +11,6 @@ import XCTest
 
 
 class UInt16Tests: OutlawTestCase {
-    lazy var data = OutlawTestCase.jsonData(for: "UInt16Tests")
-    
     func testValue() {
         let value: UInt16 = try! data.value(for: "uint16")
         XCTAssertEqual(value, 16)

@@ -11,8 +11,6 @@ import XCTest
 
 
 class DateTests: OutlawTestCase {
-    lazy var data = OutlawTestCase.jsonData(for: "DateTests")
-    
     func formatDate(_ date: Date) -> String {
         if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
             return ISO8601DateFormatter().string(from: date)

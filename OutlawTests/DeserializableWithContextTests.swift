@@ -11,7 +11,11 @@ import XCTest
 
 
 class DeserializableWithContextTests: OutlawTestCase {
-    lazy var data = OutlawTestCase.jsonData(for: "ObjectTests")
+    override func setUp() {
+        super.setUp()
+        
+        data = jsonData(for: "ObjectTests")
+    }
     
     func testValue() {
         let context = SomePersonContextIncludeAddress()

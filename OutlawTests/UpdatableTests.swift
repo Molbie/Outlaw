@@ -11,7 +11,11 @@ import XCTest
 
 
 class UpdatableTests: OutlawTestCase {
-    lazy var data = OutlawTestCase.jsonData(for: "ObjectTests")
+    override func setUp() {
+        super.setUp()
+        
+        data = jsonData(for: "ObjectTests")
+    }
     
     func testUpdatePerson() {
         var person = Person(firstName: "First", lastName: "Last", address: nil)

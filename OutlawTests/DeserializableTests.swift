@@ -11,7 +11,11 @@ import XCTest
 
 
 class DeserializableTests: OutlawTestCase {
-    lazy var data = OutlawTestCase.jsonData(for: "ObjectTests")
+    override func setUp() {
+        super.setUp()
+        
+        data = jsonData(for: "ObjectTests")
+    }
     
     func testValue() {
         let personNoAddress: Person = try! data.value(for: "personNoAddress")

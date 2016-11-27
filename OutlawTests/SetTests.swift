@@ -11,8 +11,6 @@ import XCTest
 
 
 class SetTests: OutlawTestCase {
-    lazy var data = OutlawTestCase.jsonData(for: "SetTests")
-    
     func testValue() {
         let bool: Set<Bool> = try! data.value(for: "bool")
         XCTAssertEqual(bool.count, 2)

@@ -11,8 +11,6 @@ import XCTest
 
 
 class DictionaryTests: OutlawTestCase {
-    lazy var data = OutlawTestCase.jsonData(for: "DictionaryTests")
-    
     func testDictionary() {
         let bool: [String: Bool] = try! data.value(for: "bool")
         XCTAssertEqual(bool["O"], true)

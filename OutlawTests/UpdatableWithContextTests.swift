@@ -11,7 +11,11 @@ import XCTest
 
 
 class UpdatableWithContextTests: OutlawTestCase {
-    lazy var data = OutlawTestCase.jsonData(for: "ObjectTests")
+    override func setUp() {
+        super.setUp()
+        
+        data = jsonData(for: "ObjectTests")
+    }
     
     func testUpdateNoAddress() {
         let context = SomePersonContextIncludeAddress()

@@ -11,8 +11,6 @@ import XCTest
 
 
 class FloatTests: OutlawTestCase {
-    lazy var data = OutlawTestCase.jsonData(for: "FloatTests")
-    
     func testValue() {
         let value: Float = try! data.value(for: "float")
         XCTAssertEqual(value, 3.14)
