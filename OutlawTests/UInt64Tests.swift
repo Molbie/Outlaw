@@ -89,4 +89,42 @@ class UInt64Tests: OutlawTestCase {
         let maxValue: UInt64 = 18446744073709551615
         XCTAssertEqual(value, maxValue)
     }
+    
+// MARK: -
+// MARK: Transforms
+    
+    func testTransformValue() {
+        let value: UInt64 = try! data.value(for: "transform", with: { (rawValue: String) -> UInt64 in
+            guard let value = UInt64(rawValue) else {
+                throw OutlawError.typeMismatchWithKey(key: "transform", expected: Int.self, actual: rawValue)
+            }
+            return value
+        })
+        XCTAssertEqual(value, 12345)
+    }
+    
+    func testOptionalTransformValue() {
+        let value: UInt64 = try! data.value(for: "transform", with: { (rawValue: String?) -> UInt64 in
+            guard let value = UInt64(rawValue ?? "0") else {
+                throw OutlawError.typeMismatchWithKey(key: "transform", expected: Int.self, actual: rawValue ?? "nil")
+            }
+            return value
+        })
+        XCTAssertEqual(value, 12345)
+    }
+    
+    func testTransformOptionalValue() {
+        let value: UInt64? = data.value(for: "transform", with: { (rawValue: String) -> UInt64? in
+            return UInt64(rawValue)
+        })
+        XCTAssertEqual(value, 12345)
+    }
+    
+    func testOptionalTransformOptionalValue() {
+        let value: UInt64? = data.value(for: "transform", with: { (rawValue: String?) -> UInt64? in
+            guard let rawValue = rawValue else { return nil }
+            return UInt64(rawValue)
+        })
+        XCTAssertEqual(value, 12345)
+    }
 }

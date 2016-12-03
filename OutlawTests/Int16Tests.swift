@@ -88,4 +88,42 @@ class Int16Tests: OutlawTestCase {
         let value: Int16 = try! data.value(for: "maxValue")
         XCTAssertEqual(value, 32767)
     }
+    
+// MARK: -
+// MARK: Transforms
+    
+    func testTransformValue() {
+        let value: Int16 = try! data.value(for: "transform", with: { (rawValue: String) -> Int16 in
+            guard let value = Int16(rawValue) else {
+                throw OutlawError.typeMismatchWithKey(key: "transform", expected: Int.self, actual: rawValue)
+            }
+            return value
+        })
+        XCTAssertEqual(value, 12345)
+    }
+    
+    func testOptionalTransformValue() {
+        let value: Int16 = try! data.value(for: "transform", with: { (rawValue: String?) -> Int16 in
+            guard let value = Int16(rawValue ?? "0") else {
+                throw OutlawError.typeMismatchWithKey(key: "transform", expected: Int.self, actual: rawValue ?? "nil")
+            }
+            return value
+        })
+        XCTAssertEqual(value, 12345)
+    }
+    
+    func testTransformOptionalValue() {
+        let value: Int16? = data.value(for: "transform", with: { (rawValue: String) -> Int16? in
+            return Int16(rawValue)
+        })
+        XCTAssertEqual(value, 12345)
+    }
+    
+    func testOptionalTransformOptionalValue() {
+        let value: Int16? = data.value(for: "transform", with: { (rawValue: String?) -> Int16? in
+            guard let rawValue = rawValue else { return nil }
+            return Int16(rawValue)
+        })
+        XCTAssertEqual(value, 12345)
+    }
 }

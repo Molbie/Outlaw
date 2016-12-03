@@ -75,4 +75,47 @@ class URLTests: OutlawTestCase {
         let value: URL? = data.value(for: "bool")
         XCTAssertNil(value)
     }
+    
+// MARK: -
+// MARK: Transforms
+    
+    func testTransformValue() {
+        let value: URL = try! data.value(for: "transform", with: { (rawValue: String) -> URL in
+            let urlValue = rawValue == "HOMEPAGE" ? "http://molbie.co" : rawValue
+            guard let value = URL(string: urlValue) else {
+                throw OutlawError.typeMismatchWithKey(key: "transform", expected: URL.self, actual: rawValue)
+            }
+            
+            return value
+        })
+        XCTAssertEqual(value.absoluteString, "http://molbie.co")
+    }
+    
+    func testOptionalTransformValue() {
+        let value: URL = try! data.value(for: "transform", with: { (rawValue: String?) -> URL in
+            let urlValue = rawValue == "HOMEPAGE" ? "http://molbie.co" : (rawValue ?? "")
+            guard let value = URL(string: urlValue) else {
+                throw OutlawError.typeMismatchWithKey(key: "transform", expected: URL.self, actual: rawValue ?? "")
+            }
+            
+            return value
+        })
+        XCTAssertEqual(value.absoluteString, "http://molbie.co")
+    }
+    
+    func testTransformOptionalValue() {
+        let value: URL? = data.value(for: "transform", with: { (rawValue: String) -> URL? in
+            let urlValue = rawValue == "HOMEPAGE" ? "http://molbie.co" : rawValue
+            return URL(string: urlValue)
+        })
+        XCTAssertEqual(value?.absoluteString, "http://molbie.co")
+    }
+    
+    func testOptionalTransformOptionalValue() {
+        let value: URL? = data.value(for: "transform", with: { (rawValue: String?) -> URL? in
+            let urlValue = rawValue == "HOMEPAGE" ? "http://molbie.co" : (rawValue ?? "")
+            return URL(string: urlValue)
+        })
+        XCTAssertEqual(value?.absoluteString, "http://molbie.co")
+    }
 }

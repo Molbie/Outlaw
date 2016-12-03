@@ -1,6 +1,7 @@
 {
     "float": 3.14,
     "string": "Hello, Outlaw!",
+    "transform": "PI",
     "object": {
         "float": 3.14,
         "string": "Hello, Outlaw!"

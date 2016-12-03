@@ -1,6 +1,7 @@
 {
     "double": 3.14159265359,
     "string": "Hello, Outlaw!",
+    "transform": "PI",
     "object": {
         "double": 3.14159265359,
         "string": "Hello, Outlaw!"

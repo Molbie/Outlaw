@@ -88,4 +88,37 @@ class FloatTests: OutlawTestCase {
         let value: Float = try! data.value(for: "maxValue")
         XCTAssertEqual(value, 3.40282e+38)
     }
+    
+// MARK: -
+// MARK: Transforms
+    
+    func testTransformValue() {
+        let value: Float = try! data.value(for: "transform", with: { (rawValue: String) -> Float in
+            return rawValue == "PI" ? 3.14 : 0
+        })
+        XCTAssertEqual(value, 3.14)
+    }
+    
+    func testOptionalTransformValue() {
+        let value: Float = try! data.value(for: "transform", with: { (rawValue: String?) -> Float in
+            guard let rawValue = rawValue else { return 0 }
+            return rawValue == "PI" ? 3.14 : 0
+        })
+        XCTAssertEqual(value, 3.14)
+    }
+    
+    func testTransformOptionalValue() {
+        let value: Float? = data.value(for: "transform", with: { (rawValue: String) -> Float? in
+            return rawValue == "PI" ? 3.14 : 0
+        })
+        XCTAssertEqual(value, 3.14)
+    }
+    
+    func testOptionalTransformOptionalValue() {
+        let value: Float? = data.value(for: "transform", with: { (rawValue: String?) -> Float? in
+            guard let rawValue = rawValue else { return nil }
+            return rawValue == "PI" ? 3.14 : 0
+        })
+        XCTAssertEqual(value, 3.14)
+    }
 }

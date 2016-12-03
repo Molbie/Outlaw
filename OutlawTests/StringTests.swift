@@ -75,4 +75,37 @@ class StringTests: OutlawTestCase {
         let value: String? = data.value(for: "bool")
         XCTAssertNil(value)
     }
+    
+// MARK: -
+// MARK: Transforms
+    
+    func testTransformValue() {
+        let value: String = try! data.value(for: "transform", with: { (rawValue: Bool) -> String in
+            return rawValue ? "TRUE" : "FALSE"
+        })
+        XCTAssertEqual(value, "TRUE")
+    }
+    
+    func testOptionalTransformValue() {
+        let value: String = try! data.value(for: "transform", with: { (rawValue: Bool?) -> String in
+            guard let rawValue = rawValue else { return "FALSE" }
+            return rawValue ? "TRUE" : "FALSE"
+        })
+        XCTAssertEqual(value, "TRUE")
+    }
+    
+    func testTransformOptionalValue() {
+        let value: String? = data.value(for: "transform", with: { (rawValue: Bool) -> String? in
+            return rawValue ? "TRUE" : "FALSE"
+        })
+        XCTAssertEqual(value, "TRUE")
+    }
+    
+    func testOptionalTransformOptionalValue() {
+        let value: String? = data.value(for: "transform", with: { (rawValue: Bool?) -> String? in
+            guard let rawValue = rawValue else { return nil }
+            return rawValue ? "TRUE" : "FALSE"
+        })
+        XCTAssertEqual(value, "TRUE")
+    }
 }

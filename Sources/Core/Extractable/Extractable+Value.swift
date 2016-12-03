@@ -246,7 +246,7 @@ public extension Outlaw.Extractable {
     }
     
     public func value<K, V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V) -> T?) -> [K: T?]? {
-        return try? self.value(for: key)
+        return try? self.value(for: key, with: transform)
     }
     
     public func value<K, V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V?) -> T?) throws -> [K: T?] {
@@ -260,7 +260,7 @@ public extension Outlaw.Extractable {
     }
     
     public func value<K, V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V?) -> T?) -> [K: T?]? {
-        return try? self.value(for: key)
+        return try? self.value(for: key, with: transform)
     }
 }
 

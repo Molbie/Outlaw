@@ -1,6 +1,7 @@
 {
     "int8": -8,
     "string": "Hello, Outlaw!",
+    "transform": "123",
     "object": {
         "int8": -8,
         "string": "Hello, Outlaw!"

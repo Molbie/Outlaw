@@ -1,6 +1,7 @@
 {
     "int64": -64,
     "string": "Hello, Outlaw!",
+    "transform": "12345",
     "object": {
         "int64": -64,
         "string": "Hello, Outlaw!"

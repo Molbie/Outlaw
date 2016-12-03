@@ -75,4 +75,37 @@ class CharacterTests: OutlawTestCase {
         let value: Character? = data.value(for: "bool")
         XCTAssertNil(value)
     }
+    
+// MARK: -
+// MARK: Transforms
+    
+    func testTransformValue() {
+        let value: Character = try! data.value(for: "transform", with: { (rawValue: Bool) -> Character in
+            return rawValue ? "1" : "0"
+        })
+        XCTAssertEqual(value, "1")
+    }
+    
+    func testOptionalTransformValue() {
+        let value: Character = try! data.value(for: "transform", with: { (rawValue: Bool?) -> Character in
+            guard let rawValue = rawValue else { return "0" }
+            return rawValue ? "1" : "0"
+        })
+        XCTAssertEqual(value, "1")
+    }
+    
+    func testTransformOptionalValue() {
+        let value: Character? = data.value(for: "transform", with: { (rawValue: Bool) -> Character? in
+            return rawValue ? "1" : "0"
+        })
+        XCTAssertEqual(value, "1")
+    }
+    
+    func testOptionalTransformOptionalValue() {
+        let value: Character? = data.value(for: "transform", with: { (rawValue: Bool?) -> Character? in
+            guard let rawValue = rawValue else { return nil }
+            return rawValue ? "1" : "0"
+        })
+        XCTAssertEqual(value, "1")
+    }
 }

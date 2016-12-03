@@ -1,6 +1,7 @@
 {
     "bool": true,
     "url": "https://developer.apple.com/",
+    "transform": "HOMEPAGE",
     "object": {
         "url": "https://developer.apple.com/"
     }

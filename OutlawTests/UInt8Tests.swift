@@ -88,4 +88,42 @@ class UInt8Tests: OutlawTestCase {
         let value: UInt8 = try! data.value(for: "maxValue")
         XCTAssertEqual(value, 255)
     }
+    
+// MARK: -
+// MARK: Transforms
+    
+    func testTransformValue() {
+        let value: UInt8 = try! data.value(for: "transform", with: { (rawValue: String) -> UInt8 in
+            guard let value = UInt8(rawValue) else {
+                throw OutlawError.typeMismatchWithKey(key: "transform", expected: Int.self, actual: rawValue)
+            }
+            return value
+        })
+        XCTAssertEqual(value, 123)
+    }
+    
+    func testOptionalTransformValue() {
+        let value: UInt8 = try! data.value(for: "transform", with: { (rawValue: String?) -> UInt8 in
+            guard let value = UInt8(rawValue ?? "0") else {
+                throw OutlawError.typeMismatchWithKey(key: "transform", expected: Int.self, actual: rawValue ?? "nil")
+            }
+            return value
+        })
+        XCTAssertEqual(value, 123)
+    }
+    
+    func testTransformOptionalValue() {
+        let value: UInt8? = data.value(for: "transform", with: { (rawValue: String) -> UInt8? in
+            return UInt8(rawValue)
+        })
+        XCTAssertEqual(value, 123)
+    }
+    
+    func testOptionalTransformOptionalValue() {
+        let value: UInt8? = data.value(for: "transform", with: { (rawValue: String?) -> UInt8? in
+            guard let rawValue = rawValue else { return nil }
+            return UInt8(rawValue)
+        })
+        XCTAssertEqual(value, 123)
+    }
 }

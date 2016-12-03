@@ -75,4 +75,35 @@ class BoolTests: OutlawTestCase {
         let value: Bool? = data.value(for: "string")
         XCTAssertNil(value)
     }
+    
+// MARK: -
+// MARK: Transforms
+    
+    func testTransformValue() {
+        let value: Bool = try! data.value(for: "transform", with: { (rawValue: String) -> Bool in
+            return rawValue == "TRUE"
+        })
+        XCTAssertEqual(value, true)
+    }
+    
+    func testOptionalTransformValue() {
+        let value: Bool = try! data.value(for: "transform", with: { (rawValue: String?) -> Bool in
+            return rawValue == "TRUE"
+        })
+        XCTAssertEqual(value, true)
+    }
+    
+    func testTransformOptionalValue() {
+        let value: Bool? = data.value(for: "transform", with: { (rawValue: String) -> Bool? in
+            return rawValue == "TRUE"
+        })
+        XCTAssertEqual(value, true)
+    }
+    
+    func testOptionalTransformOptionalValue() {
+        let value: Bool? = data.value(for: "transform", with: { (rawValue: String?) -> Bool? in
+            return rawValue == "TRUE"
+        })
+        XCTAssertEqual(value, true)
+    }
 }

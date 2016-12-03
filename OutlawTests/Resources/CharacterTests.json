@@ -1,6 +1,7 @@
 {
     "bool": true,
     "character": "O",
+    "transform": true,
     "object": {
         "character": "O"
     }

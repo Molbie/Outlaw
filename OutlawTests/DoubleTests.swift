@@ -88,4 +88,37 @@ class DoubleTests: OutlawTestCase {
         let value: Double = try! data.value(for: "maxValue")
         XCTAssertEqualWithAccuracy(value, 1.79769313486232e+115, accuracy: 0.1e+115)
     }
+    
+// MARK: -
+// MARK: Transforms
+    
+    func testTransformValue() {
+        let value: Double = try! data.value(for: "transform", with: { (rawValue: String) -> Double in
+            return rawValue == "PI" ? 3.14 : 0
+        })
+        XCTAssertEqual(value, 3.14)
+    }
+    
+    func testOptionalTransformValue() {
+        let value: Double = try! data.value(for: "transform", with: { (rawValue: String?) -> Double in
+            guard let rawValue = rawValue else { return 0 }
+            return rawValue == "PI" ? 3.14 : 0
+        })
+        XCTAssertEqual(value, 3.14)
+    }
+    
+    func testTransformOptionalValue() {
+        let value: Double? = data.value(for: "transform", with: { (rawValue: String) -> Double? in
+            return rawValue == "PI" ? 3.14 : 0
+        })
+        XCTAssertEqual(value, 3.14)
+    }
+    
+    func testOptionalTransformOptionalValue() {
+        let value: Double? = data.value(for: "transform", with: { (rawValue: String?) -> Double? in
+            guard let rawValue = rawValue else { return nil }
+            return rawValue == "PI" ? 3.14 : 0
+        })
+        XCTAssertEqual(value, 3.14)
+    }
 }

@@ -10,35 +10,7 @@ import XCTest
 @testable import Outlaw
 
 
-class DateTests: OutlawTestCase {
-    func formatDate(_ date: Date) -> String {
-        if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
-            return ISO8601DateFormatter().string(from: date)
-        }
-        else {
-            let formatter = DateFormatter()
-            formatter.timeZone = TimeZone(abbreviation: "GMT")
-            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssXXXXX"
-            return formatter.string(from: date)
-        }
-    }
-    
-    func formatString(_ string: String) -> Date {
-        if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
-            return ISO8601DateFormatter().date(from: string)!
-        }
-        else {
-            let formatter = DateFormatter()
-            formatter.timeZone = TimeZone(abbreviation: "GMT")
-            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssXXXXX"
-            return formatter.date(from: string)!
-        }
-    }
-    
-    func dateForAssert() -> Date {
-        return formatString("2016-11-18T04:26:59Z")
-    }
-    
+class DateTests: OutlawTestCase, DateTesting {
     func testValue() {
         let value: Date = try! data.value(for: "date")
         XCTAssertEqual(formatDate(value), formatDate(dateForAssert()))
@@ -102,5 +74,47 @@ class DateTests: OutlawTestCase {
     func testOptionalTypeMismatch() {
         let value: Date? = data.value(for: "bool")
         XCTAssertNil(value)
+    }
+    
+// MARK: -
+// MARK: Transforms
+    
+    func testTransformValue() {
+        let formatter = shortDateformatter()
+        
+        let value: Date = try! data.value(for: "transform", with: { (rawValue: String) -> Date in
+            return formatter.date(from: rawValue)!
+        })
+        XCTAssertEqual(formatShortDate(value), formatShortDate(shortDateForAssert()))
+    }
+    
+    func testOptionalTransformValue() {
+        let formatter = shortDateformatter()
+        
+        let value: Date = try! data.value(for: "transform", with: { (rawValue: String?) -> Date in
+            guard let dateValue = rawValue else {
+                throw OutlawError.typeMismatchWithKey(key: "transform", expected: Date.self, actual: rawValue ?? "")
+            }
+            
+            return formatter.date(from: dateValue)!
+        })
+        XCTAssertEqual(formatShortDate(value), formatShortDate(shortDateForAssert()))
+    }
+    
+    func testTransformOptionalValue() {
+        let formatter = shortDateformatter()
+        
+        let value: Date? = data.value(for: "transform", with: formatter.date)
+        XCTAssertEqual(formatShortDate(value!), formatShortDate(shortDateForAssert()))
+    }
+    
+    func testOptionalTransformOptionalValue() {
+        let formatter = shortDateformatter()
+        
+        let value: Date? = data.value(for: "transform", with: { (rawValue: String?) -> Date? in
+            guard let rawValue = rawValue else { return nil }
+            return formatter.date(from: rawValue)
+        })
+        XCTAssertEqual(formatShortDate(value!), formatShortDate(shortDateForAssert()))
     }
 }
