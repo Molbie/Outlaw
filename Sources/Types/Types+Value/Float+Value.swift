@@ -9,5 +9,39 @@
 import Foundation
 
 
-extension Float: Outlaw.Value {}
-extension Double: Outlaw.Value {}
+extension Float: Outlaw.Value {
+    public static func value(from object: Any) throws -> Float {
+        let value: Float
+        
+        switch object {
+            case let rawValue as Double:
+                value = ValueType(rawValue)
+            case let rawValue as Float:
+                value = ValueType(rawValue)
+            case let rawValue as NSNumber:
+                value = ValueType(rawValue.floatValue)
+            default:
+                throw OutlawError.typeMismatch(expected: ValueType.self, actual: type(of: object))
+        }
+        
+        return value
+    }
+}
+extension Double: Outlaw.Value {
+    public static func value(from object: Any) throws -> Double {
+        let value: Double
+        
+        switch object {
+        case let rawValue as Double:
+            value = ValueType(rawValue)
+        case let rawValue as Float:
+            value = ValueType(rawValue)
+        case let rawValue as NSNumber:
+            value = ValueType(rawValue.floatValue)
+        default:
+            throw OutlawError.typeMismatch(expected: ValueType.self, actual: type(of: object))
+        }
+        
+        return value
+    }
+}

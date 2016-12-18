@@ -9,36 +9,173 @@
 import Foundation
 
 
-extension Int: Outlaw.Value {}
+extension Int: Outlaw.Value {
+    public static func value(from object: Any) throws -> Int {
+        let value: Int
+        
+        switch object {
+            case let rawValue as Int:
+                value = ValueType(rawValue)
+            case let rawValue as UInt:
+                value = ValueType(rawValue)
+            case let rawValue as NSNumber:
+                value = ValueType(rawValue.intValue)
+            case let rawValue as Int64:
+                value = ValueType(rawValue)
+            case let rawValue as UInt64:
+                value = ValueType(rawValue)
+            case let rawValue as Int32:
+                value = ValueType(rawValue)
+            case let rawValue as UInt32:
+                value = ValueType(rawValue)
+            case let rawValue as Int16:
+                value = ValueType(rawValue)
+            case let rawValue as UInt16:
+                value = ValueType(rawValue)
+            case let rawValue as Int8:
+                value = ValueType(rawValue)
+            case let rawValue as UInt8:
+                value = ValueType(rawValue)
+            default:
+                throw OutlawError.typeMismatch(expected: ValueType.self, actual: type(of: object))
+        }
+        
+        return value
+    }
+}
 extension Int8: Outlaw.Value {
     public static func value(from object: Any) throws -> Int8 {
-        guard let value = object as? Int else {
-            throw OutlawError.typeMismatch(expected: ValueType.self, actual: type(of: object))
+        let value: Int8
+        
+        switch object {
+            case let rawValue as Int:
+                value = ValueType(rawValue)
+            case let rawValue as UInt:
+                value = ValueType(rawValue)
+            case let rawValue as NSNumber:
+                value = ValueType(rawValue.int8Value)
+            case let rawValue as Int64:
+                value = ValueType(rawValue)
+            case let rawValue as UInt64:
+                value = ValueType(rawValue)
+            case let rawValue as Int32:
+                value = ValueType(rawValue)
+            case let rawValue as UInt32:
+                value = ValueType(rawValue)
+            case let rawValue as Int16:
+                value = ValueType(rawValue)
+            case let rawValue as UInt16:
+                value = ValueType(rawValue)
+            case let rawValue as Int8:
+                value = ValueType(rawValue)
+            case let rawValue as UInt8:
+                value = ValueType(rawValue)
+            default:
+                throw OutlawError.typeMismatch(expected: ValueType.self, actual: type(of: object))
         }
-        return ValueType(value)
+        
+        return value
     }
 }
 extension Int16: Outlaw.Value {
     public static func value(from object: Any) throws -> Int16 {
-        guard let value = object as? Int else {
-            throw OutlawError.typeMismatch(expected: ValueType.self, actual: type(of: object))
+        let value: Int16
+        
+        switch object {
+            case let rawValue as Int:
+                value = ValueType(rawValue)
+            case let rawValue as UInt:
+                value = ValueType(rawValue)
+            case let rawValue as NSNumber:
+                value = ValueType(rawValue.int16Value)
+            case let rawValue as Int64:
+                value = ValueType(rawValue)
+            case let rawValue as UInt64:
+                value = ValueType(rawValue)
+            case let rawValue as Int32:
+                value = ValueType(rawValue)
+            case let rawValue as UInt32:
+                value = ValueType(rawValue)
+            case let rawValue as Int16:
+                value = ValueType(rawValue)
+            case let rawValue as UInt16:
+                value = ValueType(rawValue)
+            case let rawValue as Int8:
+                value = ValueType(rawValue)
+            case let rawValue as UInt8:
+                value = ValueType(rawValue)
+            default:
+                throw OutlawError.typeMismatch(expected: ValueType.self, actual: type(of: object))
         }
-        return ValueType(value)
+        
+        return value
     }
 }
 extension Int32: Outlaw.Value {
     public static func value(from object: Any) throws -> Int32 {
-        guard let value = object as? Int else {
-            throw OutlawError.typeMismatch(expected: ValueType.self, actual: type(of: object))
+        let value: Int32
+        
+        switch object {
+            case let rawValue as Int:
+                value = ValueType(rawValue)
+            case let rawValue as UInt:
+                value = ValueType(rawValue)
+            case let rawValue as NSNumber:
+                value = ValueType(rawValue.int32Value)
+            case let rawValue as Int64:
+                value = ValueType(rawValue)
+            case let rawValue as UInt64:
+                value = ValueType(rawValue)
+            case let rawValue as Int32:
+                value = ValueType(rawValue)
+            case let rawValue as UInt32:
+                value = ValueType(rawValue)
+            case let rawValue as Int16:
+                value = ValueType(rawValue)
+            case let rawValue as UInt16:
+                value = ValueType(rawValue)
+            case let rawValue as Int8:
+                value = ValueType(rawValue)
+            case let rawValue as UInt8:
+                value = ValueType(rawValue)
+            default:
+                throw OutlawError.typeMismatch(expected: ValueType.self, actual: type(of: object))
         }
-        return ValueType(value)
+        
+        return value
     }
 }
 extension Int64: Outlaw.Value {
     public static func value(from object: Any) throws -> Int64 {
-        guard let value = object as? Int else {
-            throw OutlawError.typeMismatch(expected: ValueType.self, actual: type(of: object))
+        let value: Int64
+        
+        switch object {
+            case let rawValue as Int:
+                value = ValueType(rawValue)
+            case let rawValue as UInt:
+                value = ValueType(rawValue)
+            case let rawValue as NSNumber:
+                value = ValueType(rawValue.int64Value)
+            case let rawValue as Int64:
+                value = ValueType(rawValue)
+            case let rawValue as UInt64:
+                value = ValueType(rawValue)
+            case let rawValue as Int32:
+                value = ValueType(rawValue)
+            case let rawValue as UInt32:
+                value = ValueType(rawValue)
+            case let rawValue as Int16:
+                value = ValueType(rawValue)
+            case let rawValue as UInt16:
+                value = ValueType(rawValue)
+            case let rawValue as Int8:
+                value = ValueType(rawValue)
+            case let rawValue as UInt8:
+                value = ValueType(rawValue)
+            default:
+                throw OutlawError.typeMismatch(expected: ValueType.self, actual: type(of: object))
         }
-        return ValueType(value)
+        
+        return value
     }
 }
