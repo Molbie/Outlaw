@@ -12,5 +12,5 @@ import Foundation
 public protocol IndexSerializable {
     associatedtype IndexSerializedObject: Outlaw.IndexExtractable
     
-    func serialized() -> Self.IndexSerializedObject
+    func serializedIndexes() -> Self.IndexSerializedObject
 }
