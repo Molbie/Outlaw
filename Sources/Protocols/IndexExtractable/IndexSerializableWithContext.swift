@@ -13,5 +13,5 @@ public protocol IndexSerializableWithContext {
     associatedtype IndexSerializableContext
     associatedtype IndexSerializedObject: Outlaw.IndexExtractable
     
-    func serialized(using context: IndexSerializableContext) -> Self.IndexSerializedObject
+    func serializedIndexes(using context: IndexSerializableContext) -> Self.IndexSerializedObject
 }
