@@ -17,6 +17,10 @@ extension Array: Outlaw.IndexExtractable {
 }
 
 extension NSArray: Outlaw.IndexExtractable {
+    public var isEmpty: Bool {
+        return count == 0
+    }
+    
     public func optionalAny(for index: Outlaw.Index) -> Any? {
         return self[index.outlawIndex]
     }

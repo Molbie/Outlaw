@@ -10,6 +10,9 @@ import Foundation
 
 
 public protocol IndexExtractable {
+    var count: Int { get }
+    var isEmpty: Bool { get }
+    
     func any(for index: Outlaw.Index) throws -> Any
     func optionalAny(for index: Outlaw.Index) -> Any?
 }
