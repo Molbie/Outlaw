@@ -129,6 +129,13 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(formatDate(date["O"]!!), formatDate(dateForAssert()))
     }
     
+    func testNestedKeysOnDifferentOuterInnerTypes() {
+        let data: [String: [String: Any]] = ["property1": ["name": "property1", "value": "value1"], "property2": ["name": "property2", "value": "value2"]]
+        let value: String = try! data.value(for: "property1.value")
+        
+        XCTAssertEqual(value, "value1")
+    }
+    
     func testNestedDictionary() {
         let bool: [String: Bool] = try! data.value(for: "object.bool")
         XCTAssertEqual(bool["O"], true)

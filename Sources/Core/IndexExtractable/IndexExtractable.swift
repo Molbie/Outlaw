@@ -20,7 +20,7 @@ public extension Outlaw.IndexExtractable {
         var accumulator: Any = self
         
         for component in indexes {
-            if let componentData = accumulator as? Self, let value = componentData.optionalAny(for: component) {
+            if let componentData = accumulator as? IndexExtractable, let value = componentData.optionalAny(for: component) {
                 accumulator = value
                 continue
             }

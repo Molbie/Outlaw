@@ -20,7 +20,7 @@ public extension Outlaw.Extractable {
         var accumulator: Any = self
         
         for component in pathComponents {
-            if let componentData = accumulator as? Self, let value = componentData.optionalAny(for: component) {
+            if let componentData = accumulator as? Extractable, let value = componentData.optionalAny(for: component) {
                 accumulator = value
                 continue
             }
