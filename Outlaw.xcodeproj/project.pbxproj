@@ -506,6 +506,7 @@
 				AFBED24B1C7E1AAB00622331 /* Frameworks */,
 				AFBED24C1C7E1AAB00622331 /* Headers */,
 				AFBED24D1C7E1AAB00622331 /* Resources */,
+				AE5158581EB3C07100EC523E /* Copy Resources */,
 			);
 			buildRules = (
 			);
@@ -542,7 +543,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0800;
-				ORGANIZATIONNAME = "Utah iOS & Mac";
+				ORGANIZATIONNAME = "Molbie LLC";
 				TargetAttributes = {
 					AFBED24E1C7E1AAB00622331 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -610,6 +611,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AE5158581EB3C07100EC523E /* Copy Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# rsync -arv ${SRCROOT}/${PRODUCT_NAME}/Resources/ ${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AFBED24A1C7E1AAB00622331 /* Sources */ = {
