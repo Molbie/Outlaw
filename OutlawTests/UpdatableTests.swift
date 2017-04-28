@@ -81,8 +81,8 @@ class UpdatableTests: OutlawTestCase {
 // MARK: -
 // MARK: Types
 
-extension Address: Outlaw.Updatable {
-    mutating func update(with data: Outlaw.Extractable) throws {
+extension Address: Updatable {
+    mutating func update(with data: Extractable) throws {
         if let street: String = data.value(for: "street") {
             self.street = street
         }
@@ -91,8 +91,8 @@ extension Address: Outlaw.Updatable {
         }
     }
 }
-extension Person: Outlaw.Updatable {
-    mutating func update(with data: Outlaw.Extractable) throws {
+extension Person: Updatable {
+    mutating func update(with data: Extractable) throws {
         if let firstName: String = data.value(for: "first") {
             self.firstName = firstName
         }
