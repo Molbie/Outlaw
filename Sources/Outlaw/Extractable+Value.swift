@@ -12,8 +12,8 @@ import Foundation
 // MARK: -
 // MARK: Value
 
-public extension Outlaw.Extractable {
-    public func value<V: Outlaw.Value>(for key: Outlaw.Key) throws -> V {
+public extension Extractable {
+    public func value<V: Value>(for key: Key) throws -> V {
         let any = try self.any(for: key)
         do {
             guard let result = try V.value(from: any) as? V else {
@@ -26,7 +26,7 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<V: Outlaw.Value>(for key: Outlaw.Key) -> V? {
+    public func value<V: Value>(for key: Key) -> V? {
         return try? self.value(for: key)
     }
 }
@@ -34,23 +34,23 @@ public extension Outlaw.Extractable {
 // MARK: -
 // MARK: Transform Value
 
-public extension Outlaw.Extractable {
-    public func value<V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V) throws -> T) throws -> T {
+public extension Extractable {
+    public func value<V: Value, T>(for key: Key, with transform:(V) throws -> T) throws -> T {
         let rawValue: V = try self.value(for: key)
         return try transform(rawValue)
     }
     
-    public func value<V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V?) throws -> T) throws -> T {
+    public func value<V: Value, T>(for key: Key, with transform:(V?) throws -> T) throws -> T {
         let rawValue: V? = self.value(for: key)
         return try transform(rawValue)
     }
     
-    public func value<V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V) -> T?) -> T? {
+    public func value<V: Value, T>(for key: Key, with transform:(V) -> T?) -> T? {
         guard let rawValue: V = try? self.value(for: key) else { return nil }
         return transform(rawValue)
     }
     
-    public func value<V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V?) -> T?) -> T? {
+    public func value<V: Value, T>(for key: Key, with transform:(V?) -> T?) -> T? {
         let rawValue: V? = self.value(for: key)
         return transform(rawValue)
     }
@@ -59,8 +59,8 @@ public extension Outlaw.Extractable {
 // MARK: -
 // MARK: Array of Value's
 
-public extension Outlaw.Extractable {
-    public func value<V: Outlaw.Value>(for key: Outlaw.Key) throws -> [V] {
+public extension Extractable {
+    public func value<V: Value>(for key: Key) throws -> [V] {
         let any = try self.any(for: key)
         do {
             return try Array<V>.mappedValue(from: any)
@@ -70,7 +70,7 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<V: Outlaw.Value>(for key: Outlaw.Key) -> [V]? {
+    public func value<V: Value>(for key: Key) -> [V]? {
         return try? self.value(for: key)
     }
 }
@@ -78,8 +78,8 @@ public extension Outlaw.Extractable {
 // MARK: -
 // MARK: Array of Transformed Value's
 
-public extension Outlaw.Extractable {
-    public func value<V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V) throws -> T) throws -> [T] {
+public extension Extractable {
+    public func value<V: Value, T>(for key: Key, with transform:(V) throws -> T) throws -> [T] {
         let any = try self.any(for: key)
         do {
             return try Array<V>.mappedValue(from: any, with: transform)
@@ -89,11 +89,11 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V) throws -> T) -> [T]? {
+    public func value<V: Value, T>(for key: Key, with transform:(V) throws -> T) -> [T]? {
         return try? self.value(for: key, with: transform)
     }
     
-    public func value<V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V?) throws -> T) throws -> [T] {
+    public func value<V: Value, T>(for key: Key, with transform:(V?) throws -> T) throws -> [T] {
         let any = try self.any(for: key)
         do {
             return try Array<V>.mappedValue(from: any, with: transform)
@@ -103,7 +103,7 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V?) throws -> T) -> [T]? {
+    public func value<V: Value, T>(for key: Key, with transform:(V?) throws -> T) -> [T]? {
         return try? self.value(for: key, with: transform)
     }
 }
@@ -111,8 +111,8 @@ public extension Outlaw.Extractable {
 // MARK: -
 // MARK: Array of Optional Value's
 
-public extension Outlaw.Extractable {
-    public func value<V: Outlaw.Value>(for key: Outlaw.Key) throws -> [V?] {
+public extension Extractable {
+    public func value<V: Value>(for key: Key) throws -> [V?] {
         let any = try self.any(for: key)
         do {
             return try Array<V?>.mappedValue(from: any)
@@ -122,7 +122,7 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<V: Outlaw.Value>(for key: Outlaw.Key) -> [V?]? {
+    public func value<V: Value>(for key: Key) -> [V?]? {
         return try? self.value(for: key)
     }
 }
@@ -130,8 +130,8 @@ public extension Outlaw.Extractable {
 // MARK: -
 // MARK: Array of Transformed Optional Value's
 
-public extension Outlaw.Extractable {
-    public func value<V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V) -> T?) throws -> [T?] {
+public extension Extractable {
+    public func value<V: Value, T>(for key: Key, with transform:(V) -> T?) throws -> [T?] {
         let any = try self.any(for: key)
         do {
             return try Array<V>.mappedValue(from: any, with: transform)
@@ -141,11 +141,11 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V) -> T?) -> [T?]? {
+    public func value<V: Value, T>(for key: Key, with transform:(V) -> T?) -> [T?]? {
         return try? self.value(for: key, with: transform)
     }
     
-    public func value<V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V?) -> T?) throws -> [T?] {
+    public func value<V: Value, T>(for key: Key, with transform:(V?) -> T?) throws -> [T?] {
         let any = try self.any(for: key)
         do {
             return try Array<V?>.mappedValue(from: any, with: transform)
@@ -155,7 +155,7 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V?) -> T?) -> [T?]? {
+    public func value<V: Value, T>(for key: Key, with transform:(V?) -> T?) -> [T?]? {
         return try? self.value(for: key, with: transform)
     }
 }
@@ -163,8 +163,8 @@ public extension Outlaw.Extractable {
 // MARK: -
 // MARK: Dictionary of Value's
 
-public extension Outlaw.Extractable {
-    public func value<K, V: Outlaw.Value>(for key: Outlaw.Key) throws -> [K: V] {
+public extension Extractable {
+    public func value<K, V: Value>(for key: Key) throws -> [K: V] {
         let any = try self.any(for: key)
         do {
             return try Dictionary<K, V>.mappedValue(from: any)
@@ -174,7 +174,7 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<K, V: Outlaw.Value>(for key: Outlaw.Key) -> [K: V]? {
+    public func value<K, V: Value>(for key: Key) -> [K: V]? {
         return try? self.value(for: key)
     }
 }
@@ -182,8 +182,8 @@ public extension Outlaw.Extractable {
 // MARK: -
 // MARK: Dictionary of Transformed Value's
 
-public extension Outlaw.Extractable {
-    public func value<K, V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V) throws -> T) throws -> [K: T] {
+public extension Extractable {
+    public func value<K, V: Value, T>(for key: Key, with transform:(V) throws -> T) throws -> [K: T] {
         let any = try self.any(for: key)
         do {
             return try Dictionary<K, V>.mappedValue(from: any, with: transform)
@@ -193,11 +193,11 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<K, V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V) throws -> T) -> [K: T]? {
+    public func value<K, V: Value, T>(for key: Key, with transform:(V) throws -> T) -> [K: T]? {
         return try? self.value(for: key, with: transform)
     }
     
-    public func value<K, V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V?) throws -> T) throws -> [K: T] {
+    public func value<K, V: Value, T>(for key: Key, with transform:(V?) throws -> T) throws -> [K: T] {
         let any = try self.any(for: key)
         do {
             return try Dictionary<K, V>.mappedValue(from: any, with: transform)
@@ -207,7 +207,7 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<K, V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V?) throws -> T) -> [K: T]? {
+    public func value<K, V: Value, T>(for key: Key, with transform:(V?) throws -> T) -> [K: T]? {
         return try? self.value(for: key, with: transform)
     }
 }
@@ -215,8 +215,8 @@ public extension Outlaw.Extractable {
 // MARK: -
 // MARK: Dictionary of Optional Value's
 
-public extension Outlaw.Extractable {
-    public func value<K, V: Outlaw.Value>(for key: Outlaw.Key) throws -> [K: V?] {
+public extension Extractable {
+    public func value<K, V: Value>(for key: Key) throws -> [K: V?] {
         let any = try self.any(for: key)
         do {
             return try Dictionary<K, V?>.mappedValue(from: any)
@@ -226,7 +226,7 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<K, V: Outlaw.Value>(for key: Outlaw.Key) -> [K: V?]? {
+    public func value<K, V: Value>(for key: Key) -> [K: V?]? {
         return try? self.value(for: key)
     }
 }
@@ -234,8 +234,8 @@ public extension Outlaw.Extractable {
 // MARK: -
 // MARK: Dictionary of Transformed Optional Value's
 
-public extension Outlaw.Extractable {
-    public func value<K, V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V) -> T?) throws -> [K: T?] {
+public extension Extractable {
+    public func value<K, V: Value, T>(for key: Key, with transform:(V) -> T?) throws -> [K: T?] {
         let any = try self.any(for: key)
         do {
             return try Dictionary<K, V?>.mappedValue(from: any, with: transform)
@@ -245,11 +245,11 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<K, V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V) -> T?) -> [K: T?]? {
+    public func value<K, V: Value, T>(for key: Key, with transform:(V) -> T?) -> [K: T?]? {
         return try? self.value(for: key, with: transform)
     }
     
-    public func value<K, V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V?) -> T?) throws -> [K: T?] {
+    public func value<K, V: Value, T>(for key: Key, with transform:(V?) -> T?) throws -> [K: T?] {
         let any = try self.any(for: key)
         do {
             return try Dictionary<K, V?>.mappedValue(from: any, with: transform)
@@ -259,7 +259,7 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<K, V: Outlaw.Value, T>(for key: Outlaw.Key, with transform:(V?) -> T?) -> [K: T?]? {
+    public func value<K, V: Value, T>(for key: Key, with transform:(V?) -> T?) -> [K: T?]? {
         return try? self.value(for: key, with: transform)
     }
 }
@@ -267,8 +267,8 @@ public extension Outlaw.Extractable {
 // MARK: -
 // MARK: Set of Value's
 
-public extension Outlaw.Extractable {
-    public func value<V: Outlaw.Value>(for key: Outlaw.Key) throws -> Set<V> {
+public extension Extractable {
+    public func value<V: Value>(for key: Key) throws -> Set<V> {
         let any = try self.any(for: key)
         do {
             return try Set<V>.mappedValue(from: any)
@@ -278,7 +278,7 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<V: Outlaw.Value>(for key: Outlaw.Key) -> Set<V>? {
+    public func value<V: Value>(for key: Key) -> Set<V>? {
         return try? self.value(for: key)
     }
 }
@@ -286,8 +286,8 @@ public extension Outlaw.Extractable {
 // MARK: -
 // MARK: Set of Transformed Value's
 
-public extension Outlaw.Extractable {
-    public func value<V: Outlaw.Value & Hashable, T>(for key: Outlaw.Key, with transform:(V) throws -> T) throws -> Set<T> {
+public extension Extractable {
+    public func value<V: Value & Hashable, T>(for key: Key, with transform:(V) throws -> T) throws -> Set<T> {
         let any = try self.any(for: key)
         do {
             return try Set<V>.mappedValue(from: any, with: transform)
@@ -297,11 +297,11 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<V: Outlaw.Value & Hashable, T>(for key: Outlaw.Key, with transform:(V) throws -> T) -> Set<T>? {
+    public func value<V: Value & Hashable, T>(for key: Key, with transform:(V) throws -> T) -> Set<T>? {
         return try? self.value(for: key, with: transform)
     }
     
-    public func value<V: Outlaw.Value & Hashable, T>(for key: Outlaw.Key, with transform:(V?) throws -> T) throws -> Set<T> {
+    public func value<V: Value & Hashable, T>(for key: Key, with transform:(V?) throws -> T) throws -> Set<T> {
         let any = try self.any(for: key)
         do {
             return try Set<V>.mappedValue(from: any, with: transform)
@@ -311,11 +311,11 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<V: Outlaw.Value & Hashable, T>(for key: Outlaw.Key, with transform:(V?) throws -> T) -> Set<T>? {
+    public func value<V: Value & Hashable, T>(for key: Key, with transform:(V?) throws -> T) -> Set<T>? {
         return try? self.value(for: key, with: transform)
     }
     
-    public func value<V: Outlaw.Value & Hashable, T>(for key: Outlaw.Key, with transform:(V) -> T?) throws -> Set<T> {
+    public func value<V: Value & Hashable, T>(for key: Key, with transform:(V) -> T?) throws -> Set<T> {
         let any = try self.any(for: key)
         do {
             return try Set<V>.mappedValue(from: any, with: transform)
@@ -325,11 +325,11 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<V: Outlaw.Value & Hashable, T>(for key: Outlaw.Key, with transform:(V) -> T?) -> Set<T>? {
+    public func value<V: Value & Hashable, T>(for key: Key, with transform:(V) -> T?) -> Set<T>? {
         return try? self.value(for: key, with: transform)
     }
     
-    public func value<V: Outlaw.Value & Hashable, T>(for key: Outlaw.Key, with transform:(V?) -> T?) throws -> Set<T> {
+    public func value<V: Value & Hashable, T>(for key: Key, with transform:(V?) -> T?) throws -> Set<T> {
         let any = try self.any(for: key)
         do {
             return try Set<V>.mappedValue(from: any, with: transform)
@@ -339,7 +339,7 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<V: Outlaw.Value & Hashable, T>(for key: Outlaw.Key, with transform:(V?) -> T?) -> Set<T>? {
+    public func value<V: Value & Hashable, T>(for key: Key, with transform:(V?) -> T?) -> Set<T>? {
         return try? self.value(for: key, with: transform)
     }
 }

@@ -12,8 +12,8 @@ import Foundation
 // MARK: -
 // MARK: Enum
 
-public extension Outlaw.Extractable {
-    public func value<E: RawRepresentable>(for key: Outlaw.Key) throws -> E where E.RawValue: Outlaw.Value {
+public extension Extractable {
+    public func value<E: RawRepresentable>(for key: Key) throws -> E where E.RawValue: Value {
         let rawValue = try self.value(for: key) as E.RawValue
         guard let value = E(rawValue: rawValue) else {
             throw OutlawError.typeMismatchWithKey(key: key.outlawKey, expected: E.self, actual: type(of: rawValue))
@@ -21,7 +21,7 @@ public extension Outlaw.Extractable {
         return value
     }
     
-    public func value<E: RawRepresentable>(for key: Outlaw.Key) -> E? where E.RawValue: Outlaw.Value {
+    public func value<E: RawRepresentable>(for key: Key) -> E? where E.RawValue: Value {
         return try? self.value(for: key)
     }
 }
@@ -29,8 +29,8 @@ public extension Outlaw.Extractable {
 // MARK: -
 // MARK: Enum Array
 
-public extension Outlaw.Extractable {
-    public func value<E: RawRepresentable>(for key: Outlaw.Key) throws -> [E] where E.RawValue: Outlaw.Value {
+public extension Extractable {
+    public func value<E: RawRepresentable>(for key: Key) throws -> [E] where E.RawValue: Value {
         let rawArray = try self.value(for: key) as [E.RawValue]
         return try rawArray.map {
             guard let value = E(rawValue: $0) else {
@@ -40,7 +40,7 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<E: RawRepresentable>(for key: Outlaw.Key) -> [E]? where E.RawValue: Outlaw.Value {
+    public func value<E: RawRepresentable>(for key: Key) -> [E]? where E.RawValue: Value {
         return try? self.value(for: key)
     }
 }
@@ -48,8 +48,8 @@ public extension Outlaw.Extractable {
 // MARK: -
 // MARK: Enum Dictionary
 
-public extension Outlaw.Extractable {
-    public func value<K, V: RawRepresentable>(for key: Outlaw.Key) throws -> [K: V] where V.RawValue: Outlaw.Value {
+public extension Extractable {
+    public func value<K, V: RawRepresentable>(for key: Key) throws -> [K: V] where V.RawValue: Value {
         let any = try self.any(for: key)
         do {
             let rawDictionary: [K: V.RawValue] = try Dictionary<K, V.RawValue>.mappedValue(from: any)
@@ -66,7 +66,7 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<K, V: RawRepresentable>(for key: Outlaw.Key) -> [K: V]? where V.RawValue: Outlaw.Value {
+    public func value<K, V: RawRepresentable>(for key: Key) -> [K: V]? where V.RawValue: Value {
         return try? self.value(for: key)
     }
 }
@@ -74,8 +74,8 @@ public extension Outlaw.Extractable {
 // MARK: -
 // MARK: Enum Set
 
-public extension Outlaw.Extractable {
-    public func value<E: RawRepresentable>(for key: Outlaw.Key) throws -> Set<E> where E.RawValue: Outlaw.Value {
+public extension Extractable {
+    public func value<E: RawRepresentable>(for key: Key) throws -> Set<E> where E.RawValue: Value {
         let rawArray = try self.value(for: key) as [E.RawValue]
         let enumArray: [E] = try rawArray.map {
             guard let value = E(rawValue: $0) else {
@@ -86,7 +86,7 @@ public extension Outlaw.Extractable {
         return Set<E>(enumArray)
     }
     
-    public func value<E: RawRepresentable>(for key: Outlaw.Key) -> Set<E>? where E.RawValue: Outlaw.Value {
+    public func value<E: RawRepresentable>(for key: Key) -> Set<E>? where E.RawValue: Value {
         return try? self.value(for: key)
     }
 }

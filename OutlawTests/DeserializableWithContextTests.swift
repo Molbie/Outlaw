@@ -51,14 +51,14 @@ class DeserializableWithContextTests: OutlawTestCase {
 // MARK: Types
 
 extension Address: DeserializableWithContext {
-    init(object data: Outlaw.Extractable, using context: AddressContext) throws {
+    init(object data: Extractable, using context: AddressContext) throws {
         street = try data.value(for: "street")
         city = try data.value(for: "city")
     }
 }
 
 extension Person: DeserializableWithContext {
-    init(object data: Outlaw.Extractable, using context: PersonContext) throws {
+    init(object data: Extractable, using context: PersonContext) throws {
         firstName = try data.value(for: "first")
         lastName = try data.value(for: "last")
         

@@ -9,7 +9,7 @@
 import Foundation
 
 
-extension Date: Outlaw.Value {
+extension Date: Value {
     public static func value(from object: Any) throws -> Date {
         guard let value = object as? String else {
             throw OutlawError.typeMismatch(expected: String.self, actual: type(of: object))

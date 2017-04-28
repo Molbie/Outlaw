@@ -11,7 +11,7 @@ import Foundation
 
 public protocol SerializableWithContext {
     associatedtype SerializableContext
-    associatedtype SerializedObject: Outlaw.Extractable
+    associatedtype SerializedObject: Extractable
     
     func serialized(using context: SerializableContext) -> Self.SerializedObject
 }

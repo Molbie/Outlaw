@@ -9,14 +9,14 @@
 import Foundation
 
 
-extension Array: Outlaw.IndexExtractable {
+extension Array: IndexExtractable {
     public func optionalAny(for index: Outlaw.Index) -> Any? {
         guard let anIndex = index as? Index else { return nil }
         return self[anIndex]
     }
 }
 
-extension NSArray: Outlaw.IndexExtractable {
+extension NSArray: IndexExtractable {
     public var isEmpty: Bool {
         return count == 0
     }

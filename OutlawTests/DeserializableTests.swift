@@ -398,14 +398,14 @@ class DeserializableTests: OutlawTestCase {
 // MARK: -
 // MARK: Types
 
-extension Address: Outlaw.Deserializable {
-    init(object data: Outlaw.Extractable) throws {
+extension Address: Deserializable {
+    init(object data: Extractable) throws {
         street = try data.value(for: "street")
         city = try data.value(for: "city")
     }
 }
-extension Person: Outlaw.Deserializable {
-    init(object data: Outlaw.Extractable) throws {
+extension Person: Deserializable {
+    init(object data: Extractable) throws {
         firstName = try data.value(for: "first")
         lastName = try data.value(for: "last")
         address = data.value(for: "address")

@@ -10,7 +10,7 @@ import Foundation
 
 
 public protocol Serializable {
-    associatedtype SerializedObject: Outlaw.Extractable
+    associatedtype SerializedObject: Extractable
     
     func serialized() -> Self.SerializedObject
 }

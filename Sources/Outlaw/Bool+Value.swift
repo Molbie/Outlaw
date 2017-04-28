@@ -9,4 +9,4 @@
 import Foundation
 
 
-extension Bool: Outlaw.Value {}
+extension Bool: Value {}

@@ -11,12 +11,12 @@ import Foundation
 
 public enum OutlawError: Error, CustomStringConvertible {
     case typeMismatch(expected: Any, actual: Any)
-    case keyNotFound(key: Outlaw.Key)
-    case nullValueWithKey(key: Outlaw.Key)
-    case typeMismatchWithKey(key: Outlaw.Key, expected: Any, actual: Any)
-    case indexNotFound(index: Outlaw.Index)
-    case nullValueWithIndex(index: Outlaw.Index)
-    case typeMismatchWithIndex(index: Outlaw.Index, expected: Any, actual: Any)
+    case keyNotFound(key: Key)
+    case nullValueWithKey(key: Key)
+    case typeMismatchWithKey(key: Key, expected: Any, actual: Any)
+    case indexNotFound(index: Index)
+    case nullValueWithIndex(index: Index)
+    case typeMismatchWithIndex(index: Index, expected: Any, actual: Any)
     
     public var description: String {
         switch self {

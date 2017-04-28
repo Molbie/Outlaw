@@ -14,7 +14,7 @@ public protocol Key {
     var outlawKey: String { get }
 }
 
-extension String: Outlaw.Key {
+extension String: Key {
     public var outlawKey: String {
         return self
     }

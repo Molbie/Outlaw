@@ -12,8 +12,8 @@ import Foundation
 // MARK: -
 // MARK: Enum
 
-public extension Outlaw.IndexExtractable {
-    public func value<E: RawRepresentable>(for index: Outlaw.Index) throws -> E where E.RawValue: Outlaw.Value {
+public extension IndexExtractable {
+    public func value<E: RawRepresentable>(for index: Index) throws -> E where E.RawValue: Value {
         let rawValue = try self.value(for: index) as E.RawValue
         guard let value = E(rawValue: rawValue) else {
             throw OutlawError.typeMismatchWithIndex(index: index.outlawIndex, expected: E.self, actual: type(of: rawValue))
@@ -21,7 +21,7 @@ public extension Outlaw.IndexExtractable {
         return value
     }
     
-    public func value<E: RawRepresentable>(for index: Outlaw.Index) -> E? where E.RawValue: Outlaw.Value {
+    public func value<E: RawRepresentable>(for index: Index) -> E? where E.RawValue: Value {
         return try? self.value(for: index)
     }
 }
@@ -29,8 +29,8 @@ public extension Outlaw.IndexExtractable {
 // MARK: -
 // MARK: Enum Array
 
-public extension Outlaw.IndexExtractable {
-    public func value<E: RawRepresentable>(for index: Outlaw.Index) throws -> [E] where E.RawValue: Outlaw.Value {
+public extension IndexExtractable {
+    public func value<E: RawRepresentable>(for index: Index) throws -> [E] where E.RawValue: Value {
         let rawArray = try self.value(for: index) as [E.RawValue]
         return try rawArray.map {
             guard let value = E(rawValue: $0) else {
@@ -40,7 +40,7 @@ public extension Outlaw.IndexExtractable {
         }
     }
     
-    public func value<E: RawRepresentable>(for index: Outlaw.Index) -> [E]? where E.RawValue: Outlaw.Value {
+    public func value<E: RawRepresentable>(for index: Index) -> [E]? where E.RawValue: Value {
         return try? self.value(for: index)
     }
 }
@@ -48,8 +48,8 @@ public extension Outlaw.IndexExtractable {
 // MARK: -
 // MARK: Enum Dictionary
 
-public extension Outlaw.IndexExtractable {
-    public func value<K, V: RawRepresentable>(for index: Outlaw.Index) throws -> [K: V] where V.RawValue: Outlaw.Value {
+public extension IndexExtractable {
+    public func value<K, V: RawRepresentable>(for index: Index) throws -> [K: V] where V.RawValue: Value {
         let any = try self.any(for: index)
         do {
             let rawDictionary: [K: V.RawValue] = try Dictionary<K, V.RawValue>.mappedValue(from: any)
@@ -66,7 +66,7 @@ public extension Outlaw.IndexExtractable {
         }
     }
     
-    public func value<K, V: RawRepresentable>(for index: Outlaw.Index) -> [K: V]? where V.RawValue: Outlaw.Value {
+    public func value<K, V: RawRepresentable>(for index: Index) -> [K: V]? where V.RawValue: Value {
         return try? self.value(for: index)
     }
 }
@@ -74,8 +74,8 @@ public extension Outlaw.IndexExtractable {
 // MARK: -
 // MARK: Enum Set
 
-public extension Outlaw.IndexExtractable {
-    public func value<E: RawRepresentable>(for index: Outlaw.Index) throws -> Set<E> where E.RawValue: Outlaw.Value {
+public extension IndexExtractable {
+    public func value<E: RawRepresentable>(for index: Index) throws -> Set<E> where E.RawValue: Value {
         let rawArray = try self.value(for: index) as [E.RawValue]
         let enumArray: [E] = try rawArray.map {
             guard let value = E(rawValue: $0) else {
@@ -86,7 +86,7 @@ public extension Outlaw.IndexExtractable {
         return Set<E>(enumArray)
     }
     
-    public func value<E: RawRepresentable>(for index: Outlaw.Index) -> Set<E>? where E.RawValue: Outlaw.Value {
+    public func value<E: RawRepresentable>(for index: Index) -> Set<E>? where E.RawValue: Value {
         return try? self.value(for: index)
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 
 public extension Array {
-    public static func mappedValue<Element: Outlaw.ValueWithContext>(from object: Any, using context: Element.Context) throws -> [Element] {
+    public static func mappedValue<Element: ValueWithContext>(from object: Any, using context: Element.Context) throws -> [Element] {
         guard let anyArray = object as? [Any] else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
@@ -24,7 +24,7 @@ public extension Array {
         }
     }
     
-    public static func mappedValue<Element: Outlaw.ValueWithContext>(from object: Any, using context: Element.Context) throws -> [Element?] {
+    public static func mappedValue<Element: ValueWithContext>(from object: Any, using context: Element.Context) throws -> [Element?] {
         guard let anyArray = object as? [Any?] else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
@@ -41,7 +41,7 @@ public extension Array {
 // MARK: Transforms
 
 public extension Array {
-    public static func mappedValue<Element: Outlaw.ValueWithContext, T>(from object: Any, using context: Element.Context, with transform:(Element, Element.Context) throws -> T) throws -> [T] {
+    public static func mappedValue<Element: ValueWithContext, T>(from object: Any, using context: Element.Context, with transform:(Element, Element.Context) throws -> T) throws -> [T] {
         guard let anyArray = object as? [Any] else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
@@ -55,7 +55,7 @@ public extension Array {
         }
     }
     
-    public static func mappedValue<Element: Outlaw.ValueWithContext, T>(from object: Any, using context: Element.Context, with transform:(Element?, Element.Context) throws -> T) throws -> [T] {
+    public static func mappedValue<Element: ValueWithContext, T>(from object: Any, using context: Element.Context, with transform:(Element?, Element.Context) throws -> T) throws -> [T] {
         guard let anyArray = object as? [Any?] else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
@@ -67,7 +67,7 @@ public extension Array {
         }
     }
     
-    public static func mappedValue<Element: Outlaw.ValueWithContext, T>(from object: Any, using context: Element.Context, with transform:(Element, Element.Context) -> T?) throws -> [T?] {
+    public static func mappedValue<Element: ValueWithContext, T>(from object: Any, using context: Element.Context, with transform:(Element, Element.Context) -> T?) throws -> [T?] {
         guard let anyArray = object as? [Any?] else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
@@ -81,7 +81,7 @@ public extension Array {
         }
     }
     
-    public static func mappedValue<Element: Outlaw.ValueWithContext, T>(from object: Any, using context: Element.Context, with transform:(Element?, Element.Context) -> T?) throws -> [T?] {
+    public static func mappedValue<Element: ValueWithContext, T>(from object: Any, using context: Element.Context, with transform:(Element?, Element.Context) -> T?) throws -> [T?] {
         guard let anyArray = object as? [Any?] else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }

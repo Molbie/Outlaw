@@ -10,7 +10,7 @@ import Foundation
 
 
 public extension Set {
-    public static func mappedValue<Element: Outlaw.ValueWithContext>(from object: Any, using context: Element.Context) throws -> Set<Element> {
+    public static func mappedValue<Element: ValueWithContext>(from object: Any, using context: Element.Context) throws -> Set<Element> {
         let anyArray: [Element] = try [Element].mappedValue(from: object, using: context)
         return Set<Element>(anyArray)
     }
@@ -20,22 +20,22 @@ public extension Set {
 // MARK: Transforms
 
 public extension Set {
-    public static func mappedValue<Element: Outlaw.ValueWithContext, T>(from object: Any, using context: Element.Context, with transform:(Element, Element.Context) throws -> T) throws -> Set<T> {
+    public static func mappedValue<Element: ValueWithContext, T>(from object: Any, using context: Element.Context, with transform:(Element, Element.Context) throws -> T) throws -> Set<T> {
         let anyArray: [T] = try [Element].mappedValue(from: object, using: context, with: transform)
         return Set<T>(anyArray)
     }
     
-    public static func mappedValue<Element: Outlaw.ValueWithContext, T>(from object: Any, using context: Element.Context, with transform:(Element?, Element.Context) throws -> T) throws -> Set<T> {
+    public static func mappedValue<Element: ValueWithContext, T>(from object: Any, using context: Element.Context, with transform:(Element?, Element.Context) throws -> T) throws -> Set<T> {
         let anyArray: [T?] = try [Element?].mappedValue(from: object, using: context, with: transform)
         return Set<T>(anyArray.flatMap { $0 })
     }
     
-    public static func mappedValue<Element: Outlaw.ValueWithContext, T>(from object: Any, using context: Element.Context, with transform:(Element, Element.Context) -> T?) throws -> Set<T> {
+    public static func mappedValue<Element: ValueWithContext, T>(from object: Any, using context: Element.Context, with transform:(Element, Element.Context) -> T?) throws -> Set<T> {
         let anyArray: [T?] = try [Element?].mappedValue(from: object, using: context, with: transform)
         return Set<T>(anyArray.flatMap { $0 })
     }
     
-    public static func mappedValue<Element: Outlaw.ValueWithContext, T>(from object: Any, using context: Element.Context, with transform:(Element?, Element.Context) -> T?) throws -> Set<T> {
+    public static func mappedValue<Element: ValueWithContext, T>(from object: Any, using context: Element.Context, with transform:(Element?, Element.Context) -> T?) throws -> Set<T> {
         let anyArray: [T?] = try [Element?].mappedValue(from: object, using: context, with: transform)
         return Set<T>(anyArray.flatMap { $0 })
     }

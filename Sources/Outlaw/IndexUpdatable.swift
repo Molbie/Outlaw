@@ -10,5 +10,5 @@ import Foundation
 
 
 public protocol IndexUpdatable {
-    mutating func update(with object: Outlaw.IndexExtractable) throws
+    mutating func update(with object: IndexExtractable) throws
 }

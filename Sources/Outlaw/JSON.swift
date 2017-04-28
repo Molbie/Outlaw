@@ -74,7 +74,7 @@ public extension JSON {
         return try? self.value(from: data)
     }
     
-    public static func value<V: Outlaw.Value>(from data: Data) throws -> V {
+    public static func value<V: Value>(from data: Data) throws -> V {
         let any = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
         guard let result = try V.value(from: any) as? V else {
             throw OutlawError.typeMismatch(expected: V.self, actual: any)
@@ -82,36 +82,36 @@ public extension JSON {
         return result
     }
     
-    public static func value<V: Outlaw.Value>(from data: Data) -> V? {
+    public static func value<V: Value>(from data: Data) -> V? {
         return try? self.value(from: data)
     }
 }
 
 public extension JSON {
-    public static func value<V: Outlaw.Value>(from data: Data) throws -> [V] {
+    public static func value<V: Value>(from data: Data) throws -> [V] {
         let any = try JSONSerialization.jsonObject(with: data, options: [])
         return try Array<V>.mappedValue(from: any)
     }
     
-    public static func value<V: Outlaw.Value>(from data: Data) -> [V]? {
+    public static func value<V: Value>(from data: Data) -> [V]? {
         return try? self.value(from: data)
     }
     
-    public static func value<K, V: Outlaw.Value>(from data: Data) throws -> [K: V] {
+    public static func value<K, V: Value>(from data: Data) throws -> [K: V] {
         let any = try JSONSerialization.jsonObject(with: data, options: [])
         return try Dictionary<K, V>.mappedValue(from: any)
     }
     
-    public static func value<K, V: Outlaw.Value>(from data: Data) -> [K: V]? {
+    public static func value<K, V: Value>(from data: Data) -> [K: V]? {
         return try? self.value(from: data)
     }
     
-    public static func value<V: Outlaw.Value>(from data: Data) throws -> Set<V> {
+    public static func value<V: Value>(from data: Data) throws -> Set<V> {
         let any = try JSONSerialization.jsonObject(with: data, options: [])
         return try Set<V>.mappedValue(from: any)
     }
     
-    public static func value<V: Outlaw.Value>(from data: Data) -> Set<V>? {
+    public static func value<V: Value>(from data: Data) -> Set<V>? {
         return try? self.value(from: data)
     }
 }
@@ -147,7 +147,7 @@ public extension JSON {
         return try? self.value(from: stream)
     }
     
-    public static func value<V: Outlaw.Value>(from stream: InputStream) throws -> V {
+    public static func value<V: Value>(from stream: InputStream) throws -> V {
         let any = try JSONSerialization.jsonObject(with: stream, options: .allowFragments)
         guard let result = try V.value(from: any) as? V else {
             throw OutlawError.typeMismatch(expected: V.self, actual: any)
@@ -155,36 +155,36 @@ public extension JSON {
         return result
     }
     
-    public static func value<V: Outlaw.Value>(from stream: InputStream) -> V? {
+    public static func value<V: Value>(from stream: InputStream) -> V? {
         return try? self.value(from: stream)
     }
 }
 
 public extension JSON {
-    public static func value<V: Outlaw.Value>(from stream: InputStream) throws -> [V] {
+    public static func value<V: Value>(from stream: InputStream) throws -> [V] {
         let any = try JSONSerialization.jsonObject(with: stream, options: [])
         return try Array<V>.mappedValue(from: any)
     }
     
-    public static func value<V: Outlaw.Value>(from stream: InputStream) -> [V]? {
+    public static func value<V: Value>(from stream: InputStream) -> [V]? {
         return try? self.value(from: stream)
     }
     
-    public static func value<K, V: Outlaw.Value>(from stream: InputStream) throws -> [K: V] {
+    public static func value<K, V: Value>(from stream: InputStream) throws -> [K: V] {
         let any = try JSONSerialization.jsonObject(with: stream, options: [])
         return try Dictionary<K, V>.mappedValue(from: any)
     }
     
-    public static func value<K, V: Outlaw.Value>(from stream: InputStream) -> [K: V]? {
+    public static func value<K, V: Value>(from stream: InputStream) -> [K: V]? {
         return try? self.value(from: stream)
     }
     
-    public static func value<V: Outlaw.Value>(from stream: InputStream) throws -> Set<V> {
+    public static func value<V: Value>(from stream: InputStream) throws -> Set<V> {
         let any = try JSONSerialization.jsonObject(with: stream, options: [])
         return try Set<V>.mappedValue(from: any)
     }
     
-    public static func value<V: Outlaw.Value>(from stream: InputStream) -> Set<V>? {
+    public static func value<V: Value>(from stream: InputStream) -> Set<V>? {
         return try? self.value(from: stream)
     }
 }
@@ -226,49 +226,49 @@ public extension JSON {
         return try? self.value(from: string, using: encoding)
     }
     
-    public static func value<V: Outlaw.Value>(from string: String, using encoding: String.Encoding = .utf8) throws -> V {
+    public static func value<V: Value>(from string: String, using encoding: String.Encoding = .utf8) throws -> V {
         guard let data = string.data(using: encoding) else {
             throw OutlawError.typeMismatch(expected: Data.self, actual: String.self)
         }
         return try self.value(from: data)
     }
     
-    public static func value<V: Outlaw.Value>(from string: String, using encoding: String.Encoding = .utf8) -> V? {
+    public static func value<V: Value>(from string: String, using encoding: String.Encoding = .utf8) -> V? {
         return try? self.value(from: string, using: encoding)
     }
 }
 
 public extension JSON {
-    public static func value<V: Outlaw.Value>(from string: String, using encoding: String.Encoding = .utf8) throws -> [V] {
+    public static func value<V: Value>(from string: String, using encoding: String.Encoding = .utf8) throws -> [V] {
         guard let data = string.data(using: encoding) else {
             throw OutlawError.typeMismatch(expected: Data.self, actual: String.self)
         }
         return try self.value(from: data)
     }
     
-    public static func value<V: Outlaw.Value>(from string: String, using encoding: String.Encoding = .utf8) -> [V]? {
+    public static func value<V: Value>(from string: String, using encoding: String.Encoding = .utf8) -> [V]? {
         return try? self.value(from: string, using: encoding)
     }
     
-    public static func value<K, V: Outlaw.Value>(from string: String, using encoding: String.Encoding = .utf8) throws -> [K: V] {
+    public static func value<K, V: Value>(from string: String, using encoding: String.Encoding = .utf8) throws -> [K: V] {
         guard let data = string.data(using: encoding) else {
             throw OutlawError.typeMismatch(expected: Data.self, actual: String.self)
         }
         return try self.value(from: data)
     }
     
-    public static func value<K, V: Outlaw.Value>(from string: String, using encoding: String.Encoding = .utf8) -> [K: V]? {
+    public static func value<K, V: Value>(from string: String, using encoding: String.Encoding = .utf8) -> [K: V]? {
         return try? self.value(from: string, using: encoding)
     }
     
-    public static func value<V: Outlaw.Value>(from string: String, using encoding: String.Encoding = .utf8) throws -> Set<V> {
+    public static func value<V: Value>(from string: String, using encoding: String.Encoding = .utf8) throws -> Set<V> {
         guard let data = string.data(using: encoding) else {
             throw OutlawError.typeMismatch(expected: Data.self, actual: String.self)
         }
         return try self.value(from: data)
     }
     
-    public static func value<V: Outlaw.Value>(from string: String, using encoding: String.Encoding = .utf8) -> Set<V>? {
+    public static func value<V: Value>(from string: String, using encoding: String.Encoding = .utf8) -> Set<V>? {
         return try? self.value(from: string, using: encoding)
     }
 }
@@ -304,41 +304,41 @@ public extension JSON {
         return try? self.value(from: url)
     }
     
-    public static func value<V: Outlaw.Value>(from url: URL) throws -> V {
+    public static func value<V: Value>(from url: URL) throws -> V {
         let data = try Data(contentsOf: url)
         return try self.value(from: data)
     }
     
-    public static func value<V: Outlaw.Value>(from url: URL) -> V? {
+    public static func value<V: Value>(from url: URL) -> V? {
         return try? self.value(from: url)
     }
 }
 
 public extension JSON {
-    public static func value<V: Outlaw.Value>(from url: URL) throws -> [V] {
+    public static func value<V: Value>(from url: URL) throws -> [V] {
         let data = try Data(contentsOf: url)
         return try self.value(from: data)
     }
     
-    public static func value<V: Outlaw.Value>(from url: URL) -> [V]? {
+    public static func value<V: Value>(from url: URL) -> [V]? {
         return try? self.value(from: url)
     }
     
-    public static func value<K, V: Outlaw.Value>(from url: URL) throws -> [K: V] {
+    public static func value<K, V: Value>(from url: URL) throws -> [K: V] {
         let data = try Data(contentsOf: url)
         return try self.value(from: data)
     }
     
-    public static func value<K, V: Outlaw.Value>(from url: URL) -> [K: V]? {
+    public static func value<K, V: Value>(from url: URL) -> [K: V]? {
         return try? self.value(from: url)
     }
     
-    public static func value<V: Outlaw.Value>(from url: URL) throws -> Set<V> {
+    public static func value<V: Value>(from url: URL) throws -> Set<V> {
         let data = try Data(contentsOf: url)
         return try self.value(from: data)
     }
     
-    public static func value<V: Outlaw.Value>(from url: URL) -> Set<V>? {
+    public static func value<V: Value>(from url: URL) -> Set<V>? {
         return try? self.value(from: url)
     }
 }

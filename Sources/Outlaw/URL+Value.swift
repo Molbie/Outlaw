@@ -9,7 +9,7 @@
 import Foundation
 
 
-extension URL: Outlaw.Value {
+extension URL: Value {
     public static func value(from object: Any) throws -> URL {
         guard let value = object as? String else {
             throw OutlawError.typeMismatch(expected: String.self, actual: type(of: object))

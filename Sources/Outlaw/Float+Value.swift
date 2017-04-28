@@ -9,7 +9,7 @@
 import Foundation
 
 
-extension Float: Outlaw.Value {
+extension Float: Value {
     public static func value(from object: Any) throws -> Float {
         let value: Float
         
@@ -27,7 +27,7 @@ extension Float: Outlaw.Value {
         return value
     }
 }
-extension Double: Outlaw.Value {
+extension Double: Value {
     public static func value(from object: Any) throws -> Double {
         let value: Double
         

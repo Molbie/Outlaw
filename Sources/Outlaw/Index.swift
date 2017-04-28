@@ -13,7 +13,7 @@ public protocol Index {
     var outlawIndex: Int { get }
 }
 
-extension Int: Outlaw.Index {
+extension Int: Index {
     public var outlawIndex: Int {
         return self
     }

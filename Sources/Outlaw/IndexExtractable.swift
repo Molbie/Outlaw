@@ -13,12 +13,12 @@ public protocol IndexExtractable {
     var count: Int { get }
     var isEmpty: Bool { get }
     
-    func any(for index: Outlaw.Index) throws -> Any
-    func optionalAny(for index: Outlaw.Index) -> Any?
+    func any(for index: Index) throws -> Any
+    func optionalAny(for index: Index) -> Any?
 }
 
-public extension Outlaw.IndexExtractable {
-    public func any(for index: Outlaw.Index) throws -> Any {
+public extension IndexExtractable {
+    public func any(for index: Index) throws -> Any {
         let indexes = [index]
         var accumulator: Any = self
         
@@ -41,8 +41,8 @@ public extension Outlaw.IndexExtractable {
 // MARK: -
 // MARK: Any Array
 
-public extension Outlaw.IndexExtractable {
-    public func value<V>(for index: Outlaw.Index) throws -> [V] {
+public extension IndexExtractable {
+    public func value<V>(for index: Index) throws -> [V] {
         let any = try self.any(for: index)
         do {
             return try Array<V>.value(from: any)
@@ -52,7 +52,7 @@ public extension Outlaw.IndexExtractable {
         }
     }
     
-    public func value<V>(for index: Outlaw.Index) -> [V]? {
+    public func value<V>(for index: Index) -> [V]? {
         return try? self.value(for: index)
     }
 }
@@ -60,8 +60,8 @@ public extension Outlaw.IndexExtractable {
 // MARK: -
 // MARK: Any Dictionary
 
-public extension Outlaw.IndexExtractable {
-    public func value<K, V>(for index: Outlaw.Index) throws -> [K: V] {
+public extension IndexExtractable {
+    public func value<K, V>(for index: Index) throws -> [K: V] {
         let any = try self.any(for: index)
         do {
             return try Dictionary<K, V>.value(from: any)
@@ -71,7 +71,7 @@ public extension Outlaw.IndexExtractable {
         }
     }
     
-    public func value<K, V>(for index: Outlaw.Index) -> [K: V]? {
+    public func value<K, V>(for index: Index) -> [K: V]? {
         return try? self.value(for: index)
     }
 }
@@ -79,8 +79,8 @@ public extension Outlaw.IndexExtractable {
 // MARK: -
 // MARK: Any Set
 
-public extension Outlaw.IndexExtractable {
-    public func value<V>(for index: Outlaw.Index) throws -> Set<V> {
+public extension IndexExtractable {
+    public func value<V>(for index: Index) throws -> Set<V> {
         let any = try self.any(for: index)
         do {
             return try Set<V>.value(from: any)
@@ -90,7 +90,7 @@ public extension Outlaw.IndexExtractable {
         }
     }
     
-    public func value<V>(for index: Outlaw.Index) -> Set<V>? {
+    public func value<V>(for index: Index) -> Set<V>? {
         return try? self.value(for: index)
     }
 }

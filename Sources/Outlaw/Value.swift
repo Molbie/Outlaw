@@ -15,7 +15,7 @@ public protocol Value {
     static func value(from object: Any) throws -> ValueType
 }
 
-extension Outlaw.Value {
+extension Value {
     public static func value(from object: Any) throws -> ValueType {
         guard let objectValue = object as? ValueType else {
             throw OutlawError.typeMismatch(expected: ValueType.self, actual: type(of: object))

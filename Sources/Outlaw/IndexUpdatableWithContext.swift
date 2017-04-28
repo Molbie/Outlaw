@@ -12,5 +12,5 @@ import Foundation
 public protocol IndexUpdatableWithContext {
     associatedtype IndexUpdatableContext
     
-    mutating func update(with object: Outlaw.IndexExtractable, using context: IndexUpdatableContext) throws
+    mutating func update(with object: IndexExtractable, using context: IndexUpdatableContext) throws
 }

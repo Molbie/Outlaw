@@ -85,7 +85,7 @@ class UpdatableWithContextTests: OutlawTestCase {
 // MARK: Types
 
 extension Address: UpdatableWithContext {
-    mutating func update(with data: Outlaw.Extractable, using context: AddressContext) throws {
+    mutating func update(with data: Extractable, using context: AddressContext) throws {
         if let street: String = data.value(for: "street") {
             self.street = street
         }
@@ -96,7 +96,7 @@ extension Address: UpdatableWithContext {
 }
 
 extension Person: UpdatableWithContext {
-    mutating func update(with data: Outlaw.Extractable, using context: PersonContext) throws {
+    mutating func update(with data: Extractable, using context: PersonContext) throws {
         if let firstName: String = data.value(for: "first") {
             self.firstName = firstName
         }

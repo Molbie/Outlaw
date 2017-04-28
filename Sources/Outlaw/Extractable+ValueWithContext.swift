@@ -12,8 +12,8 @@ import Foundation
 // MARK: -
 // MARK: ValueWithContext
 
-public extension Outlaw.Extractable {
-    public func value<V: Outlaw.ValueWithContext>(for key: Outlaw.Key, using context: V.Context) throws -> V {
+public extension Extractable {
+    public func value<V: ValueWithContext>(for key: Key, using context: V.Context) throws -> V {
         let any = try self.any(for: key)
         do {
             guard let result = try V.value(from: any, using: context) as? V else {
@@ -26,7 +26,7 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<V: Outlaw.ValueWithContext>(for key: Outlaw.Key, using context: V.Context) -> V? {
+    public func value<V: ValueWithContext>(for key: Key, using context: V.Context) -> V? {
         return try? self.value(for: key, using: context)
     }
 }
@@ -34,8 +34,8 @@ public extension Outlaw.Extractable {
 // MARK: -
 // MARK: ValueWithContext Array
 
-public extension Outlaw.Extractable {
-    public func value<V: Outlaw.ValueWithContext>(for key: Outlaw.Key, using context: V.Context) throws -> [V] {
+public extension Extractable {
+    public func value<V: ValueWithContext>(for key: Key, using context: V.Context) throws -> [V] {
         let any = try self.any(for: key)
         do {
             return try Array<V>.mappedValue(from: any, using: context)
@@ -45,7 +45,7 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<V: Outlaw.ValueWithContext>(for key: Outlaw.Key, using context: V.Context) -> [V]? {
+    public func value<V: ValueWithContext>(for key: Key, using context: V.Context) -> [V]? {
         return try? self.value(for: key, using: context)
     }
 }
@@ -53,8 +53,8 @@ public extension Outlaw.Extractable {
 // MARK: -
 // MARK: Optional ValueWithContext Array
 
-public extension Outlaw.Extractable {
-    public func value<V: Outlaw.ValueWithContext>(for key: Outlaw.Key, using context: V.Context) throws -> [V?] {
+public extension Extractable {
+    public func value<V: ValueWithContext>(for key: Key, using context: V.Context) throws -> [V?] {
         let any = try self.any(for: key)
         do {
             return try Array<V?>.mappedValue(from: any, using: context)
@@ -64,7 +64,7 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<V: Outlaw.ValueWithContext>(for key: Outlaw.Key, using context: V.Context) -> [V?]? {
+    public func value<V: ValueWithContext>(for key: Key, using context: V.Context) -> [V?]? {
         return try? self.value(for: key, using: context)
     }
 }
@@ -72,8 +72,8 @@ public extension Outlaw.Extractable {
 // MARK: -
 // MARK: ValueWithContext Dictionary
 
-public extension Outlaw.Extractable {
-    public func value<K, V: Outlaw.ValueWithContext>(for key: Outlaw.Key, using context: V.Context) throws -> [K: V] {
+public extension Extractable {
+    public func value<K, V: ValueWithContext>(for key: Key, using context: V.Context) throws -> [K: V] {
         let any = try self.any(for: key)
         do {
             return try Dictionary<K, V>.mappedValue(from: any, using: context)
@@ -83,7 +83,7 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<K, V: Outlaw.ValueWithContext>(for key: Outlaw.Key, using context: V.Context) -> [K: V]? {
+    public func value<K, V: ValueWithContext>(for key: Key, using context: V.Context) -> [K: V]? {
         return try? self.value(for: key, using: context)
     }
 }
@@ -91,8 +91,8 @@ public extension Outlaw.Extractable {
 // MARK: -
 // MARK: Optional ValueWithContext Dictionary
 
-public extension Outlaw.Extractable {
-    public func value<K, V: Outlaw.ValueWithContext>(for key: Outlaw.Key, using context: V.Context) throws -> [K: V?] {
+public extension Extractable {
+    public func value<K, V: ValueWithContext>(for key: Key, using context: V.Context) throws -> [K: V?] {
         let any = try self.any(for: key)
         do {
             return try Dictionary<K, V?>.mappedValue(from: any, using: context)
@@ -102,7 +102,7 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<K, V: Outlaw.ValueWithContext>(for key: Outlaw.Key, using context: V.Context) -> [K: V?]? {
+    public func value<K, V: ValueWithContext>(for key: Key, using context: V.Context) -> [K: V?]? {
         return try? self.value(for: key, using: context)
     }
 }
@@ -110,8 +110,8 @@ public extension Outlaw.Extractable {
 // MARK: -
 // MARK: ValueWithContext Set
 
-public extension Outlaw.Extractable {
-    public func value<V: Outlaw.ValueWithContext>(for key: Outlaw.Key, using context: V.Context) throws -> Set<V> {
+public extension Extractable {
+    public func value<V: ValueWithContext>(for key: Key, using context: V.Context) throws -> Set<V> {
         let any = try self.any(for: key)
         do {
             return try Set<V>.mappedValue(from: any, using: context)
@@ -121,7 +121,7 @@ public extension Outlaw.Extractable {
         }
     }
     
-    public func value<V: Outlaw.ValueWithContext>(for key: Outlaw.Key, using context: V.Context) -> Set<V>? {
+    public func value<V: ValueWithContext>(for key: Key, using context: V.Context) -> Set<V>? {
         return try? self.value(for: key, using: context)
     }
 }

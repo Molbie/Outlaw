@@ -16,7 +16,7 @@ public protocol ValueWithContext {
     static func value(from object: Any, using context: Context) throws -> ValueType
 }
 
-extension Outlaw.ValueWithContext {
+extension ValueWithContext {
     public static func value(from object: Any, using context: Context) throws -> ValueType {
         guard let objectValue = object as? ValueType else {
             throw OutlawError.typeMismatch(expected: ValueType.self, actual: type(of: object))

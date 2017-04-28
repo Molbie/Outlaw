@@ -9,7 +9,7 @@
 import Foundation
 
 
-extension Int: Outlaw.Value {
+extension Int: Value {
     public static func value(from object: Any) throws -> Int {
         let value: Int
         
@@ -43,7 +43,7 @@ extension Int: Outlaw.Value {
         return value
     }
 }
-extension Int8: Outlaw.Value {
+extension Int8: Value {
     public static func value(from object: Any) throws -> Int8 {
         let value: Int8
         
@@ -77,7 +77,7 @@ extension Int8: Outlaw.Value {
         return value
     }
 }
-extension Int16: Outlaw.Value {
+extension Int16: Value {
     public static func value(from object: Any) throws -> Int16 {
         let value: Int16
         
@@ -111,7 +111,7 @@ extension Int16: Outlaw.Value {
         return value
     }
 }
-extension Int32: Outlaw.Value {
+extension Int32: Value {
     public static func value(from object: Any) throws -> Int32 {
         let value: Int32
         
@@ -145,7 +145,7 @@ extension Int32: Outlaw.Value {
         return value
     }
 }
-extension Int64: Outlaw.Value {
+extension Int64: Value {
     public static func value(from object: Any) throws -> Int64 {
         let value: Int64
         

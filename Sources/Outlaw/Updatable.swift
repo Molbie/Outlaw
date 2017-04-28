@@ -10,5 +10,5 @@ import Foundation
 
 
 public protocol Updatable {
-    mutating func update(with object: Outlaw.Extractable) throws
+    mutating func update(with object: Extractable) throws
 }

@@ -9,8 +9,8 @@
 import Foundation
 
 
-extension String: Outlaw.Value {}
-extension Character: Outlaw.Value {
+extension String: Value {}
+extension Character: Value {
     public static func value(from object: Any) throws -> Character {
         guard let value = object as? String else {
             throw OutlawError.typeMismatch(expected: ValueType.self, actual: type(of: object))

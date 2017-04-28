@@ -41,12 +41,12 @@ class SerializableTests: OutlawTestCase {
 // MARK: -
 // MARK: Types
 
-extension Address: Outlaw.Serializable {
+extension Address: Serializable {
     func serialized() -> [String: Any] {
         return ["street": street,"city": city]
     }
 }
-extension Person: Outlaw.Serializable {
+extension Person: Serializable {
     func serialized() -> [String: Any] {
         var result: [String: Any] = ["first": firstName,"last": lastName]
         if let address = address {

@@ -9,14 +9,14 @@
 import Foundation
 
 
-extension Dictionary: Outlaw.Extractable {
+extension Dictionary: Extractable {
     public func optionalAny(for key: Outlaw.Key) -> Any? {
         guard let aKey = key as? Key else { return nil }
         return self[aKey]
     }
 }
 
-extension NSDictionary: Outlaw.Extractable {
+extension NSDictionary: Extractable {
     public func any(for key: Outlaw.Key) throws -> Any {
         guard let value: Any = self.value(forKeyPath: key.outlawKey) else {
             throw OutlawError.keyNotFound(key: key)

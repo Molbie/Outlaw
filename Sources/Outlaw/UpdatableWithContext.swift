@@ -12,5 +12,5 @@ import Foundation
 public protocol UpdatableWithContext {
     associatedtype UpdatableContext
     
-    mutating func update(with object: Outlaw.Extractable, using context: UpdatableContext) throws
+    mutating func update(with object: Extractable, using context: UpdatableContext) throws
 }
