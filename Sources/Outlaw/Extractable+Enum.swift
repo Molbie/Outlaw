@@ -24,6 +24,11 @@ public extension Extractable {
     public func value<E: RawRepresentable>(for key: Key) -> E? where E.RawValue: Value {
         return try? self.value(for: key)
     }
+    
+    public func value<E: RawRepresentable>(for key: Key, or value: E) -> E where E.RawValue: Value {
+        guard let result: E = self.value(for: key) else { return value }
+        return result
+    }
 }
 
 // MARK: -
@@ -42,6 +47,11 @@ public extension Extractable {
     
     public func value<E: RawRepresentable>(for key: Key) -> [E]? where E.RawValue: Value {
         return try? self.value(for: key)
+    }
+    
+    public func value<E: RawRepresentable>(for key: Key, or value: [E]) -> [E] where E.RawValue: Value {
+        guard let result: [E] = self.value(for: key) else { return value }
+        return result
     }
 }
 
@@ -69,6 +79,11 @@ public extension Extractable {
     public func value<K, V: RawRepresentable>(for key: Key) -> [K: V]? where V.RawValue: Value {
         return try? self.value(for: key)
     }
+    
+    public func value<K, V: RawRepresentable>(for key: Key, or value: [K: V]) -> [K: V] where V.RawValue: Value {
+        guard let result: [K: V] = self.value(for: key) else { return value }
+        return result
+    }
 }
 
 // MARK: -
@@ -88,5 +103,10 @@ public extension Extractable {
     
     public func value<E: RawRepresentable>(for key: Key) -> Set<E>? where E.RawValue: Value {
         return try? self.value(for: key)
+    }
+    
+    public func value<E: RawRepresentable>(for key: Key, or value: Set<E>) -> Set<E> where E.RawValue: Value {
+        guard let result: Set<E> = self.value(for: key) else { return value }
+        return result
     }
 }

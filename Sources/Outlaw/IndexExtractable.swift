@@ -55,6 +55,11 @@ public extension IndexExtractable {
     public func value<V>(for index: Index) -> [V]? {
         return try? self.value(for: index)
     }
+    
+    public func value<V>(for index: Index, or value: [V]) -> [V] {
+        guard let result: [V] = self.value(for: index) else { return value }
+        return result
+    }
 }
 
 // MARK: -
@@ -74,6 +79,11 @@ public extension IndexExtractable {
     public func value<K, V>(for index: Index) -> [K: V]? {
         return try? self.value(for: index)
     }
+    
+    public func value<K, V>(for index: Index, or value: [K: V]) -> [K: V] {
+        guard let result: [K: V] = self.value(for: index) else { return value }
+        return result
+    }
 }
 
 // MARK: -
@@ -92,5 +102,10 @@ public extension IndexExtractable {
     
     public func value<V>(for index: Index) -> Set<V>? {
         return try? self.value(for: index)
+    }
+    
+    public func value<V>(for index: Index, or value: Set<V>) -> Set<V> {
+        guard let result: Set<V> = self.value(for: index) else { return value }
+        return result
     }
 }
