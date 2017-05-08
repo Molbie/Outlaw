@@ -29,6 +29,11 @@ public extension Extractable {
     public func value<V: ValueWithContext>(for key: Key, using context: V.Context) -> V? {
         return try? self.value(for: key, using: context)
     }
+    
+    public func value<V: ValueWithContext>(for key: Key, using context: V.Context, or value: V) -> V {
+        guard let result: V = self.value(for: key, using: context) else { return value }
+        return result
+    }
 }
 
 // MARK: -
@@ -47,6 +52,11 @@ public extension Extractable {
     
     public func value<V: ValueWithContext>(for key: Key, using context: V.Context) -> [V]? {
         return try? self.value(for: key, using: context)
+    }
+    
+    public func value<V: ValueWithContext>(for key: Key, using context: V.Context, or value: [V]) -> [V] {
+        guard let result: [V] = self.value(for: key, using: context) else { return value }
+        return result
     }
 }
 
@@ -67,6 +77,11 @@ public extension Extractable {
     public func value<V: ValueWithContext>(for key: Key, using context: V.Context) -> [V?]? {
         return try? self.value(for: key, using: context)
     }
+    
+    public func value<V: ValueWithContext>(for key: Key, using context: V.Context, or value: [V?]) -> [V?] {
+        guard let result: [V?] = self.value(for: key, using: context) else { return value }
+        return result
+    }
 }
 
 // MARK: -
@@ -85,6 +100,11 @@ public extension Extractable {
     
     public func value<K, V: ValueWithContext>(for key: Key, using context: V.Context) -> [K: V]? {
         return try? self.value(for: key, using: context)
+    }
+    
+    public func value<K, V: ValueWithContext>(for key: Key, using context: V.Context, or value: [K: V]) -> [K: V] {
+        guard let result: [K: V] = self.value(for: key, using: context) else { return value }
+        return result
     }
 }
 
@@ -105,6 +125,11 @@ public extension Extractable {
     public func value<K, V: ValueWithContext>(for key: Key, using context: V.Context) -> [K: V?]? {
         return try? self.value(for: key, using: context)
     }
+    
+    public func value<K, V: ValueWithContext>(for key: Key, using context: V.Context, or value: [K: V?]) -> [K: V?] {
+        guard let result: [K: V?] = self.value(for: key, using: context) else { return value }
+        return result
+    }
 }
 
 // MARK: -
@@ -123,5 +148,10 @@ public extension Extractable {
     
     public func value<V: ValueWithContext>(for key: Key, using context: V.Context) -> Set<V>? {
         return try? self.value(for: key, using: context)
+    }
+    
+    public func value<V: ValueWithContext>(for key: Key, using context: V.Context, or value: Set<V>) -> Set<V> {
+        guard let result: Set<V> = self.value(for: key, using: context) else { return value }
+        return result
     }
 }

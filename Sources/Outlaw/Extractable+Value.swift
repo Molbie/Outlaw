@@ -29,6 +29,11 @@ public extension Extractable {
     public func value<V: Value>(for key: Key) -> V? {
         return try? self.value(for: key)
     }
+    
+    public func value<V: Value>(for key: Key, or value: V) -> V {
+        guard let result: V = self.value(for: key) else { return value }
+        return result
+    }
 }
 
 // MARK: -
@@ -72,6 +77,11 @@ public extension Extractable {
     
     public func value<V: Value>(for key: Key) -> [V]? {
         return try? self.value(for: key)
+    }
+    
+    public func value<V: Value>(for key: Key, or value: [V]) -> [V] {
+        guard let result: [V] = self.value(for: key) else { return value }
+        return result
     }
 }
 
@@ -125,6 +135,11 @@ public extension Extractable {
     public func value<V: Value>(for key: Key) -> [V?]? {
         return try? self.value(for: key)
     }
+    
+    public func value<V: Value>(for key: Key, or value: [V?]) -> [V?] {
+        guard let result: [V?] = self.value(for: key) else { return value }
+        return result
+    }
 }
 
 // MARK: -
@@ -176,6 +191,11 @@ public extension Extractable {
     
     public func value<K, V: Value>(for key: Key) -> [K: V]? {
         return try? self.value(for: key)
+    }
+    
+    public func value<K, V: Value>(for key: Key, or value: [K: V]) -> [K: V] {
+        guard let result: [K: V] = self.value(for: key) else { return value }
+        return result
     }
 }
 
@@ -229,6 +249,11 @@ public extension Extractable {
     public func value<K, V: Value>(for key: Key) -> [K: V?]? {
         return try? self.value(for: key)
     }
+    
+    public func value<K, V: Value>(for key: Key, or value: [K: V?]) -> [K: V?] {
+        guard let result: [K: V?] = self.value(for: key) else { return value }
+        return result
+    }
 }
 
 // MARK: -
@@ -280,6 +305,11 @@ public extension Extractable {
     
     public func value<V: Value>(for key: Key) -> Set<V>? {
         return try? self.value(for: key)
+    }
+    
+    public func value<V: Value>(for key: Key, or value: Set<V>) -> Set<V> {
+        guard let result: Set<V> = self.value(for: key) else { return value }
+        return result
     }
 }
 

@@ -24,6 +24,11 @@ public extension IndexExtractable {
     public func value<E: RawRepresentable>(for index: Index) -> E? where E.RawValue: Value {
         return try? self.value(for: index)
     }
+    
+    public func value<E: RawRepresentable>(for index: Index, or value: E) -> E where E.RawValue: Value {
+        guard let result: E = self.value(for: index) else { return value }
+        return result
+    }
 }
 
 // MARK: -
@@ -42,6 +47,11 @@ public extension IndexExtractable {
     
     public func value<E: RawRepresentable>(for index: Index) -> [E]? where E.RawValue: Value {
         return try? self.value(for: index)
+    }
+    
+    public func value<E: RawRepresentable>(for index: Index, or value: [E]) -> [E] where E.RawValue: Value {
+        guard let result: [E] = self.value(for: index) else { return value }
+        return result
     }
 }
 
@@ -69,6 +79,11 @@ public extension IndexExtractable {
     public func value<K, V: RawRepresentable>(for index: Index) -> [K: V]? where V.RawValue: Value {
         return try? self.value(for: index)
     }
+    
+    public func value<K, V: RawRepresentable>(for index: Index, or value: [K: V]) -> [K: V] where V.RawValue: Value {
+        guard let result: [K: V] = self.value(for: index) else { return value }
+        return result
+    }
 }
 
 // MARK: -
@@ -88,5 +103,10 @@ public extension IndexExtractable {
     
     public func value<E: RawRepresentable>(for index: Index) -> Set<E>? where E.RawValue: Value {
         return try? self.value(for: index)
+    }
+    
+    public func value<E: RawRepresentable>(for index: Index, or value: Set<E>) -> Set<E> where E.RawValue: Value {
+        guard let result: Set<E> = self.value(for: index) else { return value }
+        return result
     }
 }

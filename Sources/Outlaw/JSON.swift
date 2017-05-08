@@ -56,6 +56,11 @@ public extension JSON {
         return try? self.value(from: data)
     }
     
+    public static func value<V>(from data: Data, or value: [V]) -> [V] {
+        guard let result: [V] = self.value(from: data) else { return value }
+        return result
+    }
+    
     public static func value<K, V>(from data: Data) throws -> [K: V] {
         let any = try JSONSerialization.jsonObject(with: data, options: [])
         return try Dictionary<K, V>.value(from: any)
@@ -65,6 +70,11 @@ public extension JSON {
         return try? self.value(from: data)
     }
     
+    public static func value<K, V>(from data: Data, or value: [K: V]) -> [K: V] {
+        guard let result: [K: V] = self.value(from: data) else { return value }
+        return result
+    }
+    
     public static func value<V>(from data: Data) throws -> Set<V> {
         let any = try JSONSerialization.jsonObject(with: data, options: [])
         return try Set<V>.value(from: any)
@@ -72,6 +82,11 @@ public extension JSON {
     
     public static func value<V>(from data: Data) -> Set<V>? {
         return try? self.value(from: data)
+    }
+    
+    public static func value<V>(from data: Data, or value: Set<V>) -> Set<V> {
+        guard let result: Set<V> = self.value(from: data) else { return value }
+        return result
     }
     
     public static func value<V: Value>(from data: Data) throws -> V {
@@ -85,6 +100,11 @@ public extension JSON {
     public static func value<V: Value>(from data: Data) -> V? {
         return try? self.value(from: data)
     }
+    
+    public static func value<V: Value>(from data: Data, or value: V) -> V {
+        guard let result: V = self.value(from: data) else { return value }
+        return result
+    }
 }
 
 public extension JSON {
@@ -97,6 +117,11 @@ public extension JSON {
         return try? self.value(from: data)
     }
     
+    public static func value<V: Value>(from data: Data, or value: [V]) -> [V] {
+        guard let result: [V] = self.value(from: data) else { return value }
+        return result
+    }
+    
     public static func value<K, V: Value>(from data: Data) throws -> [K: V] {
         let any = try JSONSerialization.jsonObject(with: data, options: [])
         return try Dictionary<K, V>.mappedValue(from: any)
@@ -106,6 +131,11 @@ public extension JSON {
         return try? self.value(from: data)
     }
     
+    public static func value<K, V: Value>(from data: Data, or value: [K: V]) -> [K: V] {
+        guard let result: [K: V] = self.value(from: data) else { return value }
+        return result
+    }
+    
     public static func value<V: Value>(from data: Data) throws -> Set<V> {
         let any = try JSONSerialization.jsonObject(with: data, options: [])
         return try Set<V>.mappedValue(from: any)
@@ -113,6 +143,11 @@ public extension JSON {
     
     public static func value<V: Value>(from data: Data) -> Set<V>? {
         return try? self.value(from: data)
+    }
+    
+    public static func value<V: Value>(from data: Data, or value: Set<V>) -> Set<V> {
+        guard let result: Set<V> = self.value(from: data) else { return value }
+        return result
     }
 }
 
@@ -129,6 +164,11 @@ public extension JSON {
         return try? self.value(from: stream)
     }
     
+    public static func value<V>(from stream: InputStream, or value: [V]) -> [V] {
+        guard let result: [V] = self.value(from: stream) else { return value }
+        return result
+    }
+    
     public static func value<K, V>(from stream: InputStream) throws -> [K: V] {
         let any = try JSONSerialization.jsonObject(with: stream, options: [])
         return try Dictionary<K, V>.value(from: any)
@@ -138,6 +178,11 @@ public extension JSON {
         return try? self.value(from: stream)
     }
     
+    public static func value<K, V>(from stream: InputStream, or value: [K: V]) -> [K: V] {
+        guard let result: [K: V] = self.value(from: stream) else { return value }
+        return result
+    }
+    
     public static func value<V>(from stream: InputStream) throws -> Set<V> {
         let any = try JSONSerialization.jsonObject(with: stream, options: [])
         return try Set<V>.value(from: any)
@@ -145,6 +190,11 @@ public extension JSON {
     
     public static func value<V>(from stream: InputStream) -> Set<V>? {
         return try? self.value(from: stream)
+    }
+    
+    public static func value<V>(from stream: InputStream, or value: Set<V>) -> Set<V> {
+        guard let result: Set<V> = self.value(from: stream) else { return value }
+        return result
     }
     
     public static func value<V: Value>(from stream: InputStream) throws -> V {
@@ -158,6 +208,11 @@ public extension JSON {
     public static func value<V: Value>(from stream: InputStream) -> V? {
         return try? self.value(from: stream)
     }
+    
+    public static func value<V: Value>(from stream: InputStream, or value: V) -> V {
+        guard let result: V = self.value(from: stream) else { return value }
+        return result
+    }
 }
 
 public extension JSON {
@@ -170,6 +225,11 @@ public extension JSON {
         return try? self.value(from: stream)
     }
     
+    public static func value<V: Value>(from stream: InputStream, or value: [V]) -> [V] {
+        guard let result: [V] = self.value(from: stream) else { return value }
+        return result
+    }
+    
     public static func value<K, V: Value>(from stream: InputStream) throws -> [K: V] {
         let any = try JSONSerialization.jsonObject(with: stream, options: [])
         return try Dictionary<K, V>.mappedValue(from: any)
@@ -179,6 +239,11 @@ public extension JSON {
         return try? self.value(from: stream)
     }
     
+    public static func value<K, V: Value>(from stream: InputStream, or value: [K: V]) -> [K: V] {
+        guard let result: [K: V] = self.value(from: stream) else { return value }
+        return result
+    }
+    
     public static func value<V: Value>(from stream: InputStream) throws -> Set<V> {
         let any = try JSONSerialization.jsonObject(with: stream, options: [])
         return try Set<V>.mappedValue(from: any)
@@ -186,6 +251,11 @@ public extension JSON {
     
     public static func value<V: Value>(from stream: InputStream) -> Set<V>? {
         return try? self.value(from: stream)
+    }
+    
+    public static func value<V: Value>(from stream: InputStream, or value: Set<V>) -> Set<V> {
+        guard let result: Set<V> = self.value(from: stream) else { return value }
+        return result
     }
 }
 
@@ -204,6 +274,11 @@ public extension JSON {
         return try? self.value(from: string, using: encoding)
     }
     
+    public static func value<V>(from string: String, using encoding: String.Encoding = .utf8, or value: [V]) -> [V] {
+        guard let result: [V] = self.value(from: string, using: encoding) else { return value }
+        return result
+    }
+    
     public static func value<K, V>(from string: String, using encoding: String.Encoding = .utf8) throws -> [K: V] {
         guard let data = string.data(using: encoding) else {
             throw OutlawError.typeMismatch(expected: Data.self, actual: String.self)
@@ -213,6 +288,11 @@ public extension JSON {
     
     public static func value<K, V>(from string: String, using encoding: String.Encoding = .utf8) -> [K: V]? {
         return try? self.value(from: string, using: encoding)
+    }
+    
+    public static func value<K, V>(from string: String, using encoding: String.Encoding = .utf8, or value: [K: V]) -> [K: V] {
+        guard let result: [K: V] = self.value(from: string, using: encoding) else { return value }
+        return result
     }
     
     public static func value<V>(from string: String, using encoding: String.Encoding = .utf8) throws -> Set<V> {
@@ -226,6 +306,11 @@ public extension JSON {
         return try? self.value(from: string, using: encoding)
     }
     
+    public static func value<V>(from string: String, using encoding: String.Encoding = .utf8, or value: Set<V>) -> Set<V> {
+        guard let result: Set<V> = self.value(from: string, using: encoding) else { return value }
+        return result
+    }
+    
     public static func value<V: Value>(from string: String, using encoding: String.Encoding = .utf8) throws -> V {
         guard let data = string.data(using: encoding) else {
             throw OutlawError.typeMismatch(expected: Data.self, actual: String.self)
@@ -235,6 +320,11 @@ public extension JSON {
     
     public static func value<V: Value>(from string: String, using encoding: String.Encoding = .utf8) -> V? {
         return try? self.value(from: string, using: encoding)
+    }
+    
+    public static func value<V: Value>(from string: String, using encoding: String.Encoding = .utf8, or value: V) -> V {
+        guard let result: V = self.value(from: string, using: encoding) else { return value }
+        return result
     }
 }
 
@@ -250,6 +340,11 @@ public extension JSON {
         return try? self.value(from: string, using: encoding)
     }
     
+    public static func value<V: Value>(from string: String, using encoding: String.Encoding = .utf8, or value: [V]) -> [V] {
+        guard let result: [V] = self.value(from: string, using: encoding) else { return value }
+        return result
+    }
+    
     public static func value<K, V: Value>(from string: String, using encoding: String.Encoding = .utf8) throws -> [K: V] {
         guard let data = string.data(using: encoding) else {
             throw OutlawError.typeMismatch(expected: Data.self, actual: String.self)
@@ -261,6 +356,11 @@ public extension JSON {
         return try? self.value(from: string, using: encoding)
     }
     
+    public static func value<K, V: Value>(from string: String, using encoding: String.Encoding = .utf8, or value: [K: V]) -> [K: V] {
+        guard let result: [K: V] = self.value(from: string, using: encoding) else { return value }
+        return result
+    }
+    
     public static func value<V: Value>(from string: String, using encoding: String.Encoding = .utf8) throws -> Set<V> {
         guard let data = string.data(using: encoding) else {
             throw OutlawError.typeMismatch(expected: Data.self, actual: String.self)
@@ -270,6 +370,11 @@ public extension JSON {
     
     public static func value<V: Value>(from string: String, using encoding: String.Encoding = .utf8) -> Set<V>? {
         return try? self.value(from: string, using: encoding)
+    }
+    
+    public static func value<V: Value>(from string: String, using encoding: String.Encoding = .utf8, or value: Set<V>) -> Set<V> {
+        guard let result: Set<V> = self.value(from: string, using: encoding) else { return value }
+        return result
     }
 }
 
@@ -286,6 +391,11 @@ public extension JSON {
         return try? self.value(from: url)
     }
     
+    public static func value<V>(from url: URL, or value: [V]) -> [V] {
+        guard let result: [V] = self.value(from: url) else { return value }
+        return result
+    }
+    
     public static func value<K, V>(from url: URL) throws -> [K: V] {
         let data = try Data(contentsOf: url)
         return try self.value(from: data)
@@ -293,6 +403,11 @@ public extension JSON {
     
     public static func value<K, V>(from url: URL) -> [K: V]? {
         return try? self.value(from: url)
+    }
+    
+    public static func value<K, V>(from url: URL, or value: [K: V]) -> [K: V] {
+        guard let result: [K: V] = self.value(from: url) else { return value }
+        return result
     }
     
     public static func value<V>(from url: URL) throws -> Set<V> {
@@ -304,6 +419,11 @@ public extension JSON {
         return try? self.value(from: url)
     }
     
+    public static func value<V>(from url: URL, or value: Set<V>) -> Set<V> {
+        guard let result: Set<V> = self.value(from: url) else { return value }
+        return result
+    }
+    
     public static func value<V: Value>(from url: URL) throws -> V {
         let data = try Data(contentsOf: url)
         return try self.value(from: data)
@@ -311,6 +431,11 @@ public extension JSON {
     
     public static func value<V: Value>(from url: URL) -> V? {
         return try? self.value(from: url)
+    }
+    
+    public static func value<V: Value>(from url: URL, or value: V) -> V {
+        guard let result: V = self.value(from: url) else { return value }
+        return result
     }
 }
 
@@ -324,6 +449,11 @@ public extension JSON {
         return try? self.value(from: url)
     }
     
+    public static func value<V: Value>(from url: URL, or value: [V]) -> [V] {
+        guard let result: [V] = self.value(from: url) else { return value }
+        return result
+    }
+    
     public static func value<K, V: Value>(from url: URL) throws -> [K: V] {
         let data = try Data(contentsOf: url)
         return try self.value(from: data)
@@ -333,6 +463,11 @@ public extension JSON {
         return try? self.value(from: url)
     }
     
+    public static func value<K, V: Value>(from url: URL, or value: [K: V]) -> [K: V] {
+        guard let result: [K: V] = self.value(from: url) else { return value }
+        return result
+    }
+    
     public static func value<V: Value>(from url: URL) throws -> Set<V> {
         let data = try Data(contentsOf: url)
         return try self.value(from: data)
@@ -340,5 +475,10 @@ public extension JSON {
     
     public static func value<V: Value>(from url: URL) -> Set<V>? {
         return try? self.value(from: url)
+    }
+    
+    public static func value<V: Value>(from url: URL, or value: Set<V>) -> Set<V> {
+        guard let result: Set<V> = self.value(from: url) else { return value }
+        return result
     }
 }
