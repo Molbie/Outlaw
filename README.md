@@ -53,11 +53,11 @@ We've looked at going from our `[String: Any]` into our local models, but what a
 ```swift
 extension User: Serializable {
 	func serialized() -> [String: Any] {
-        return {
+        return [
             "id": "id",
             "name" : name,
             "email": email
-        }
+        ]
     }
 }
 ```
