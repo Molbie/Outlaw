@@ -9,7 +9,7 @@
 import Foundation
 
 
-public enum OutlawError: Error, CustomStringConvertible {
+public enum OutlawError: Error, CustomStringConvertible, CustomDebugStringConvertible {
     case typeMismatch(expected: Any, actual: Any)
     case keyNotFound(key: Key)
     case nullValueWithKey(key: Key)
@@ -35,5 +35,9 @@ public enum OutlawError: Error, CustomStringConvertible {
         case let .typeMismatchWithIndex(index, expected, actual):
             return "Type mismatch. Expected `\(expected)` for index: `\(index.outlawIndex)`. Got `\(actual)`"
         }
+    }
+    
+    public var debugDescription: String {
+        return description
     }
 }
