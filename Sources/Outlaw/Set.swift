@@ -43,9 +43,9 @@ public extension Set {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
         
-        let array: [Element] = elementArray.flatMap { $0 }
+        let array: [Element] = elementArray.compactMap { $0 }
         let transformedArray: [T?] = array.map { transform($0) }
-        return Set<T>(transformedArray.flatMap { $0 })
+        return Set<T>(transformedArray.compactMap { $0 })
     }
     
     public static func value<T>(from object: Any, with transform:(Element?) -> T?) throws -> Set<T> {
@@ -54,6 +54,6 @@ public extension Set {
         }
         
         let transformedArray: [T?] = elementArray.map { transform($0) }
-        return Set<T>(transformedArray.flatMap { $0 })
+        return Set<T>(transformedArray.compactMap { $0 })
     }
 }

@@ -16,7 +16,11 @@ public protocol Extractable {
 
 public extension Extractable {
     public func any(for key: Key) throws -> Any {
+    #if swift(>=4.0)
+        let pathComponents = key.outlawKey.split(separator: ".").map(String.init)
+    #else
         let pathComponents = key.outlawKey.characters.split(separator: ".").map(String.init)
+    #endif
         var accumulator: Any = self
         
         for component in pathComponents {

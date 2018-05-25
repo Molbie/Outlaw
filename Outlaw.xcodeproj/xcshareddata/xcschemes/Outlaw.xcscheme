@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0810"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AE8040301DCB3CAB00EB4E3C"
+               BlueprintIdentifier = "AFBED24E1C7E1AAB00622331"
                BuildableName = "Outlaw.framework"
                BlueprintName = "Outlaw"
                ReferencedContainer = "container:Outlaw.xcodeproj">
@@ -26,14 +26,14 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      codeCoverageEnabled = "YES"
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AE8040391DCB3CAC00EB4E3C"
+               BlueprintIdentifier = "AFBED2581C7E1AAB00622331"
                BuildableName = "OutlawTests.xctest"
                BlueprintName = "OutlawTests"
                ReferencedContainer = "container:Outlaw.xcodeproj">
@@ -43,7 +43,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AE8040301DCB3CAB00EB4E3C"
+            BlueprintIdentifier = "AFBED24E1C7E1AAB00622331"
             BuildableName = "Outlaw.framework"
             BlueprintName = "Outlaw"
             ReferencedContainer = "container:Outlaw.xcodeproj">
@@ -65,7 +65,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AE8040301DCB3CAB00EB4E3C"
+            BlueprintIdentifier = "AFBED24E1C7E1AAB00622331"
             BuildableName = "Outlaw.framework"
             BlueprintName = "Outlaw"
             ReferencedContainer = "container:Outlaw.xcodeproj">
@@ -83,7 +83,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AE8040301DCB3CAB00EB4E3C"
+            BlueprintIdentifier = "AFBED24E1C7E1AAB00622331"
             BuildableName = "Outlaw.framework"
             BlueprintName = "Outlaw"
             ReferencedContainer = "container:Outlaw.xcodeproj">
