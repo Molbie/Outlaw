@@ -81,12 +81,12 @@ class DoubleTests: OutlawTestCase {
     
     func testLowerBounds() {
         let value: Double = try! data.value(for: "minValue")
-        XCTAssertEqualWithAccuracy(value, 2.2250738585072e-115, accuracy: 0.1e-115)
+        XCTAssertEqual(value, 2.2250738585072e-115, accuracy: 0.1e-115)
     }
     
     func testUpperBounds() {
         let value: Double = try! data.value(for: "maxValue")
-        XCTAssertEqualWithAccuracy(value, 1.79769313486232e+115, accuracy: 0.1e+115)
+        XCTAssertEqual(value, 1.79769313486232e+115, accuracy: 0.1e+115)
     }
     
 // MARK: -

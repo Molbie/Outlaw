@@ -27,16 +27,16 @@ public extension Set {
     
     public static func mappedValue<Element: ValueWithContext, T>(from object: Any, using context: Element.Context, with transform:(Element?, Element.Context) throws -> T) throws -> Set<T> {
         let anyArray: [T?] = try [Element?].mappedValue(from: object, using: context, with: transform)
-        return Set<T>(anyArray.flatMap { $0 })
+        return Set<T>(anyArray.compactMap { $0 })
     }
     
     public static func mappedValue<Element: ValueWithContext, T>(from object: Any, using context: Element.Context, with transform:(Element, Element.Context) -> T?) throws -> Set<T> {
         let anyArray: [T?] = try [Element?].mappedValue(from: object, using: context, with: transform)
-        return Set<T>(anyArray.flatMap { $0 })
+        return Set<T>(anyArray.compactMap { $0 })
     }
     
     public static func mappedValue<Element: ValueWithContext, T>(from object: Any, using context: Element.Context, with transform:(Element?, Element.Context) -> T?) throws -> Set<T> {
         let anyArray: [T?] = try [Element?].mappedValue(from: object, using: context, with: transform)
-        return Set<T>(anyArray.flatMap { $0 })
+        return Set<T>(anyArray.compactMap { $0 })
     }
 }
