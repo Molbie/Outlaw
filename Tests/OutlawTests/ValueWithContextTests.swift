@@ -11,6 +11,10 @@ import XCTest
 
 
 class ValueWithContextTests: OutlawTestCase {
+    static var allTests = [("testInvalidContext", testInvalidContext),
+                           ("testPersonNoAddress", testPersonNoAddress),
+                           ("testPersonWithAddress", testPersonWithAddress)]
+    
     override func setUp() {
         super.setUp()
         

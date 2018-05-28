@@ -11,6 +11,27 @@ import XCTest
 
 
 class EnumTests: OutlawTestCase {
+    static var allTests = [("testValue", testValue),
+                           ("testArrayValue", testArrayValue),
+                           ("testDictionaryValue", testDictionaryValue),
+                           ("testSetValue", testSetValue),
+                           ("testNestedValue", testNestedValue),
+                           ("testNestedArrayValue", testNestedArrayValue),
+                           ("testNestedDictionaryValue", testNestedDictionaryValue),
+                           ("testNestedSetValue", testNestedSetValue),
+                           ("testKeyNotFound", testKeyNotFound),
+                           ("testTypeMismatch", testTypeMismatch),
+                           ("testOptional", testOptional),
+                           ("testOptionalArray", testOptionalArray),
+                           ("testOptionalDictionary", testOptionalDictionary),
+                           ("testOptionalSet", testOptionalSet),
+                           ("testOptionalNestedValue", testOptionalNestedValue),
+                           ("testOptionalNestedArray", testOptionalNestedArray),
+                           ("testOptionalNestedDictionary", testOptionalNestedDictionary),
+                           ("testOptionalNestedSet", testOptionalNestedSet),
+                           ("testOptionalKeyNotFound", testOptionalKeyNotFound),
+                           ("testOptionalTypeMismatch", testOptionalTypeMismatch)]
+    
     func testValue() {
         let value: DayOfWeek = try! data.value(for: "enum")
         XCTAssertEqual(value, .friday)
