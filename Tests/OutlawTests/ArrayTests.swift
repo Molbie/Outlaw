@@ -11,6 +11,27 @@ import XCTest
 
 
 class ArrayTests: OutlawTestCase, DateTesting {
+    static var allTests = [("testArray", testArray),
+                           ("testArrayOptionalValue", testArrayOptionalValue),
+                           ("testNestedArray", testNestedArray),
+                           ("testNestedArrayOptionalValue", testNestedArrayOptionalValue),
+                           ("testKeyNotFound", testKeyNotFound),
+                           ("testTypeMismatch", testTypeMismatch),
+                           ("testOptionalArray", testOptionalArray),
+                           ("testOptionalArrayOptionalValue", testOptionalArrayOptionalValue),
+                           ("testNestedOptionalArray", testNestedOptionalArray),
+                           ("testNestedOptionalArrayOptionalValue", testNestedOptionalArrayOptionalValue),
+                           ("testOptionalKeyNotFound", testOptionalKeyNotFound),
+                           ("testOptionalTypeMismatch", testOptionalTypeMismatch),
+                           ("testTransformValue", testTransformValue),
+                           ("testOptionalTransformValue", testOptionalTransformValue),
+                           ("testTransformOptionalValue", testTransformOptionalValue),
+                           ("testOptionalTransformOptionalValue", testOptionalTransformOptionalValue),
+                           ("testTransformValueOfOptionals", testTransformValueOfOptionals),
+                           ("testOptionalTransformValueOfOptionals", testOptionalTransformValueOfOptionals),
+                           ("testTransformOptionalValueOfOptionals", testTransformOptionalValueOfOptionals),
+                           ("testOptionalTransformOptionalValueOfOptionals", testOptionalTransformOptionalValueOfOptionals)]
+    
     func testArray() {
         let bool: [Bool] = try! data.value(for: "bool")
         XCTAssertEqual(bool.count, 10)

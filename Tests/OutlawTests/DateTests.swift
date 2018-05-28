@@ -11,6 +11,19 @@ import XCTest
 
 
 class DateTests: OutlawTestCase, DateTesting {
+    static var allTests = [("testValue", testValue),
+                           ("testNestedValue", testNestedValue),
+                           ("testKeyNotFound", testKeyNotFound),
+                           ("testTypeMismatch", testTypeMismatch),
+                           ("testOptional", testOptional),
+                           ("testOptionalNestedValue", testOptionalNestedValue),
+                           ("testOptionalKeyNotFound", testOptionalKeyNotFound),
+                           ("testOptionalTypeMismatch", testOptionalTypeMismatch),
+                           ("testTransformValue", testTransformValue),
+                           ("testOptionalTransformValue", testOptionalTransformValue),
+                           ("testTransformOptionalValue", testTransformOptionalValue),
+                           ("testOptionalTransformOptionalValue", testOptionalTransformOptionalValue)]
+    
     func testValue() {
         let value: Date = try! data.value(for: "date")
         XCTAssertEqual(formatDate(value), formatDate(dateForAssert()))

@@ -11,6 +11,10 @@ import XCTest
 
 
 class DeserializableWithContextTests: OutlawTestCase {
+    static var allTests = [("testValue", testValue),
+                           ("testValueNoAddress", testValueNoAddress),
+                           ("testValueExcludeAddress", testValueExcludeAddress)]
+    
     override func setUp() {
         super.setUp()
         

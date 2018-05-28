@@ -11,6 +11,21 @@ import XCTest
 
 
 class FloatTests: OutlawTestCase {
+    static var allTests = [("testValue", testValue),
+                           ("testNestedValue", testNestedValue),
+                           ("testKeyNotFound", testKeyNotFound),
+                           ("testTypeMismatch", testTypeMismatch),
+                           ("testOptional", testOptional),
+                           ("testOptionalNestedValue", testOptionalNestedValue),
+                           ("testOptionalKeyNotFound", testOptionalKeyNotFound),
+                           ("testOptionalTypeMismatch", testOptionalTypeMismatch),
+                           ("testLowerBounds", testLowerBounds),
+                           ("testUpperBounds", testUpperBounds),
+                           ("testTransformValue", testTransformValue),
+                           ("testOptionalTransformValue", testOptionalTransformValue),
+                           ("testTransformOptionalValue", testTransformOptionalValue),
+                           ("testOptionalTransformOptionalValue", testOptionalTransformOptionalValue)]
+    
     func testValue() {
         let value: Float = try! data.value(for: "float")
         XCTAssertEqual(value, 3.14)

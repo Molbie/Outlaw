@@ -18,9 +18,15 @@ extension Dictionary: Extractable {
 
 extension NSDictionary: Extractable {
     public func any(for key: Outlaw.Key) throws -> Any {
+#if os(Linux)
+        guard let value: Any = self.value(forKey: key.outlawKey) else {
+            throw OutlawError.keyNotFound(key: key)
+        }
+#else
         guard let value: Any = self.value(forKeyPath: key.outlawKey) else {
             throw OutlawError.keyNotFound(key: key)
         }
+#endif
         if let _ = value as? NSNull {
             throw OutlawError.nullValueWithKey(key: key)
         }

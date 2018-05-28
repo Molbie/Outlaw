@@ -32,13 +32,18 @@ public extension JSON {
     }
     
     public static func write(_ collection: JSONCollection, to stream: OutputStream, withFormatting: Bool = false) throws -> Int {
-        var error: NSError? = nil
         let options: JSONSerialization.WritingOptions = withFormatting ? .prettyPrinted : []
-        let result = JSONSerialization.writeJSONObject(collection, to: stream, options: options, error: &error)
         
+#if os(Linux)
+        let result = try JSONSerialization.writeJSONObject(collection, toStream: stream, options: options)
+#else
+        var error: NSError? = nil
+        let result = JSONSerialization.writeJSONObject(collection, to: stream, options: options, error: &error)
         if let error = error {
             throw error
         }
+#endif
+        
         return result
     }
 }
