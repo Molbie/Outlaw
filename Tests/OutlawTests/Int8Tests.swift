@@ -11,6 +11,21 @@ import XCTest
 
 
 class Int8Tests: OutlawTestCase {
+    static var allTests = [("testValue", testValue),
+                           ("testNestedValue", testNestedValue),
+                           ("testKeyNotFound", testKeyNotFound),
+                           ("testTypeMismatch", testTypeMismatch),
+                           ("testOptional", testOptional),
+                           ("testOptionalNestedValue", testOptionalNestedValue),
+                           ("testOptionalKeyNotFound", testOptionalKeyNotFound),
+                           ("testOptionalTypeMismatch", testOptionalTypeMismatch),
+                           ("testLowerBounds", testLowerBounds),
+                           ("testUpperBounds", testUpperBounds),
+                           ("testTransformValue", testTransformValue),
+                           ("testOptionalTransformValue", testOptionalTransformValue),
+                           ("testTransformOptionalValue", testTransformOptionalValue),
+                           ("testOptionalTransformOptionalValue", testOptionalTransformOptionalValue)]
+    
     func testValue() {
         let value: Int8 = try! data.value(for: "int8")
         XCTAssertEqual(value, -8)

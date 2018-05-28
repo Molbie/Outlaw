@@ -11,6 +11,24 @@ import XCTest
 
 
 class SetTests: OutlawTestCase, DateTesting {
+    static var allTests = [("testValue", testValue),
+                           ("testNestedValue", testNestedValue),
+                           ("testKeyNotFound", testKeyNotFound),
+                           ("testTypeMismatch", testTypeMismatch),
+                           ("testOptional", testOptional),
+                           ("testOptionalNestedValue", testOptionalNestedValue),
+                           ("testOptionalKeyNotFound", testOptionalKeyNotFound),
+                           ("testOptionalTypeMismatch", testOptionalTypeMismatch),
+                           ("testTransformValue", testTransformValue),
+                           ("testOptionalTransformValue", testOptionalTransformValue),
+                           ("testTransformOptionalValue", testTransformOptionalValue),
+                           ("testOptionalTransformOptionalValue", testOptionalTransformOptionalValue),
+                           ("testTransformValueOfOptionals", testTransformValueOfOptionals),
+                           ("testOptionalTransformValueOfOptionals", testOptionalTransformValueOfOptionals),
+                           ("testTransformOptionalValueOfOptionals", testTransformOptionalValueOfOptionals),
+                           ("testOptionalTransformOptionalValueOfOptionals", testOptionalTransformOptionalValueOfOptionals)]
+    
+    
     func testValue() {
         let bool: Set<Bool> = try! data.value(for: "bool")
         XCTAssertEqual(bool.count, 2)

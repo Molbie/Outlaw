@@ -11,6 +11,21 @@ import XCTest
 
 
 class UInt16Tests: OutlawTestCase {
+    static var allTests = [("testValue", testValue),
+                           ("testNestedValue", testNestedValue),
+                           ("testKeyNotFound", testKeyNotFound),
+                           ("testTypeMismatch", testTypeMismatch),
+                           ("testOptional", testOptional),
+                           ("testOptionalNestedValue", testOptionalNestedValue),
+                           ("testOptionalKeyNotFound", testOptionalKeyNotFound),
+                           ("testOptionalTypeMismatch", testOptionalTypeMismatch),
+                           ("testLowerBounds", testLowerBounds),
+                           ("testUpperBounds", testUpperBounds),
+                           ("testTransformValue", testTransformValue),
+                           ("testOptionalTransformValue", testOptionalTransformValue),
+                           ("testTransformOptionalValue", testTransformOptionalValue),
+                           ("testOptionalTransformOptionalValue", testOptionalTransformOptionalValue)]
+    
     func testValue() {
         let value: UInt16 = try! data.value(for: "uint16")
         XCTAssertEqual(value, 16)

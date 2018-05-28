@@ -11,6 +11,11 @@ import XCTest
 
 
 class UpdatableWithContextTests: OutlawTestCase {
+    static var allTests = [("testUpdateNoAddress", testUpdateNoAddress),
+                           ("testUpdateExcludeAddress", testUpdateExcludeAddress),
+                           ("testUpdateCreateAddress", testUpdateCreateAddress),
+                           ("testUpdateWithAddress", testUpdateWithAddress)]
+    
     override func setUp() {
         super.setUp()
         

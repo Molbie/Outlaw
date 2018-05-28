@@ -11,6 +11,27 @@ import XCTest
 
 
 class DeserializableTests: OutlawTestCase {
+    static var allTests = [("testValue", testValue),
+                           ("testArrayValue", testArrayValue),
+                           ("testDictionaryValue", testDictionaryValue),
+                           ("testSetValue", testSetValue),
+                           ("testNestedValue", testNestedValue),
+                           ("testNestedArrayValue", testNestedArrayValue),
+                           ("testNestedDictionaryValue", testNestedDictionaryValue),
+                           ("testNestedSetValue", testNestedSetValue),
+                           ("testKeyNotFound", testKeyNotFound),
+                           ("testTypeMismatch", testTypeMismatch),
+                           ("testOptional", testOptional),
+                           ("testOptionalArray", testOptionalArray),
+                           ("testOptionalDictionary", testOptionalDictionary),
+                           ("testOptionalSet", testOptionalSet),
+                           ("testOptionalNestedValue", testOptionalNestedValue),
+                           ("testOptionalNestedArray", testOptionalNestedArray),
+                           ("testOptionalNestedDictionary", testOptionalNestedDictionary),
+                           ("testOptionalNestedSet", testOptionalNestedSet),
+                           ("testOptionalKeyNotFound", testOptionalKeyNotFound),
+                           ("testOptionalTypeMismatch", testOptionalTypeMismatch)]
+    
     override func setUp() {
         super.setUp()
         
