@@ -11,6 +11,9 @@ import XCTest
 
 
 class SerializableTests: OutlawTestCase {
+    static var allTests = [("testValue", testValue),
+                           ("testValueNoAddress", testValueNoAddress)]
+    
     override func setUp() {
         super.setUp()
         

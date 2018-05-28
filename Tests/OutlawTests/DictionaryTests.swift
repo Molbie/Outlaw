@@ -11,6 +11,28 @@ import XCTest
 
 
 class DictionaryTests: OutlawTestCase, DateTesting {
+    static var allTests = [("testDictionary", testDictionary),
+                           ("testDictionaryOptionalValue", testDictionaryOptionalValue),
+                           ("testNestedKeysOnDifferentOuterInnerTypes", testNestedKeysOnDifferentOuterInnerTypes),
+                           ("testNestedDictionary", testNestedDictionary),
+                           ("testNestedDictionaryOptionalValue", testNestedDictionaryOptionalValue),
+                           ("testKeyNotFound", testKeyNotFound),
+                           ("testTypeMismatch", testTypeMismatch),
+                           ("testOptionalDictionary", testOptionalDictionary),
+                           ("testOptionalDictionaryOptionalValue", testOptionalDictionaryOptionalValue),
+                           ("testNestedOptionalDictionary", testNestedOptionalDictionary),
+                           ("testNestedOptionalDictionaryOptionalValue", testNestedOptionalDictionaryOptionalValue),
+                           ("testOptionalKeyNotFound", testOptionalKeyNotFound),
+                           ("testOptionalTypeMismatch", testOptionalTypeMismatch),
+                           ("testTransformValue", testTransformValue),
+                           ("testOptionalTransformValue", testOptionalTransformValue),
+                           ("testTransformOptionalValue", testTransformOptionalValue),
+                           ("testOptionalTransformOptionalValue", testOptionalTransformOptionalValue),
+                           ("testTransformValueOfOptionals", testTransformValueOfOptionals),
+                           ("testOptionalTransformValueOfOptionals", testOptionalTransformValueOfOptionals),
+                           ("testTransformOptionalValueOfOptionals", testTransformOptionalValueOfOptionals),
+                           ("testOptionalTransformOptionalValueOfOptionals", testOptionalTransformOptionalValueOfOptionals)]
+    
     func testDictionary() {
         let bool: [String: Bool] = try! data.value(for: "bool")
         XCTAssertEqual(bool["O"], true)
