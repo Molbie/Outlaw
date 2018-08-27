@@ -34,27 +34,17 @@ public class OutlawTestCase: XCTestCase {
 public protocol DateTesting {}
 public extension DateTesting {
     func formatDate(_ date: Date) -> String {
-        if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
-            return ISO8601DateFormatter().string(from: date)
-        }
-        else {
-            let formatter = DateFormatter()
-            formatter.timeZone = TimeZone(abbreviation: "GMT")
-            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssXXXXX"
-            return formatter.string(from: date)
-        }
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(abbreviation: "GMT")
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssXXXXX"
+        return formatter.string(from: date)
     }
     
     func formatString(_ string: String) -> Date {
-        if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
-            return ISO8601DateFormatter().date(from: string)!
-        }
-        else {
-            let formatter = DateFormatter()
-            formatter.timeZone = TimeZone(abbreviation: "GMT")
-            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssXXXXX"
-            return formatter.date(from: string)!
-        }
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(abbreviation: "GMT")
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssXXXXX"
+        return formatter.date(from: string)!
     }
     
     func dateForAssert() -> Date {

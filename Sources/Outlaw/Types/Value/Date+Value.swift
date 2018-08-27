@@ -15,16 +15,7 @@ extension Date: Value {
             throw OutlawError.typeMismatch(expected: String.self, actual: type(of: object))
         }
         
-        let formattedDate: Date?
-        
-        if #available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
-            formattedDate = ISO8601DateFormatter().date(from: value)
-        }
-        else {
-            formattedDate = DateFormatter.ISO8601DateFormatter.date(from: value)
-        }
-        
-        guard let date = formattedDate else {
+        guard let date = DateFormatter.ISO8601DateFormatter.date(from: value) else {
             throw OutlawError.typeMismatch(expected: "ISO8601 formatted string", actual: value)
         }
         return date
