@@ -32,67 +32,68 @@ class SetTests: OutlawTestCase, DateTesting {
     func testValue() {
         let bool: Set<Bool> = try! data.value(for: "bool")
         XCTAssertEqual(bool.count, 2)
-        XCTAssertEqual(bool.first, false)
+        XCTAssertEqual(bool.contains(true), true)
+        XCTAssertEqual(bool.contains(false), true)
         
         let string: Set<String> = try! data.value(for: "string")
         XCTAssertEqual(string.count, 1)
-        XCTAssertEqual(string.first, "Hello, Outlaw!")
+        XCTAssertEqual(string.contains("Hello, Outlaw!"), true)
         
         let character: Set<Character> = try! data.value(for: "character")
         XCTAssertEqual(character.count, 1)
-        XCTAssertEqual(character.first, "O")
+        XCTAssertEqual(character.contains("O"), true)
         
         let float: Set<Float> = try! data.value(for: "float")
         XCTAssertEqual(float.count, 1)
-        XCTAssertEqual(float.first, 3.14)
+        XCTAssertEqual(float.contains(3.14), true)
         
         let double: Set<Double> = try! data.value(for: "double")
         XCTAssertEqual(double.count, 1)
-        XCTAssertEqual(double.first, 3.14159265359)
+        XCTAssertEqual(double.contains(3.14159265359), true)
         
         let int: Set<Int> = try! data.value(for: "int")
         XCTAssertEqual(int.count, 1)
-        XCTAssertEqual(int.first, -3)
+        XCTAssertEqual(int.contains(-3), true)
         
         let int8: Set<Int8> = try! data.value(for: "int8")
         XCTAssertEqual(int8.count, 1)
-        XCTAssertEqual(int8.first, -8)
+        XCTAssertEqual(int8.contains(-8), true)
         
         let int16: Set<Int16> = try! data.value(for: "int16")
         XCTAssertEqual(int16.count, 1)
-        XCTAssertEqual(int16.first, -16)
+        XCTAssertEqual(int16.contains(-16), true)
         
         let int32: Set<Int32> = try! data.value(for: "int32")
         XCTAssertEqual(int32.count, 1)
-        XCTAssertEqual(int32.first, -32)
+        XCTAssertEqual(int32.contains(-32), true)
         
         let int64: Set<Int64> = try! data.value(for: "int64")
         XCTAssertEqual(int64.count, 1)
-        XCTAssertEqual(int64.first, -64)
+        XCTAssertEqual(int64.contains(-64), true)
         
         let uint: Set<UInt> = try! data.value(for: "uint")
         XCTAssertEqual(uint.count, 1)
-        XCTAssertEqual(uint.first, 3)
+        XCTAssertEqual(uint.contains(3), true)
         
         let uint8: Set<UInt8> = try! data.value(for: "uint8")
         XCTAssertEqual(uint8.count, 1)
-        XCTAssertEqual(uint8.first, 8)
+        XCTAssertEqual(uint8.contains(8), true)
         
         let uint16: Set<UInt16> = try! data.value(for: "uint16")
         XCTAssertEqual(uint16.count, 1)
-        XCTAssertEqual(uint16.first, 16)
+        XCTAssertEqual(uint16.contains(16), true)
         
         let uint32: Set<UInt32> = try! data.value(for: "uint32")
         XCTAssertEqual(uint32.count, 1)
-        XCTAssertEqual(uint32.first, 32)
+        XCTAssertEqual(uint32.contains(32), true)
         
         let uint64: Set<UInt64> = try! data.value(for: "uint64")
         XCTAssertEqual(uint64.count, 1)
-        XCTAssertEqual(uint64.first, 64)
+        XCTAssertEqual(uint64.contains(64), true)
         
         let url: Set<URL> = try! data.value(for: "url")
         XCTAssertEqual(url.count, 1)
-        XCTAssertEqual(url.first?.absoluteString, "https://developer.apple.com/")
+        XCTAssertEqual(url.contains(URL(string: "https://developer.apple.com/")!), true)
         
         let date: Set<Date> = try! data.value(for: "date")
         XCTAssertEqual(date.count, 1)
@@ -102,67 +103,68 @@ class SetTests: OutlawTestCase, DateTesting {
     func testNestedValue() {
         let bool: Set<Bool> = try! data.value(for: "object.bool")
         XCTAssertEqual(bool.count, 2)
-        XCTAssertEqual(bool.first, false)
+        XCTAssertEqual(bool.contains(true), true)
+        XCTAssertEqual(bool.contains(false), true)
         
         let string: Set<String> = try! data.value(for: "object.string")
         XCTAssertEqual(string.count, 1)
-        XCTAssertEqual(string.first, "Hello, Outlaw!")
+        XCTAssertEqual(string.contains("Hello, Outlaw!"), true)
         
         let character: Set<Character> = try! data.value(for: "object.character")
         XCTAssertEqual(character.count, 1)
-        XCTAssertEqual(character.first, "O")
+        XCTAssertEqual(character.contains("O"), true)
         
         let float: Set<Float> = try! data.value(for: "object.float")
         XCTAssertEqual(float.count, 1)
-        XCTAssertEqual(float.first, 3.14)
+        XCTAssertEqual(float.contains(3.14), true)
         
         let double: Set<Double> = try! data.value(for: "object.double")
         XCTAssertEqual(double.count, 1)
-        XCTAssertEqual(double.first, 3.14159265359)
+        XCTAssertEqual(double.contains(3.14159265359), true)
         
         let int: Set<Int> = try! data.value(for: "object.int")
         XCTAssertEqual(int.count, 1)
-        XCTAssertEqual(int.first, -3)
+        XCTAssertEqual(int.contains(-3), true)
         
         let int8: Set<Int8> = try! data.value(for: "object.int8")
         XCTAssertEqual(int8.count, 1)
-        XCTAssertEqual(int8.first, -8)
+        XCTAssertEqual(int8.contains(-8), true)
         
         let int16: Set<Int16> = try! data.value(for: "object.int16")
         XCTAssertEqual(int16.count, 1)
-        XCTAssertEqual(int16.first, -16)
+        XCTAssertEqual(int16.contains(-16), true)
         
         let int32: Set<Int32> = try! data.value(for: "object.int32")
         XCTAssertEqual(int32.count, 1)
-        XCTAssertEqual(int32.first, -32)
+        XCTAssertEqual(int32.contains(-32), true)
         
         let int64: Set<Int64> = try! data.value(for: "object.int64")
         XCTAssertEqual(int64.count, 1)
-        XCTAssertEqual(int64.first, -64)
+        XCTAssertEqual(int64.contains(-64), true)
         
         let uint: Set<UInt> = try! data.value(for: "object.uint")
         XCTAssertEqual(uint.count, 1)
-        XCTAssertEqual(uint.first, 3)
+        XCTAssertEqual(uint.contains(3), true)
         
         let uint8: Set<UInt8> = try! data.value(for: "object.uint8")
         XCTAssertEqual(uint8.count, 1)
-        XCTAssertEqual(uint8.first, 8)
+        XCTAssertEqual(uint8.contains(8), true)
         
         let uint16: Set<UInt16> = try! data.value(for: "object.uint16")
         XCTAssertEqual(uint16.count, 1)
-        XCTAssertEqual(uint16.first, 16)
+        XCTAssertEqual(uint16.contains(16), true)
         
         let uint32: Set<UInt32> = try! data.value(for: "object.uint32")
         XCTAssertEqual(uint32.count, 1)
-        XCTAssertEqual(uint32.first, 32)
+        XCTAssertEqual(uint32.contains(32), true)
         
         let uint64: Set<UInt64> = try! data.value(for: "object.uint64")
         XCTAssertEqual(uint64.count, 1)
-        XCTAssertEqual(uint64.first, 64)
+        XCTAssertEqual(uint64.contains(64), true)
         
         let url: Set<URL> = try! data.value(for: "object.url")
         XCTAssertEqual(url.count, 1)
-        XCTAssertEqual(url.first?.absoluteString, "https://developer.apple.com/")
+        XCTAssertEqual(url.contains(URL(string: "https://developer.apple.com/")!), true)
         
         let date: Set<Date> = try! data.value(for: "object.date")
         XCTAssertEqual(date.count, 1)
@@ -207,67 +209,68 @@ class SetTests: OutlawTestCase, DateTesting {
     func testOptional() {
         let bool: Set<Bool>? = data.value(for: "bool")
         XCTAssertEqual(bool?.count, 2)
-        XCTAssertEqual(bool?.first, false)
+        XCTAssertEqual(bool?.contains(true), true)
+        XCTAssertEqual(bool?.contains(false), true)
         
         let string: Set<String>? = data.value(for: "string")
         XCTAssertEqual(string?.count, 1)
-        XCTAssertEqual(string?.first, "Hello, Outlaw!")
+        XCTAssertEqual(string?.contains("Hello, Outlaw!"), true)
         
         let character: Set<Character>? = data.value(for: "character")
         XCTAssertEqual(character?.count, 1)
-        XCTAssertEqual(character?.first, "O")
+        XCTAssertEqual(character?.contains("O"), true)
         
         let float: Set<Float>? = data.value(for: "float")
         XCTAssertEqual(float?.count, 1)
-        XCTAssertEqual(float?.first, 3.14)
+        XCTAssertEqual(float?.contains(3.14), true)
         
         let double: Set<Double>? = data.value(for: "double")
         XCTAssertEqual(double?.count, 1)
-        XCTAssertEqual(double?.first, 3.14159265359)
+        XCTAssertEqual(double?.contains(3.14159265359), true)
         
         let int: Set<Int>? = data.value(for: "int")
         XCTAssertEqual(int?.count, 1)
-        XCTAssertEqual(int?.first, -3)
+        XCTAssertEqual(int?.contains(-3), true)
         
         let int8: Set<Int8>? = data.value(for: "int8")
         XCTAssertEqual(int8?.count, 1)
-        XCTAssertEqual(int8?.first, -8)
+        XCTAssertEqual(int8?.contains(-8), true)
         
         let int16: Set<Int16>? = data.value(for: "int16")
         XCTAssertEqual(int16?.count, 1)
-        XCTAssertEqual(int16?.first, -16)
+        XCTAssertEqual(int16?.contains(-16), true)
         
         let int32: Set<Int32>? = data.value(for: "int32")
         XCTAssertEqual(int32?.count, 1)
-        XCTAssertEqual(int32?.first, -32)
+        XCTAssertEqual(int32?.contains(-32), true)
         
         let int64: Set<Int64>? = data.value(for: "int64")
         XCTAssertEqual(int64?.count, 1)
-        XCTAssertEqual(int64?.first, -64)
+        XCTAssertEqual(int64?.contains(-64), true)
         
         let uint: Set<UInt>? = data.value(for: "uint")
         XCTAssertEqual(uint?.count, 1)
-        XCTAssertEqual(uint?.first, 3)
+        XCTAssertEqual(uint?.contains(3), true)
         
         let uint8: Set<UInt8>? = data.value(for: "uint8")
         XCTAssertEqual(uint8?.count, 1)
-        XCTAssertEqual(uint8?.first, 8)
+        XCTAssertEqual(uint8?.contains(8), true)
         
         let uint16: Set<UInt16>? = data.value(for: "uint16")
         XCTAssertEqual(uint16?.count, 1)
-        XCTAssertEqual(uint16?.first, 16)
+        XCTAssertEqual(uint16?.contains(16), true)
         
         let uint32: Set<UInt32>? = data.value(for: "uint32")
         XCTAssertEqual(uint32?.count, 1)
-        XCTAssertEqual(uint32?.first, 32)
+        XCTAssertEqual(uint32?.contains(32), true)
         
         let uint64: Set<UInt64>? = data.value(for: "uint64")
         XCTAssertEqual(uint64?.count, 1)
-        XCTAssertEqual(uint64?.first, 64)
+        XCTAssertEqual(uint64?.contains(64), true)
         
         let url: Set<URL>? = data.value(for: "url")
         XCTAssertEqual(url?.count, 1)
-        XCTAssertEqual(url?.first?.absoluteString, "https://developer.apple.com/")
+        XCTAssertEqual(url?.contains(URL(string: "https://developer.apple.com/")!), true)
         
         let date: Set<Date>? = data.value(for: "date")
         XCTAssertEqual(date?.count, 1)
@@ -277,67 +280,68 @@ class SetTests: OutlawTestCase, DateTesting {
     func testOptionalNestedValue() {
         let bool: Set<Bool>? = data.value(for: "object.bool")
         XCTAssertEqual(bool?.count, 2)
-        XCTAssertEqual(bool?.first, false)
+        XCTAssertEqual(bool?.contains(true), true)
+        XCTAssertEqual(bool?.contains(false), true)
         
         let string: Set<String>? = data.value(for: "object.string")
         XCTAssertEqual(string?.count, 1)
-        XCTAssertEqual(string?.first, "Hello, Outlaw!")
+        XCTAssertEqual(string?.contains("Hello, Outlaw!"), true)
         
         let character: Set<Character>? = data.value(for: "object.character")
         XCTAssertEqual(character?.count, 1)
-        XCTAssertEqual(character?.first, "O")
+        XCTAssertEqual(character?.contains("O"), true)
         
         let float: Set<Float>? = data.value(for: "object.float")
         XCTAssertEqual(float?.count, 1)
-        XCTAssertEqual(float?.first, 3.14)
+        XCTAssertEqual(float?.contains(3.14), true)
         
         let double: Set<Double>? = data.value(for: "object.double")
         XCTAssertEqual(double?.count, 1)
-        XCTAssertEqual(double?.first, 3.14159265359)
+        XCTAssertEqual(double?.contains(3.14159265359), true)
         
         let int: Set<Int>? = data.value(for: "object.int")
         XCTAssertEqual(int?.count, 1)
-        XCTAssertEqual(int?.first, -3)
+        XCTAssertEqual(int?.contains(-3), true)
         
         let int8: Set<Int8>? = data.value(for: "object.int8")
         XCTAssertEqual(int8?.count, 1)
-        XCTAssertEqual(int8?.first, -8)
+        XCTAssertEqual(int8?.contains(-8), true)
         
         let int16: Set<Int16>? = data.value(for: "object.int16")
         XCTAssertEqual(int16?.count, 1)
-        XCTAssertEqual(int16?.first, -16)
+        XCTAssertEqual(int16?.contains(-16), true)
         
         let int32: Set<Int32>? = data.value(for: "object.int32")
         XCTAssertEqual(int32?.count, 1)
-        XCTAssertEqual(int32?.first, -32)
+        XCTAssertEqual(int32?.contains(-32), true)
         
         let int64: Set<Int64>? = data.value(for: "object.int64")
         XCTAssertEqual(int64?.count, 1)
-        XCTAssertEqual(int64?.first, -64)
+        XCTAssertEqual(int64?.contains(-64), true)
         
         let uint: Set<UInt>? = data.value(for: "object.uint")
         XCTAssertEqual(uint?.count, 1)
-        XCTAssertEqual(uint?.first, 3)
+        XCTAssertEqual(uint?.contains(3), true)
         
         let uint8: Set<UInt8>? = data.value(for: "object.uint8")
         XCTAssertEqual(uint8?.count, 1)
-        XCTAssertEqual(uint8?.first, 8)
+        XCTAssertEqual(uint8?.contains(8), true)
         
         let uint16: Set<UInt16>? = data.value(for: "object.uint16")
         XCTAssertEqual(uint16?.count, 1)
-        XCTAssertEqual(uint16?.first, 16)
+        XCTAssertEqual(uint16?.contains(16), true)
         
         let uint32: Set<UInt32>? = data.value(for: "object.uint32")
         XCTAssertEqual(uint32?.count, 1)
-        XCTAssertEqual(uint32?.first, 32)
+        XCTAssertEqual(uint32?.contains(32), true)
         
         let uint64: Set<UInt64>? = data.value(for: "object.uint64")
         XCTAssertEqual(uint64?.count, 1)
-        XCTAssertEqual(uint64?.first, 64)
+        XCTAssertEqual(uint64?.contains(64), true)
         
         let url: Set<URL>? = data.value(for: "object.url")
         XCTAssertEqual(url?.count, 1)
-        XCTAssertEqual(url?.first?.absoluteString, "https://developer.apple.com/")
+        XCTAssertEqual(url?.contains(URL(string: "https://developer.apple.com/")!), true)
         
         let date: Set<Date>? = data.value(for: "object.date")
         XCTAssertEqual(date?.count, 1)
