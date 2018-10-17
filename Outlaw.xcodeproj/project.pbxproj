@@ -121,6 +121,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE035838213F4D95005DC24F /* Outlaw.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Outlaw.xcconfig; path = Xcode/Outlaw/Outlaw.xcconfig; sourceTree = "<group>"; };
 		AE3612DA20B800E4004B8158 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		AE3612DE20B80119004B8158 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		AE3612E020B80119004B8158 /* Float+Value.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Float+Value.swift"; sourceTree = "<group>"; };
@@ -504,6 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				AE3612DA20B800E4004B8158 /* Package.swift */,
+				AE035838213F4D95005DC24F /* Outlaw.xcconfig */,
 				AE3613B520B803AA004B8158 /* Xcode */,
 				AE3612DB20B80119004B8158 /* Sources */,
 				AE36134620B80174004B8158 /* Tests */,
@@ -770,6 +772,7 @@
 /* Begin XCBuildConfiguration section */
 		AFBED2611C7E1AAB00622331 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE035838213F4D95005DC24F /* Outlaw.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -824,15 +827,15 @@
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3,4";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
-				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386 armv7k";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Debug;
 		};
 		AFBED2621C7E1AAB00622331 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE035838213F4D95005DC24F /* Outlaw.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -880,15 +883,15 @@
 				TARGETED_DEVICE_FAMILY = "1,2,3,4";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386 armv7k";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
 		};
 		AFBED2641C7E1AAB00622331 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE035838213F4D95005DC24F /* Outlaw.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -908,6 +911,7 @@
 		};
 		AFBED2651C7E1AAB00622331 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE035838213F4D95005DC24F /* Outlaw.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -928,6 +932,7 @@
 		};
 		AFBED2671C7E1AAB00622331 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE035838213F4D95005DC24F /* Outlaw.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -942,6 +947,7 @@
 		};
 		AFBED2681C7E1AAB00622331 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE035838213F4D95005DC24F /* Outlaw.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
