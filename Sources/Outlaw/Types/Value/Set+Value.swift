@@ -10,7 +10,7 @@ import Foundation
 
 
 public extension Set {
-    public static func mappedValue<Element: Value>(from object: Any) throws -> Set<Element> {
+    static func mappedValue<Element: Value>(from object: Any) throws -> Set<Element> {
         let anyArray: [Element] = try [Element].mappedValue(from: object)
         return Set<Element>(anyArray)
     }
@@ -20,22 +20,22 @@ public extension Set {
 // MARK: Transforms
 
 public extension Set {
-    public static func mappedValue<Element: Value, T>(from object: Any, with transform:(Element) throws -> T) throws -> Set<T> {
+    static func mappedValue<Element: Value, T>(from object: Any, with transform:(Element) throws -> T) throws -> Set<T> {
         let anyArray: [T] = try [Element].mappedValue(from: object, with: transform)
         return Set<T>(anyArray)
     }
     
-    public static func mappedValue<Element: Value, T>(from object: Any, with transform:(Element?) throws -> T) throws -> Set<T> {
+    static func mappedValue<Element: Value, T>(from object: Any, with transform:(Element?) throws -> T) throws -> Set<T> {
         let anyArray: [T?] = try [Element?].mappedValue(from: object, with: transform)
         return Set<T>(anyArray.compactMap { $0 })
     }
     
-    public static func mappedValue<Element: Value, T>(from object: Any, with transform:(Element) -> T?) throws -> Set<T> {
+    static func mappedValue<Element: Value, T>(from object: Any, with transform:(Element) -> T?) throws -> Set<T> {
         let anyArray: [T?] = try [Element?].mappedValue(from: object, with: transform)
         return Set<T>(anyArray.compactMap { $0 })
     }
     
-    public static func mappedValue<Element: Value, T>(from object: Any, with transform:(Element?) -> T?) throws -> Set<T> {
+    static func mappedValue<Element: Value, T>(from object: Any, with transform:(Element?) -> T?) throws -> Set<T> {
         let anyArray: [T?] = try [Element?].mappedValue(from: object, with: transform)
         return Set<T>(anyArray.compactMap { $0 })
     }
