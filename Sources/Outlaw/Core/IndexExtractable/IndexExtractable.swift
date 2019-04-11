@@ -18,7 +18,7 @@ public protocol IndexExtractable {
 }
 
 public extension IndexExtractable {
-    public func any(for index: Index) throws -> Any {
+    func any(for index: Index) throws -> Any {
         let indexes = [index]
         var accumulator: Any = self
         
@@ -42,7 +42,7 @@ public extension IndexExtractable {
 // MARK: Any Array
 
 public extension IndexExtractable {
-    public func value<V>(for index: Index) throws -> [V] {
+    func value<V>(for index: Index) throws -> [V] {
         let any = try self.any(for: index)
         do {
             return try Array<V>.value(from: any)
@@ -52,11 +52,11 @@ public extension IndexExtractable {
         }
     }
     
-    public func value<V>(for index: Index) -> [V]? {
+    func value<V>(for index: Index) -> [V]? {
         return try? self.value(for: index)
     }
     
-    public func value<V>(for index: Index, or value: [V]) -> [V] {
+    func value<V>(for index: Index, or value: [V]) -> [V] {
         guard let result: [V] = self.value(for: index) else { return value }
         return result
     }
@@ -66,7 +66,7 @@ public extension IndexExtractable {
 // MARK: Any Dictionary
 
 public extension IndexExtractable {
-    public func value<K, V>(for index: Index) throws -> [K: V] {
+    func value<K, V>(for index: Index) throws -> [K: V] {
         let any = try self.any(for: index)
         do {
             return try Dictionary<K, V>.value(from: any)
@@ -76,11 +76,11 @@ public extension IndexExtractable {
         }
     }
     
-    public func value<K, V>(for index: Index) -> [K: V]? {
+    func value<K, V>(for index: Index) -> [K: V]? {
         return try? self.value(for: index)
     }
     
-    public func value<K, V>(for index: Index, or value: [K: V]) -> [K: V] {
+    func value<K, V>(for index: Index, or value: [K: V]) -> [K: V] {
         guard let result: [K: V] = self.value(for: index) else { return value }
         return result
     }
@@ -90,7 +90,7 @@ public extension IndexExtractable {
 // MARK: Any Set
 
 public extension IndexExtractable {
-    public func value<V>(for index: Index) throws -> Set<V> {
+    func value<V>(for index: Index) throws -> Set<V> {
         let any = try self.any(for: index)
         do {
             return try Set<V>.value(from: any)
@@ -100,11 +100,11 @@ public extension IndexExtractable {
         }
     }
     
-    public func value<V>(for index: Index) -> Set<V>? {
+    func value<V>(for index: Index) -> Set<V>? {
         return try? self.value(for: index)
     }
     
-    public func value<V>(for index: Index, or value: Set<V>) -> Set<V> {
+    func value<V>(for index: Index, or value: Set<V>) -> Set<V> {
         guard let result: Set<V> = self.value(for: index) else { return value }
         return result
     }

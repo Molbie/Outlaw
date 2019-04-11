@@ -15,7 +15,7 @@ public protocol Extractable {
 }
 
 public extension Extractable {
-    public func any(for key: Key) throws -> Any {
+    func any(for key: Key) throws -> Any {
     #if swift(>=4.0)
         let pathComponents = key.outlawKey.split(separator: ".").map(String.init)
     #else
@@ -43,7 +43,7 @@ public extension Extractable {
 // MARK: Any Array
 
 public extension Extractable {
-    public func value<V>(for key: Key) throws -> [V] {
+    func value<V>(for key: Key) throws -> [V] {
         let any = try self.any(for: key)
         do {
             return try Array<V>.value(from: any)
@@ -53,11 +53,11 @@ public extension Extractable {
         }
     }
     
-    public func value<V>(for key: Key) -> [V]? {
+    func value<V>(for key: Key) -> [V]? {
         return try? self.value(for: key)
     }
     
-    public func value<V>(for key: Key, or value: [V]) -> [V] {
+    func value<V>(for key: Key, or value: [V]) -> [V] {
         guard let result: [V] = self.value(for: key) else { return value }
         return result
     }
@@ -67,7 +67,7 @@ public extension Extractable {
 // MARK: Any Dictionary
 
 public extension Extractable {
-    public func value<K, V>(for key: Key) throws -> [K: V] {
+    func value<K, V>(for key: Key) throws -> [K: V] {
         let any = try self.any(for: key)
         do {
             return try Dictionary<K, V>.value(from: any)
@@ -77,11 +77,11 @@ public extension Extractable {
         }
     }
     
-    public func value<K, V>(for key: Key) -> [K: V]? {
+    func value<K, V>(for key: Key) -> [K: V]? {
         return try? self.value(for: key)
     }
     
-    public func value<K, V>(for key: Key, or value: [K: V]) -> [K: V] {
+    func value<K, V>(for key: Key, or value: [K: V]) -> [K: V] {
         guard let result: [K: V] = self.value(for: key) else { return value }
         return result
     }
@@ -91,7 +91,7 @@ public extension Extractable {
 // MARK: Any Set
 
 public extension Extractable {
-    public func value<V>(for key: Key) throws -> Set<V> {
+    func value<V>(for key: Key) throws -> Set<V> {
         let any = try self.any(for: key)
         do {
             return try Set<V>.value(from: any)
@@ -101,11 +101,11 @@ public extension Extractable {
         }
     }
     
-    public func value<V>(for key: Key) -> Set<V>? {
+    func value<V>(for key: Key) -> Set<V>? {
         return try? self.value(for: key)
     }
     
-    public func value<V>(for key: Key, or value: Set<V>) -> Set<V> {
+    func value<V>(for key: Key, or value: Set<V>) -> Set<V> {
         guard let result: Set<V> = self.value(for: key) else { return value }
         return result
     }

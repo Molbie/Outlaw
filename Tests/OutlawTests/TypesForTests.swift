@@ -24,8 +24,9 @@ struct Address: Hashable {
     var street: String
     var city: String
     
-    var hashValue: Int {
-        return street.hashValue ^ city.hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(street)
+        hasher.combine(city)
     }
 }
 struct Address2 {
@@ -41,12 +42,12 @@ struct Person: Hashable {
     var lastName: String
     var address: Address?
     
-    var hashValue: Int {
-        var result = firstName.hashValue ^ lastName.hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(firstName)
+        hasher.combine(lastName)
         if let address = address {
-            result = result ^ address.hashValue
+            hasher.combine(address)
         }
-        return result
     }
 }
 struct Person2 {

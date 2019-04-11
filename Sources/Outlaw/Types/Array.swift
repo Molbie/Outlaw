@@ -10,7 +10,7 @@ import Foundation
 
 
 public extension Array {
-    public static func value(from object: Any) throws -> [Element] {
+    static func value(from object: Any) throws -> [Element] {
         guard let value = object as? Array<Element> else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
@@ -18,7 +18,7 @@ public extension Array {
         return value
     }
     
-    public static func value(from object: Any) throws -> [Element?] {
+    static func value(from object: Any) throws -> [Element?] {
         guard let anyArray = object as? [Any?] else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
@@ -31,7 +31,7 @@ public extension Array {
 // MARK: Transforms
 
 public extension Array {
-    public static func value<T>(from object: Any, with transform:(Element) throws -> T) throws -> [T] {
+    static func value<T>(from object: Any, with transform:(Element) throws -> T) throws -> [T] {
         guard let elementArray = object as? Array<Element> else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
@@ -39,7 +39,7 @@ public extension Array {
         return try elementArray.map { try transform($0) }
     }
     
-    public static func value<T>(from object: Any, with transform:(Element?) throws -> T) throws -> [T] {
+    static func value<T>(from object: Any, with transform:(Element?) throws -> T) throws -> [T] {
         guard let elementArray = object as? Array<Element?> else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
@@ -47,7 +47,7 @@ public extension Array {
         return try elementArray.map { try transform($0) }
     }
     
-    public static func value<T>(from object: Any, with transform:(Element) -> T?) throws -> [T?] {
+    static func value<T>(from object: Any, with transform:(Element) -> T?) throws -> [T?] {
         guard let elementArray = object as? Array<Element?> else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
@@ -58,7 +58,7 @@ public extension Array {
         }
     }
     
-    public static func value<T>(from object: Any, with transform:(Element?) -> T?) throws -> [T?] {
+    static func value<T>(from object: Any, with transform:(Element?) -> T?) throws -> [T?] {
         guard let elementArray = object as? Array<Element?> else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
