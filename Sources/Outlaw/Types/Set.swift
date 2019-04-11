@@ -10,7 +10,7 @@ import Foundation
 
 
 public extension Set {
-    public static func value(from object: Any) throws -> Set<Element> {
+    static func value(from object: Any) throws -> Set<Element> {
         let anyArray: [Element] = try [Element].value(from: object)
         return Set<Element>(anyArray)
     }
@@ -20,7 +20,7 @@ public extension Set {
 // MARK: Transforms
 
 public extension Set {
-    public static func value<T>(from object: Any, with transform:(Element) throws -> T) throws -> Set<T> {
+    static func value<T>(from object: Any, with transform:(Element) throws -> T) throws -> Set<T> {
         guard let elementArray = object as? Array<Element> else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
@@ -29,7 +29,7 @@ public extension Set {
         return Set<T>(transformedArray)
     }
     
-    public static func value<T>(from object: Any, with transform:(Element?) throws -> T) throws -> Set<T> {
+    static func value<T>(from object: Any, with transform:(Element?) throws -> T) throws -> Set<T> {
         guard let elementArray = object as? Array<Element?> else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
@@ -38,7 +38,7 @@ public extension Set {
         return Set<T>(transformedArray)
     }
     
-    public static func value<T>(from object: Any, with transform:(Element) -> T?) throws -> Set<T> {
+    static func value<T>(from object: Any, with transform:(Element) -> T?) throws -> Set<T> {
         guard let elementArray = object as? Array<Element?> else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
@@ -48,7 +48,7 @@ public extension Set {
         return Set<T>(transformedArray.compactMap { $0 })
     }
     
-    public static func value<T>(from object: Any, with transform:(Element?) -> T?) throws -> Set<T> {
+    static func value<T>(from object: Any, with transform:(Element?) -> T?) throws -> Set<T> {
         guard let elementArray = object as? Array<Element?> else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }

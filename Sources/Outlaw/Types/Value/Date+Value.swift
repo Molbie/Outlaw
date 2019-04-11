@@ -23,7 +23,7 @@ extension Date: Value {
 }
 
 fileprivate extension DateFormatter {
-    fileprivate static var ISO8601DateFormatter: DateFormatter {
+    static var ISO8601DateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone(abbreviation: "GMT")
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssXXXXX"

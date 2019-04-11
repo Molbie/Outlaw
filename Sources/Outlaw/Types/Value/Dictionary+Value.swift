@@ -10,7 +10,7 @@ import Foundation
 
 
 public extension Dictionary {
-    public static func mappedValue<Value: Outlaw.Value>(from object: Any) throws -> [Key: Value] {
+    static func mappedValue<Value: Outlaw.Value>(from object: Any) throws -> [Key: Value] {
         guard let anyDictionary = object as? [Key: Any] else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
@@ -24,7 +24,7 @@ public extension Dictionary {
         }
     }
     
-    public static func mappedValue<Value: Outlaw.Value>(from object: Any) throws -> [Key: Value?] {
+    static func mappedValue<Value: Outlaw.Value>(from object: Any) throws -> [Key: Value?] {
         guard let anyDictionary = object as? [Key: Any?] else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
@@ -41,7 +41,7 @@ public extension Dictionary {
 // MARK: Transforms
 
 public extension Dictionary {
-    public static func mappedValue<Value: Outlaw.Value, T>(from object: Any, with transform:(Value) throws -> T) throws -> [Key: T] {
+    static func mappedValue<Value: Outlaw.Value, T>(from object: Any, with transform:(Value) throws -> T) throws -> [Key: T] {
         guard let anyDictionary = object as? [Key: Any] else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
@@ -55,7 +55,7 @@ public extension Dictionary {
         }
     }
     
-    public static func mappedValue<Value: Outlaw.Value, T>(from object: Any, with transform:(Value?) throws -> T) throws -> [Key: T] {
+    static func mappedValue<Value: Outlaw.Value, T>(from object: Any, with transform:(Value?) throws -> T) throws -> [Key: T] {
         guard let anyDictionary = object as? [Key: Any?] else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
@@ -67,7 +67,7 @@ public extension Dictionary {
         }
     }
     
-    public static func mappedValue<Value: Outlaw.Value, T>(from object: Any, with transform:(Value) -> T?) throws -> [Key: T?] {
+    static func mappedValue<Value: Outlaw.Value, T>(from object: Any, with transform:(Value) -> T?) throws -> [Key: T?] {
         guard let anyDictionary = object as? [Key: Any?] else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
@@ -81,7 +81,7 @@ public extension Dictionary {
         }
     }
     
-    public static func mappedValue<Value: Outlaw.Value, T>(from object: Any, with transform:(Value?) -> T?) throws -> [Key: T?] {
+    static func mappedValue<Value: Outlaw.Value, T>(from object: Any, with transform:(Value?) -> T?) throws -> [Key: T?] {
         guard let anyDictionary = object as? [Key: Any?] else {
             throw OutlawError.typeMismatch(expected: self, actual: type(of: object))
         }
