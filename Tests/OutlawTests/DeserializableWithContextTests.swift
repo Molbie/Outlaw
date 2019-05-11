@@ -67,7 +67,7 @@ extension Person: DeserializableWithContext {
         lastName = try data.value(for: "last")
         
         if context is PersonContextIncludeAddress {
-            address = data.value(for: "address", using: context as! AddressContext)
+            address = data.optional(for: "address", using: context as! AddressContext)
         }
         else {
             address = nil

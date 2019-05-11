@@ -72,22 +72,22 @@ class FloatTests: OutlawTestCase {
 // MARK: Optionals
     
     func testOptional() {
-        let value: Float? = data.value(for: "float")
+        let value: Float? = data.optional(for: "float")
         XCTAssertEqual(value, 3.14)
     }
     
     func testOptionalNestedValue() {
-        let value: Float? = data.value(for: "object.float")
+        let value: Float? = data.optional(for: "object.float")
         XCTAssertEqual(value, 3.14)
     }
     
     func testOptionalKeyNotFound() {
-        let value: Float? = data.value(for: "keyNotFound")
+        let value: Float? = data.optional(for: "keyNotFound")
         XCTAssertNil(value)
     }
     
     func testOptionalTypeMismatch() {
-        let value: Float? = data.value(for: "string")
+        let value: Float? = data.optional(for: "string")
         XCTAssertNil(value)
     }
     
@@ -96,7 +96,7 @@ class FloatTests: OutlawTestCase {
     
     func testLowerBounds() {
         let value: Float = try! data.value(for: "minValue")
-        XCTAssertEqual(value, 1.17549e-38)
+        XCTAssertEqual(value, 1.17549e-37)
     }
     
     func testUpperBounds() {
@@ -123,14 +123,14 @@ class FloatTests: OutlawTestCase {
     }
     
     func testTransformOptionalValue() {
-        let value: Float? = data.value(for: "transform", with: { (rawValue: String) -> Float? in
+        let value: Float? = data.optional(for: "transform", with: { (rawValue: String) -> Float? in
             return rawValue == "PI" ? 3.14 : 0
         })
         XCTAssertEqual(value, 3.14)
     }
     
     func testOptionalTransformOptionalValue() {
-        let value: Float? = data.value(for: "transform", with: { (rawValue: String?) -> Float? in
+        let value: Float? = data.optional(for: "transform", with: { (rawValue: String?) -> Float? in
             guard let rawValue = rawValue else { return nil }
             return rawValue == "PI" ? 3.14 : 0
         })

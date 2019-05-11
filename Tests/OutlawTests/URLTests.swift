@@ -70,22 +70,22 @@ class URLTests: OutlawTestCase {
 // MARK: Optionals
     
     func testOptional() {
-        let value: URL? = data.value(for: "url")
+        let value: URL? = data.optional(for: "url")
         XCTAssertEqual(value?.absoluteString, "https://developer.apple.com/")
     }
     
     func testOptionalNestedValue() {
-        let value: URL? = data.value(for: "object.url")
+        let value: URL? = data.optional(for: "object.url")
         XCTAssertEqual(value?.absoluteString, "https://developer.apple.com/")
     }
     
     func testOptionalKeyNotFound() {
-        let value: URL? = data.value(for: "keyNotFound")
+        let value: URL? = data.optional(for: "keyNotFound")
         XCTAssertNil(value)
     }
     
     func testOptionalTypeMismatch() {
-        let value: URL? = data.value(for: "bool")
+        let value: URL? = data.optional(for: "bool")
         XCTAssertNil(value)
     }
     
@@ -117,7 +117,7 @@ class URLTests: OutlawTestCase {
     }
     
     func testTransformOptionalValue() {
-        let value: URL? = data.value(for: "transform", with: { (rawValue: String) -> URL? in
+        let value: URL? = data.optional(for: "transform", with: { (rawValue: String) -> URL? in
             let urlValue = rawValue == "HOMEPAGE" ? "http://molbie.co" : rawValue
             return URL(string: urlValue)
         })
@@ -125,7 +125,7 @@ class URLTests: OutlawTestCase {
     }
     
     func testOptionalTransformOptionalValue() {
-        let value: URL? = data.value(for: "transform", with: { (rawValue: String?) -> URL? in
+        let value: URL? = data.optional(for: "transform", with: { (rawValue: String?) -> URL? in
             let urlValue = rawValue == "HOMEPAGE" ? "http://molbie.co" : (rawValue ?? "")
             return URL(string: urlValue)
         })

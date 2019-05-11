@@ -91,10 +91,10 @@ class UpdatableWithContextTests: OutlawTestCase {
 
 extension Address: UpdatableWithContext {
     mutating func update(with data: Extractable, using context: AddressContext) throws {
-        if let street: String = data.value(for: "street") {
+        if let street: String = data.optional(for: "street") {
             self.street = street
         }
-        if let city: String = data.value(for: "city") {
+        if let city: String = data.optional(for: "city") {
             self.city = city
         }
     }
@@ -102,10 +102,10 @@ extension Address: UpdatableWithContext {
 
 extension Person: UpdatableWithContext {
     mutating func update(with data: Extractable, using context: PersonContext) throws {
-        if let firstName: String = data.value(for: "first") {
+        if let firstName: String = data.optional(for: "first") {
             self.firstName = firstName
         }
-        if let lastName: String = data.value(for: "last") {
+        if let lastName: String = data.optional(for: "last") {
             self.lastName = lastName
         }
         
@@ -115,12 +115,12 @@ extension Person: UpdatableWithContext {
             }
             
             if address != nil {
-                if let addressData: [String: Any] = data.value(for: "address") {
+                if let addressData: [String: Any] = data.optional(for: "address") {
                     try address?.update(with: addressData, using: context as! AddressContext)
                 }
             }
             else {
-                address = data.value(for: "address", using: context as! AddressContext)
+                address = data.optional(for: "address", using: context as! AddressContext)
             }
         }
     }

@@ -53,12 +53,12 @@ public extension Extractable {
         }
     }
     
-    func value<V>(for key: Key) -> [V]? {
+    func optional<V>(for key: Key) -> [V]? {
         return try? self.value(for: key)
     }
     
     func value<V>(for key: Key, or value: [V]) -> [V] {
-        guard let result: [V] = self.value(for: key) else { return value }
+        guard let result: [V] = self.optional(for: key) else { return value }
         return result
     }
 }
@@ -77,12 +77,12 @@ public extension Extractable {
         }
     }
     
-    func value<K, V>(for key: Key) -> [K: V]? {
+    func optional<K, V>(for key: Key) -> [K: V]? {
         return try? self.value(for: key)
     }
     
     func value<K, V>(for key: Key, or value: [K: V]) -> [K: V] {
-        guard let result: [K: V] = self.value(for: key) else { return value }
+        guard let result: [K: V] = self.optional(for: key) else { return value }
         return result
     }
 }
@@ -101,12 +101,12 @@ public extension Extractable {
         }
     }
     
-    func value<V>(for key: Key) -> Set<V>? {
+    func optional<V>(for key: Key) -> Set<V>? {
         return try? self.value(for: key)
     }
     
     func value<V>(for key: Key, or value: Set<V>) -> Set<V> {
-        guard let result: Set<V> = self.value(for: key) else { return value }
+        guard let result: Set<V> = self.optional(for: key) else { return value }
         return result
     }
 }

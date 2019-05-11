@@ -70,22 +70,22 @@ class StringTests: OutlawTestCase {
 // MARK: Optionals
     
     func testOptional() {
-        let value: String? = data.value(for: "string")
+        let value: String? = data.optional(for: "string")
         XCTAssertEqual(value, "Hello, Outlaw!")
     }
     
     func testOptionalNestedValue() {
-        let value: String? = data.value(for: "object.string")
+        let value: String? = data.optional(for: "object.string")
         XCTAssertEqual(value, "Hello, Outlaw!")
     }
     
     func testOptionalKeyNotFound() {
-        let value: String? = data.value(for: "keyNotFound")
+        let value: String? = data.optional(for: "keyNotFound")
         XCTAssertNil(value)
     }
     
     func testOptionalTypeMismatch() {
-        let value: String? = data.value(for: "bool")
+        let value: String? = data.optional(for: "bool")
         XCTAssertNil(value)
     }
     
@@ -108,14 +108,14 @@ class StringTests: OutlawTestCase {
     }
     
     func testTransformOptionalValue() {
-        let value: String? = data.value(for: "transform", with: { (rawValue: Bool) -> String? in
+        let value: String? = data.optional(for: "transform", with: { (rawValue: Bool) -> String? in
             return rawValue ? "TRUE" : "FALSE"
         })
         XCTAssertEqual(value, "TRUE")
     }
     
     func testOptionalTransformOptionalValue() {
-        let value: String? = data.value(for: "transform", with: { (rawValue: Bool?) -> String? in
+        let value: String? = data.optional(for: "transform", with: { (rawValue: Bool?) -> String? in
             guard let rawValue = rawValue else { return nil }
             return rawValue ? "TRUE" : "FALSE"
         })

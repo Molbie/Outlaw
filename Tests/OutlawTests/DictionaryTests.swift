@@ -312,248 +312,248 @@ class DictionaryTests: OutlawTestCase, DateTesting {
 // MARK: Optionals
     
     func testOptionalDictionary() {
-        let bool: [String: Bool]? = data.value(for: "bool")
+        let bool: [String: Bool]? = data.optional(for: "bool")
         XCTAssertEqual(bool?["O"], true)
         
-        let string: [String: String]? = data.value(for: "string")
+        let string: [String: String]? = data.optional(for: "string")
         XCTAssertEqual(string?["O"], "Hello, Outlaw!")
         
-        let character: [String: Character]? = data.value(for: "character")
+        let character: [String: Character]? = data.optional(for: "character")
         XCTAssertEqual(character?["O"], "O")
         
-        let float: [String: Float]? = data.value(for: "float")
+        let float: [String: Float]? = data.optional(for: "float")
         XCTAssertEqual(float?["O"], 3.14)
         
-        let double: [String: Double]? = data.value(for: "double")
+        let double: [String: Double]? = data.optional(for: "double")
         XCTAssertEqual(double?["O"], 3.14159265359)
         
-        let int: [String: Int]? = data.value(for: "int")
+        let int: [String: Int]? = data.optional(for: "int")
         XCTAssertEqual(int?["O"], -3)
         
-        let int8: [String: Int8]? = data.value(for: "int8")
+        let int8: [String: Int8]? = data.optional(for: "int8")
         XCTAssertEqual(int8?["O"], -8)
         
-        let int16: [String: Int16]? = data.value(for: "int16")
+        let int16: [String: Int16]? = data.optional(for: "int16")
         XCTAssertEqual(int16?["O"], -16)
         
-        let int32: [String: Int32]? = data.value(for: "int32")
+        let int32: [String: Int32]? = data.optional(for: "int32")
         XCTAssertEqual(int32?["O"], -32)
         
-        let int64: [String: Int64]? = data.value(for: "int64")
+        let int64: [String: Int64]? = data.optional(for: "int64")
         XCTAssertEqual(int64?["O"], -64)
         
-        let uint: [String: UInt]? = data.value(for: "uint")
+        let uint: [String: UInt]? = data.optional(for: "uint")
         XCTAssertEqual(uint?["O"], 3)
         
-        let uint8: [String: UInt8]? = data.value(for: "uint8")
+        let uint8: [String: UInt8]? = data.optional(for: "uint8")
         XCTAssertEqual(uint8?["O"], 8)
         
-        let uint16: [String: UInt16]? = data.value(for: "uint16")
+        let uint16: [String: UInt16]? = data.optional(for: "uint16")
         XCTAssertEqual(uint16?["O"], 16)
         
-        let uint32: [String: UInt32]? = data.value(for: "uint32")
+        let uint32: [String: UInt32]? = data.optional(for: "uint32")
         XCTAssertEqual(uint32?["O"], 32)
         
-        let uint64: [String: UInt64]? = data.value(for: "uint64")
+        let uint64: [String: UInt64]? = data.optional(for: "uint64")
         XCTAssertEqual(uint64?["O"], 64)
         
-        let array: [String: [String]]? = data.value(for: "array")
+        let array: [String: [String]]? = data.optional(for: "array")
         XCTAssertEqual(array?["O"]![0], "O")
         
-        let dictionary: [String: [String: String]]? = data.value(for: "dictionary")
+        let dictionary: [String: [String: String]]? = data.optional(for: "dictionary")
         XCTAssertEqual(dictionary?["O"]!["O"]!, "Hello, Outlaw!")
         
-        let url: [String: URL]? = data.value(for: "url")
+        let url: [String: URL]? = data.optional(for: "url")
         XCTAssertEqual(url?["O"]?.absoluteString, "https://developer.apple.com/")
         
-        let date: [String: Date]? = data.value(for: "date")
+        let date: [String: Date]? = data.optional(for: "date")
         XCTAssertEqual(formatDate(date!["O"]!), formatDate(dateForAssert()))
     }
     
     func testOptionalDictionaryOptionalValue() {
-        let bool: [String: Bool?]? = data.value(for: "bool")
+        let bool: [String: Bool?]? = data.optional(for: "bool")
         XCTAssertEqual(bool?["O"]!, true)
         
-        let string: [String: String?]? = data.value(for: "string")
+        let string: [String: String?]? = data.optional(for: "string")
         XCTAssertEqual(string?["O"]!, "Hello, Outlaw!")
         
-        let character: [String: Character?]? = data.value(for: "character")
+        let character: [String: Character?]? = data.optional(for: "character")
         XCTAssertEqual(character?["O"]!, "O")
         
-        let float: [String: Float?]? = data.value(for: "float")
+        let float: [String: Float?]? = data.optional(for: "float")
         XCTAssertEqual(float?["O"]!, 3.14)
         
-        let double: [String: Double?]? = data.value(for: "double")
+        let double: [String: Double?]? = data.optional(for: "double")
         XCTAssertEqual(double?["O"]!, 3.14159265359)
         
-        let int: [String: Int?]? = data.value(for: "int")
+        let int: [String: Int?]? = data.optional(for: "int")
         XCTAssertEqual(int?["O"]!, -3)
         
-        let int8: [String: Int8?]? = data.value(for: "int8")
+        let int8: [String: Int8?]? = data.optional(for: "int8")
         XCTAssertEqual(int8?["O"]!, -8)
         
-        let int16: [String: Int16?]? = data.value(for: "int16")
+        let int16: [String: Int16?]? = data.optional(for: "int16")
         XCTAssertEqual(int16?["O"]!, -16)
         
-        let int32: [String: Int32?]? = data.value(for: "int32")
+        let int32: [String: Int32?]? = data.optional(for: "int32")
         XCTAssertEqual(int32?["O"]!, -32)
         
-        let int64: [String: Int64?]? = data.value(for: "int64")
+        let int64: [String: Int64?]? = data.optional(for: "int64")
         XCTAssertEqual(int64?["O"]!, -64)
         
-        let uint: [String: UInt?]? = data.value(for: "uint")
+        let uint: [String: UInt?]? = data.optional(for: "uint")
         XCTAssertEqual(uint?["O"]!, 3)
         
-        let uint8: [String: UInt8?]? = data.value(for: "uint8")
+        let uint8: [String: UInt8?]? = data.optional(for: "uint8")
         XCTAssertEqual(uint8?["O"]!, 8)
         
-        let uint16: [String: UInt16?]? = data.value(for: "uint16")
+        let uint16: [String: UInt16?]? = data.optional(for: "uint16")
         XCTAssertEqual(uint16?["O"]!, 16)
         
-        let uint32: [String: UInt32?]? = data.value(for: "uint32")
+        let uint32: [String: UInt32?]? = data.optional(for: "uint32")
         XCTAssertEqual(uint32?["O"]!, 32)
         
-        let uint64: [String: UInt64?]? = data.value(for: "uint64")
+        let uint64: [String: UInt64?]? = data.optional(for: "uint64")
         XCTAssertEqual(uint64?["O"]!, 64)
         
-        let array: [String: [String]?]? = data.value(for: "array")
+        let array: [String: [String]?]? = data.optional(for: "array")
         XCTAssertEqual(array?["O"]!![0], "O")
         
-        let dictionary: [String: [String: String]?]? = data.value(for: "dictionary")
+        let dictionary: [String: [String: String]?]? = data.optional(for: "dictionary")
         XCTAssertEqual(dictionary?["O"]!!["O"]!, "Hello, Outlaw!")
         
-        let url: [String: URL?]? = data.value(for: "url")
+        let url: [String: URL?]? = data.optional(for: "url")
         XCTAssertEqual(url?["O"]!!.absoluteString, "https://developer.apple.com/")
         
-        let date: [String: Date?]? = data.value(for: "date")
+        let date: [String: Date?]? = data.optional(for: "date")
         XCTAssertEqual(formatDate(date!["O"]!!), formatDate(dateForAssert()))
     }
     
     func testNestedOptionalDictionary() {
-        let bool: [String: Bool]? = data.value(for: "object.bool")
+        let bool: [String: Bool]? = data.optional(for: "object.bool")
         XCTAssertEqual(bool?["O"], true)
         
-        let string: [String: String]? = data.value(for: "object.string")
+        let string: [String: String]? = data.optional(for: "object.string")
         XCTAssertEqual(string?["O"], "Hello, Outlaw!")
         
-        let character: [String: Character]? = data.value(for: "object.character")
+        let character: [String: Character]? = data.optional(for: "object.character")
         XCTAssertEqual(character?["O"], "O")
         
-        let float: [String: Float]? = data.value(for: "object.float")
+        let float: [String: Float]? = data.optional(for: "object.float")
         XCTAssertEqual(float?["O"], 3.14)
         
-        let double: [String: Double]? = data.value(for: "object.double")
+        let double: [String: Double]? = data.optional(for: "object.double")
         XCTAssertEqual(double?["O"], 3.14159265359)
         
-        let int: [String: Int]? = data.value(for: "object.int")
+        let int: [String: Int]? = data.optional(for: "object.int")
         XCTAssertEqual(int?["O"], -3)
         
-        let int8: [String: Int8]? = data.value(for: "object.int8")
+        let int8: [String: Int8]? = data.optional(for: "object.int8")
         XCTAssertEqual(int8?["O"], -8)
         
-        let int16: [String: Int16]? = data.value(for: "object.int16")
+        let int16: [String: Int16]? = data.optional(for: "object.int16")
         XCTAssertEqual(int16?["O"], -16)
         
-        let int32: [String: Int32]? = data.value(for: "object.int32")
+        let int32: [String: Int32]? = data.optional(for: "object.int32")
         XCTAssertEqual(int32?["O"], -32)
         
-        let int64: [String: Int64]? = data.value(for: "object.int64")
+        let int64: [String: Int64]? = data.optional(for: "object.int64")
         XCTAssertEqual(int64?["O"], -64)
         
-        let uint: [String: UInt]? = data.value(for: "object.uint")
+        let uint: [String: UInt]? = data.optional(for: "object.uint")
         XCTAssertEqual(uint?["O"], 3)
         
-        let uint8: [String: UInt8]? = data.value(for: "object.uint8")
+        let uint8: [String: UInt8]? = data.optional(for: "object.uint8")
         XCTAssertEqual(uint8?["O"], 8)
         
-        let uint16: [String: UInt16]? = data.value(for: "object.uint16")
+        let uint16: [String: UInt16]? = data.optional(for: "object.uint16")
         XCTAssertEqual(uint16?["O"], 16)
         
-        let uint32: [String: UInt32]? = data.value(for: "object.uint32")
+        let uint32: [String: UInt32]? = data.optional(for: "object.uint32")
         XCTAssertEqual(uint32?["O"], 32)
         
-        let uint64: [String: UInt64]? = data.value(for: "object.uint64")
+        let uint64: [String: UInt64]? = data.optional(for: "object.uint64")
         XCTAssertEqual(uint64?["O"], 64)
         
-        let array: [String: [String]]? = data.value(for: "object.array")
+        let array: [String: [String]]? = data.optional(for: "object.array")
         XCTAssertEqual(array?["O"]![0], "O")
         
-        let dictionary: [String: [String: String]]? = data.value(for: "object.dictionary")
+        let dictionary: [String: [String: String]]? = data.optional(for: "object.dictionary")
         XCTAssertEqual(dictionary?["O"]!["O"]!, "Hello, Outlaw!")
         
-        let url: [String: URL]? = data.value(for: "object.url")
+        let url: [String: URL]? = data.optional(for: "object.url")
         XCTAssertEqual(url?["O"]?.absoluteString, "https://developer.apple.com/")
         
-        let date: [String: Date]? = data.value(for: "object.date")
+        let date: [String: Date]? = data.optional(for: "object.date")
         XCTAssertEqual(formatDate(date!["O"]!), formatDate(dateForAssert()))
     }
     
     func testNestedOptionalDictionaryOptionalValue() {
-        let bool: [String: Bool?]? = data.value(for: "object.bool")
+        let bool: [String: Bool?]? = data.optional(for: "object.bool")
         XCTAssertEqual(bool?["O"]!, true)
         
-        let string: [String: String?]? = data.value(for: "object.string")
+        let string: [String: String?]? = data.optional(for: "object.string")
         XCTAssertEqual(string?["O"]!, "Hello, Outlaw!")
         
-        let character: [String: Character?]? = data.value(for: "object.character")
+        let character: [String: Character?]? = data.optional(for: "object.character")
         XCTAssertEqual(character?["O"]!, "O")
         
-        let float: [String: Float?]? = data.value(for: "object.float")
+        let float: [String: Float?]? = data.optional(for: "object.float")
         XCTAssertEqual(float?["O"]!, 3.14)
         
-        let double: [String: Double?]? = data.value(for: "object.double")
+        let double: [String: Double?]? = data.optional(for: "object.double")
         XCTAssertEqual(double?["O"]!, 3.14159265359)
         
-        let int: [String: Int?]? = data.value(for: "object.int")
+        let int: [String: Int?]? = data.optional(for: "object.int")
         XCTAssertEqual(int?["O"]!, -3)
         
-        let int8: [String: Int8?]? = data.value(for: "object.int8")
+        let int8: [String: Int8?]? = data.optional(for: "object.int8")
         XCTAssertEqual(int8?["O"]!, -8)
         
-        let int16: [String: Int16?]? = data.value(for: "object.int16")
+        let int16: [String: Int16?]? = data.optional(for: "object.int16")
         XCTAssertEqual(int16?["O"]!, -16)
         
-        let int32: [String: Int32?]? = data.value(for: "object.int32")
+        let int32: [String: Int32?]? = data.optional(for: "object.int32")
         XCTAssertEqual(int32?["O"]!, -32)
         
-        let int64: [String: Int64?]? = data.value(for: "object.int64")
+        let int64: [String: Int64?]? = data.optional(for: "object.int64")
         XCTAssertEqual(int64?["O"]!, -64)
         
-        let uint: [String: UInt?]? = data.value(for: "object.uint")
+        let uint: [String: UInt?]? = data.optional(for: "object.uint")
         XCTAssertEqual(uint?["O"]!, 3)
         
-        let uint8: [String: UInt8?]? = data.value(for: "object.uint8")
+        let uint8: [String: UInt8?]? = data.optional(for: "object.uint8")
         XCTAssertEqual(uint8?["O"]!, 8)
         
-        let uint16: [String: UInt16?]? = data.value(for: "object.uint16")
+        let uint16: [String: UInt16?]? = data.optional(for: "object.uint16")
         XCTAssertEqual(uint16?["O"]!, 16)
         
-        let uint32: [String: UInt32?]? = data.value(for: "object.uint32")
+        let uint32: [String: UInt32?]? = data.optional(for: "object.uint32")
         XCTAssertEqual(uint32?["O"]!, 32)
         
-        let uint64: [String: UInt64?]? = data.value(for: "object.uint64")
+        let uint64: [String: UInt64?]? = data.optional(for: "object.uint64")
         XCTAssertEqual(uint64?["O"]!, 64)
         
-        let array: [String: [String]?]? = data.value(for: "object.array")
+        let array: [String: [String]?]? = data.optional(for: "object.array")
         XCTAssertEqual(array?["O"]!![0], "O")
         
-        let dictionary: [String: [String: String]?]? = data.value(for: "object.dictionary")
+        let dictionary: [String: [String: String]?]? = data.optional(for: "object.dictionary")
         XCTAssertEqual(dictionary?["O"]!!["O"]!, "Hello, Outlaw!")
         
-        let url: [String: URL?]? = data.value(for: "object.url")
+        let url: [String: URL?]? = data.optional(for: "object.url")
         XCTAssertEqual(url?["O"]!!.absoluteString, "https://developer.apple.com/")
         
-        let date: [String: Date?]? = data.value(for: "object.date")
+        let date: [String: Date?]? = data.optional(for: "object.date")
         XCTAssertEqual(formatDate(date!["O"]!!), formatDate(dateForAssert()))
     }
     
     func testOptionalKeyNotFound() {
-        let value: [String: Int]? = data.value(for: "keyNotFound")
+        let value: [String: Int]? = data.optional(for: "keyNotFound")
         XCTAssertNil(value)
     }
     
     func testOptionalTypeMismatch() {
-        let value: [String: Int]? = data.value(for: "object")
+        let value: [String: Int]? = data.optional(for: "object")
         XCTAssertNil(value)
     }
     
@@ -815,32 +815,32 @@ class DictionaryTests: OutlawTestCase, DateTesting {
     }
     
     func testTransformOptionalValue() {
-        let bool: [String: Bool]? = data.value(for: "boolTransform", with: { (rawValue: String) -> Bool in
+        let bool: [String: Bool]? = data.optional(for: "boolTransform", with: { (rawValue: String) -> Bool in
             return rawValue == "TRUE"
         })
         XCTAssertEqual(bool?["O"], true)
         
-        let string: [String: String]? = data.value(for: "stringTransform", with: { (rawValue: Bool) -> String in
+        let string: [String: String]? = data.optional(for: "stringTransform", with: { (rawValue: Bool) -> String in
             return rawValue ? "TRUE" : "FALSE"
         })
         XCTAssertEqual(string?["O"], "TRUE")
         
-        let character: [String: Character]? = data.value(for: "characterTransform", with: { (rawValue: Bool) -> Character in
+        let character: [String: Character]? = data.optional(for: "characterTransform", with: { (rawValue: Bool) -> Character in
             return rawValue ? "1" : "0"
         })
         XCTAssertEqual(character?["O"], "1")
         
-        let float: [String: Float]? = data.value(for: "floatTransform", with: { (rawValue: String) -> Float in
+        let float: [String: Float]? = data.optional(for: "floatTransform", with: { (rawValue: String) -> Float in
             return rawValue == "PI" ? 3.14 : 0
         })
         XCTAssertEqual(float?["O"], 3.14)
         
-        let double: [String: Double]? = data.value(for: "doubleTransform", with: { (rawValue: String) -> Double in
+        let double: [String: Double]? = data.optional(for: "doubleTransform", with: { (rawValue: String) -> Double in
             return rawValue == "PI" ? 3.14 : 0
         })
         XCTAssertEqual(double?["O"], 3.14)
         
-        let int: [String: Int]? = data.value(for: "intTransform", with: { (rawValue: String) -> Int in
+        let int: [String: Int]? = data.optional(for: "intTransform", with: { (rawValue: String) -> Int in
             guard let value = Int(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "intTransform", expected: Int.self, actual: rawValue)
             }
@@ -848,7 +848,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int?["O"], 12345)
         
-        let int8: [String: Int8]? = data.value(for: "int8Transform", with: { (rawValue: String) -> Int8 in
+        let int8: [String: Int8]? = data.optional(for: "int8Transform", with: { (rawValue: String) -> Int8 in
             guard let value = Int8(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "int8Transform", expected: Int8.self, actual: rawValue)
             }
@@ -856,7 +856,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int8?["O"], 123)
         
-        let int16: [String: Int16]? = data.value(for: "int16Transform", with: { (rawValue: String) -> Int16 in
+        let int16: [String: Int16]? = data.optional(for: "int16Transform", with: { (rawValue: String) -> Int16 in
             guard let value = Int16(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "int16Transform", expected: Int16.self, actual: rawValue)
             }
@@ -864,7 +864,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int16?["O"], 12345)
         
-        let int32: [String: Int32]? = data.value(for: "int32Transform", with: { (rawValue: String) -> Int32 in
+        let int32: [String: Int32]? = data.optional(for: "int32Transform", with: { (rawValue: String) -> Int32 in
             guard let value = Int32(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "int32Transform", expected: Int32.self, actual: rawValue)
             }
@@ -872,7 +872,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int32?["O"], 12345)
         
-        let int64: [String: Int64]? = data.value(for: "int64Transform", with: { (rawValue: String) -> Int64 in
+        let int64: [String: Int64]? = data.optional(for: "int64Transform", with: { (rawValue: String) -> Int64 in
             guard let value = Int64(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "int64Transform", expected: Int64.self, actual: rawValue)
             }
@@ -880,7 +880,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int64?["O"], 12345)
         
-        let uint: [String: UInt]? = data.value(for: "uintTransform", with: { (rawValue: String) -> UInt in
+        let uint: [String: UInt]? = data.optional(for: "uintTransform", with: { (rawValue: String) -> UInt in
             guard let value = UInt(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "uintTransform", expected: UInt.self, actual: rawValue)
             }
@@ -888,7 +888,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint?["O"], 12345)
         
-        let uint8: [String: UInt8]? = data.value(for: "uint8Transform", with: { (rawValue: String) -> UInt8 in
+        let uint8: [String: UInt8]? = data.optional(for: "uint8Transform", with: { (rawValue: String) -> UInt8 in
             guard let value = UInt8(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "uint8Transform", expected: UInt8.self, actual: rawValue)
             }
@@ -896,7 +896,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint8?["O"], 123)
         
-        let uint16: [String: UInt16]? = data.value(for: "uint16Transform", with: { (rawValue: String) -> UInt16 in
+        let uint16: [String: UInt16]? = data.optional(for: "uint16Transform", with: { (rawValue: String) -> UInt16 in
             guard let value = UInt16(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "uint16Transform", expected: UInt16.self, actual: rawValue)
             }
@@ -904,7 +904,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint16?["O"], 12345)
         
-        let uint32: [String: UInt32]? = data.value(for: "uint32Transform", with: { (rawValue: String) -> UInt32 in
+        let uint32: [String: UInt32]? = data.optional(for: "uint32Transform", with: { (rawValue: String) -> UInt32 in
             guard let value = UInt32(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "uint32Transform", expected: UInt32.self, actual: rawValue)
             }
@@ -912,7 +912,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint32?["O"], 12345)
         
-        let uint64: [String: UInt64]? = data.value(for: "uint64Transform", with: { (rawValue: String) -> UInt64 in
+        let uint64: [String: UInt64]? = data.optional(for: "uint64Transform", with: { (rawValue: String) -> UInt64 in
             guard let value = UInt64(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "uint64Transform", expected: UInt64.self, actual: rawValue)
             }
@@ -920,7 +920,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint64?["O"], 12345)
         
-        let url: [String: URL]? = data.value(for: "urlTransform", with: { (rawValue: String) -> URL in
+        let url: [String: URL]? = data.optional(for: "urlTransform", with: { (rawValue: String) -> URL in
             let urlValue = rawValue == "HOMEPAGE" ? "http://molbie.co" : rawValue
             guard let value = URL(string: urlValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "urlTransform", expected: URL.self, actual: rawValue)
@@ -931,43 +931,43 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(url?["O"]?.absoluteString, "http://molbie.co")
         
         let formatter = shortDateformatter()
-        let date: [String: Date]? = data.value(for: "dateTransform", with: { (rawValue: String) -> Date in
+        let date: [String: Date]? = data.optional(for: "dateTransform", with: { (rawValue: String) -> Date in
             return formatter.date(from: rawValue)!
         })
         XCTAssertEqual(formatShortDate(date!["O"]!), formatShortDate(shortDateForAssert()))
     }
     
     func testOptionalTransformOptionalValue() {
-        let bool: [String: Bool]? = data.value(for: "boolTransform", with: { (rawValue: String?) -> Bool in
+        let bool: [String: Bool]? = data.optional(for: "boolTransform", with: { (rawValue: String?) -> Bool in
             return rawValue == "TRUE"
         })
         XCTAssertEqual(bool?["O"], true)
         
-        let string: [String: String]? = data.value(for: "stringTransform", with: { (rawValue: Bool?) -> String in
+        let string: [String: String]? = data.optional(for: "stringTransform", with: { (rawValue: Bool?) -> String in
             let value = rawValue ?? false
             return value ? "TRUE" : "FALSE"
         })
         XCTAssertEqual(string?["O"], "TRUE")
         
-        let character: [String: Character]? = data.value(for: "characterTransform", with: { (rawValue: Bool?) -> Character in
+        let character: [String: Character]? = data.optional(for: "characterTransform", with: { (rawValue: Bool?) -> Character in
             let value = rawValue ?? false
             return value ? "1" : "0"
         })
         XCTAssertEqual(character?["O"], "1")
         
-        let float: [String: Float]? = data.value(for: "floatTransform", with: { (rawValue: String?) -> Float in
+        let float: [String: Float]? = data.optional(for: "floatTransform", with: { (rawValue: String?) -> Float in
             let value = rawValue ?? ""
             return value == "PI" ? 3.14 : 0
         })
         XCTAssertEqual(float?["O"], 3.14)
         
-        let double: [String: Double]? = data.value(for: "doubleTransform", with: { (rawValue: String?) -> Double in
+        let double: [String: Double]? = data.optional(for: "doubleTransform", with: { (rawValue: String?) -> Double in
             let value = rawValue ?? ""
             return value == "PI" ? 3.14 : 0
         })
         XCTAssertEqual(double?["O"], 3.14)
         
-        let int: [String: Int]? = data.value(for: "intTransform", with: { (rawValue: String?) -> Int in
+        let int: [String: Int]? = data.optional(for: "intTransform", with: { (rawValue: String?) -> Int in
             guard let value = Int(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "intTransform", expected: Int.self, actual: rawValue ?? "")
             }
@@ -975,7 +975,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int?["O"], 12345)
         
-        let int8: [String: Int8]? = data.value(for: "int8Transform", with: { (rawValue: String?) -> Int8 in
+        let int8: [String: Int8]? = data.optional(for: "int8Transform", with: { (rawValue: String?) -> Int8 in
             guard let value = Int8(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "int8Transform", expected: Int8.self, actual: rawValue ?? "")
             }
@@ -983,7 +983,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int8?["O"], 123)
         
-        let int16: [String: Int16]? = data.value(for: "int16Transform", with: { (rawValue: String?) -> Int16 in
+        let int16: [String: Int16]? = data.optional(for: "int16Transform", with: { (rawValue: String?) -> Int16 in
             guard let value = Int16(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "int16Transform", expected: Int16.self, actual: rawValue ?? "")
             }
@@ -991,7 +991,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int16?["O"], 12345)
         
-        let int32: [String: Int32]? = data.value(for: "int32Transform", with: { (rawValue: String?) -> Int32 in
+        let int32: [String: Int32]? = data.optional(for: "int32Transform", with: { (rawValue: String?) -> Int32 in
             guard let value = Int32(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "int32Transform", expected: Int32.self, actual: rawValue ?? "")
             }
@@ -999,7 +999,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int32?["O"], 12345)
         
-        let int64: [String: Int64]? = data.value(for: "int64Transform", with: { (rawValue: String?) -> Int64 in
+        let int64: [String: Int64]? = data.optional(for: "int64Transform", with: { (rawValue: String?) -> Int64 in
             guard let value = Int64(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "int64Transform", expected: Int64.self, actual: rawValue ?? "")
             }
@@ -1007,7 +1007,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int64?["O"], 12345)
         
-        let uint: [String: UInt]? = data.value(for: "uintTransform", with: { (rawValue: String?) -> UInt in
+        let uint: [String: UInt]? = data.optional(for: "uintTransform", with: { (rawValue: String?) -> UInt in
             guard let value = UInt(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "uintTransform", expected: UInt.self, actual: rawValue ?? "")
             }
@@ -1015,7 +1015,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint?["O"], 12345)
         
-        let uint8: [String: UInt8]? = data.value(for: "uint8Transform", with: { (rawValue: String?) -> UInt8 in
+        let uint8: [String: UInt8]? = data.optional(for: "uint8Transform", with: { (rawValue: String?) -> UInt8 in
             guard let value = UInt8(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "uint8Transform", expected: UInt8.self, actual: rawValue ?? "")
             }
@@ -1023,7 +1023,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint8?["O"], 123)
         
-        let uint16: [String: UInt16]? = data.value(for: "uint16Transform", with: { (rawValue: String?) -> UInt16 in
+        let uint16: [String: UInt16]? = data.optional(for: "uint16Transform", with: { (rawValue: String?) -> UInt16 in
             guard let value = UInt16(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "uint16Transform", expected: UInt16.self, actual: rawValue ?? "")
             }
@@ -1031,7 +1031,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint16?["O"], 12345)
         
-        let uint32: [String: UInt32]? = data.value(for: "uint32Transform", with: { (rawValue: String?) -> UInt32 in
+        let uint32: [String: UInt32]? = data.optional(for: "uint32Transform", with: { (rawValue: String?) -> UInt32 in
             guard let value = UInt32(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "uint32Transform", expected: UInt32.self, actual: rawValue ?? "")
             }
@@ -1039,7 +1039,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint32?["O"], 12345)
         
-        let uint64: [String: UInt64]? = data.value(for: "uint64Transform", with: { (rawValue: String?) -> UInt64 in
+        let uint64: [String: UInt64]? = data.optional(for: "uint64Transform", with: { (rawValue: String?) -> UInt64 in
             guard let value = UInt64(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "uint64Transform", expected: UInt64.self, actual: rawValue ?? "")
             }
@@ -1047,7 +1047,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint64?["O"], 12345)
         
-        let url: [String: URL]? = data.value(for: "urlTransform", with: { (rawValue: String?) -> URL in
+        let url: [String: URL]? = data.optional(for: "urlTransform", with: { (rawValue: String?) -> URL in
             let urlValue = rawValue == "HOMEPAGE" ? "http://molbie.co" : (rawValue ?? "")
             guard let value = URL(string: urlValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "urlTransform", expected: URL.self, actual: rawValue ?? "")
@@ -1058,7 +1058,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(url?["O"]?.absoluteString, "http://molbie.co")
         
         let formatter = shortDateformatter()
-        let date: [String: Date]? = data.value(for: "dateTransform", with: { (rawValue: String?) -> Date in
+        let date: [String: Date]? = data.optional(for: "dateTransform", with: { (rawValue: String?) -> Date in
             let value = rawValue ?? "11/18/2016"
             return formatter.date(from: value)!
         })
@@ -1323,32 +1323,32 @@ class DictionaryTests: OutlawTestCase, DateTesting {
     }
     
     func testTransformOptionalValueOfOptionals() {
-        let bool: [String: Bool?]? = data.value(for: "boolTransform", with: { (rawValue: String) -> Bool? in
+        let bool: [String: Bool?]? = data.optional(for: "boolTransform", with: { (rawValue: String) -> Bool? in
             return rawValue == "TRUE"
         })
         XCTAssertEqual(bool?["O"]!, true)
         
-        let string: [String: String?]? = data.value(for: "stringTransform", with: { (rawValue: Bool) -> String? in
+        let string: [String: String?]? = data.optional(for: "stringTransform", with: { (rawValue: Bool) -> String? in
             return rawValue ? "TRUE" : "FALSE"
         })
         XCTAssertEqual(string?["O"]!, "TRUE")
         
-        let character: [String: Character?]? = data.value(for: "characterTransform", with: { (rawValue: Bool) -> Character? in
+        let character: [String: Character?]? = data.optional(for: "characterTransform", with: { (rawValue: Bool) -> Character? in
             return rawValue ? "1" : "0"
         })
         XCTAssertEqual(character?["O"]!, "1")
         
-        let float: [String: Float?]? = data.value(for: "floatTransform", with: { (rawValue: String) -> Float? in
+        let float: [String: Float?]? = data.optional(for: "floatTransform", with: { (rawValue: String) -> Float? in
             return rawValue == "PI" ? 3.14 : 0
         })
         XCTAssertEqual(float?["O"]!, 3.14)
         
-        let double: [String: Double?]? = data.value(for: "doubleTransform", with: { (rawValue: String) -> Double? in
+        let double: [String: Double?]? = data.optional(for: "doubleTransform", with: { (rawValue: String) -> Double? in
             return rawValue == "PI" ? 3.14 : 0
         })
         XCTAssertEqual(double?["O"]!, 3.14)
         
-        let int: [String: Int?]? = data.value(for: "intTransform", with: { (rawValue: String) -> Int? in
+        let int: [String: Int?]? = data.optional(for: "intTransform", with: { (rawValue: String) -> Int? in
             guard let value = Int(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "intTransform", expected: Int.self, actual: rawValue)
             }
@@ -1356,7 +1356,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int?["O"]!, 12345)
         
-        let int8: [String: Int8?]? = data.value(for: "int8Transform", with: { (rawValue: String) -> Int8? in
+        let int8: [String: Int8?]? = data.optional(for: "int8Transform", with: { (rawValue: String) -> Int8? in
             guard let value = Int8(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "int8Transform", expected: Int8.self, actual: rawValue)
             }
@@ -1364,7 +1364,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int8?["O"]!, 123)
         
-        let int16: [String: Int16?]? = data.value(for: "int16Transform", with: { (rawValue: String) -> Int16? in
+        let int16: [String: Int16?]? = data.optional(for: "int16Transform", with: { (rawValue: String) -> Int16? in
             guard let value = Int16(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "int16Transform", expected: Int16.self, actual: rawValue)
             }
@@ -1372,7 +1372,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int16?["O"]!, 12345)
         
-        let int32: [String: Int32?]? = data.value(for: "int32Transform", with: { (rawValue: String) -> Int32? in
+        let int32: [String: Int32?]? = data.optional(for: "int32Transform", with: { (rawValue: String) -> Int32? in
             guard let value = Int32(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "int32Transform", expected: Int32.self, actual: rawValue)
             }
@@ -1380,7 +1380,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int32?["O"]!, 12345)
         
-        let int64: [String: Int64?]? = data.value(for: "int64Transform", with: { (rawValue: String) -> Int64? in
+        let int64: [String: Int64?]? = data.optional(for: "int64Transform", with: { (rawValue: String) -> Int64? in
             guard let value = Int64(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "int64Transform", expected: Int64.self, actual: rawValue)
             }
@@ -1388,7 +1388,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int64?["O"]!, 12345)
         
-        let uint: [String: UInt?]? = data.value(for: "uintTransform", with: { (rawValue: String) -> UInt? in
+        let uint: [String: UInt?]? = data.optional(for: "uintTransform", with: { (rawValue: String) -> UInt? in
             guard let value = UInt(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "uintTransform", expected: UInt.self, actual: rawValue)
             }
@@ -1396,7 +1396,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint?["O"]!, 12345)
         
-        let uint8: [String: UInt8?]? = data.value(for: "uint8Transform", with: { (rawValue: String) -> UInt8? in
+        let uint8: [String: UInt8?]? = data.optional(for: "uint8Transform", with: { (rawValue: String) -> UInt8? in
             guard let value = UInt8(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "uint8Transform", expected: UInt8.self, actual: rawValue)
             }
@@ -1404,7 +1404,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint8?["O"]!, 123)
         
-        let uint16: [String: UInt16?]? = data.value(for: "uint16Transform", with: { (rawValue: String) -> UInt16? in
+        let uint16: [String: UInt16?]? = data.optional(for: "uint16Transform", with: { (rawValue: String) -> UInt16? in
             guard let value = UInt16(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "uint16Transform", expected: UInt16.self, actual: rawValue)
             }
@@ -1412,7 +1412,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint16?["O"]!, 12345)
         
-        let uint32: [String: UInt32?]? = data.value(for: "uint32Transform", with: { (rawValue: String) -> UInt32? in
+        let uint32: [String: UInt32?]? = data.optional(for: "uint32Transform", with: { (rawValue: String) -> UInt32? in
             guard let value = UInt32(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "uint32Transform", expected: UInt32.self, actual: rawValue)
             }
@@ -1420,7 +1420,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint32?["O"]!, 12345)
         
-        let uint64: [String: UInt64?]? = data.value(for: "uint64Transform", with: { (rawValue: String) -> UInt64? in
+        let uint64: [String: UInt64?]? = data.optional(for: "uint64Transform", with: { (rawValue: String) -> UInt64? in
             guard let value = UInt64(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "uint64Transform", expected: UInt64.self, actual: rawValue)
             }
@@ -1428,7 +1428,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint64?["O"]!, 12345)
         
-        let url: [String: URL?]? = data.value(for: "urlTransform", with: { (rawValue: String) -> URL? in
+        let url: [String: URL?]? = data.optional(for: "urlTransform", with: { (rawValue: String) -> URL? in
             let urlValue = rawValue == "HOMEPAGE" ? "http://molbie.co" : rawValue
             guard let value = URL(string: urlValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "urlTransform", expected: URL.self, actual: rawValue)
@@ -1439,43 +1439,43 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(url?["O"]!?.absoluteString, "http://molbie.co")
         
         let formatter = shortDateformatter()
-        let date: [String: Date?]? = data.value(for: "dateTransform", with: { (rawValue: String) -> Date? in
+        let date: [String: Date?]? = data.optional(for: "dateTransform", with: { (rawValue: String) -> Date? in
             return formatter.date(from: rawValue)!
         })
         XCTAssertEqual(formatShortDate(date!["O"]!!), formatShortDate(shortDateForAssert()))
     }
     
     func testOptionalTransformOptionalValueOfOptionals() {
-        let bool: [String: Bool?]? = data.value(for: "boolTransform", with: { (rawValue: String?) -> Bool? in
+        let bool: [String: Bool?]? = data.optional(for: "boolTransform", with: { (rawValue: String?) -> Bool? in
             return rawValue == "TRUE"
         })
         XCTAssertEqual(bool?["O"]!, true)
         
-        let string: [String: String?]? = data.value(for: "stringTransform", with: { (rawValue: Bool?) -> String? in
+        let string: [String: String?]? = data.optional(for: "stringTransform", with: { (rawValue: Bool?) -> String? in
             let value = rawValue ?? false
             return value ? "TRUE" : "FALSE"
         })
         XCTAssertEqual(string?["O"]!, "TRUE")
         
-        let character: [String: Character?]? = data.value(for: "characterTransform", with: { (rawValue: Bool?) -> Character? in
+        let character: [String: Character?]? = data.optional(for: "characterTransform", with: { (rawValue: Bool?) -> Character? in
             let value = rawValue ?? false
             return value ? "1" : "0"
         })
         XCTAssertEqual(character?["O"]!, "1")
         
-        let float: [String: Float?]? = data.value(for: "floatTransform", with: { (rawValue: String?) -> Float? in
+        let float: [String: Float?]? = data.optional(for: "floatTransform", with: { (rawValue: String?) -> Float? in
             let value = rawValue ?? ""
             return value == "PI" ? 3.14 : 0
         })
         XCTAssertEqual(float?["O"]!, 3.14)
         
-        let double: [String: Double?]? = data.value(for: "doubleTransform", with: { (rawValue: String?) -> Double? in
+        let double: [String: Double?]? = data.optional(for: "doubleTransform", with: { (rawValue: String?) -> Double? in
             let value = rawValue ?? ""
             return value == "PI" ? 3.14 : 0
         })
         XCTAssertEqual(double?["O"]!, 3.14)
         
-        let int: [String: Int?]? = data.value(for: "intTransform", with: { (rawValue: String?) -> Int? in
+        let int: [String: Int?]? = data.optional(for: "intTransform", with: { (rawValue: String?) -> Int? in
             guard let value = Int(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "intTransform", expected: Int.self, actual: rawValue ?? "")
             }
@@ -1483,7 +1483,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int?["O"]!, 12345)
         
-        let int8: [String: Int8?]? = data.value(for: "int8Transform", with: { (rawValue: String?) -> Int8? in
+        let int8: [String: Int8?]? = data.optional(for: "int8Transform", with: { (rawValue: String?) -> Int8? in
             guard let value = Int8(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "int8Transform", expected: Int8.self, actual: rawValue ?? "")
             }
@@ -1491,7 +1491,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int8?["O"]!, 123)
         
-        let int16: [String: Int16?]? = data.value(for: "int16Transform", with: { (rawValue: String?) -> Int16? in
+        let int16: [String: Int16?]? = data.optional(for: "int16Transform", with: { (rawValue: String?) -> Int16? in
             guard let value = Int16(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "int16Transform", expected: Int16.self, actual: rawValue ?? "")
             }
@@ -1499,7 +1499,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int16?["O"]!, 12345)
         
-        let int32: [String: Int32?]? = data.value(for: "int32Transform", with: { (rawValue: String?) -> Int32? in
+        let int32: [String: Int32?]? = data.optional(for: "int32Transform", with: { (rawValue: String?) -> Int32? in
             guard let value = Int32(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "int32Transform", expected: Int32.self, actual: rawValue ?? "")
             }
@@ -1507,7 +1507,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int32?["O"]!, 12345)
         
-        let int64: [String: Int64?]? = data.value(for: "int64Transform", with: { (rawValue: String?) -> Int64? in
+        let int64: [String: Int64?]? = data.optional(for: "int64Transform", with: { (rawValue: String?) -> Int64? in
             guard let value = Int64(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "int64Transform", expected: Int64.self, actual: rawValue ?? "")
             }
@@ -1515,7 +1515,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(int64?["O"]!, 12345)
         
-        let uint: [String: UInt?]? = data.value(for: "uintTransform", with: { (rawValue: String?) -> UInt? in
+        let uint: [String: UInt?]? = data.optional(for: "uintTransform", with: { (rawValue: String?) -> UInt? in
             guard let value = UInt(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "uintTransform", expected: UInt.self, actual: rawValue ?? "")
             }
@@ -1523,7 +1523,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint?["O"]!, 12345)
         
-        let uint8: [String: UInt8?]? = data.value(for: "uint8Transform", with: { (rawValue: String?) -> UInt8? in
+        let uint8: [String: UInt8?]? = data.optional(for: "uint8Transform", with: { (rawValue: String?) -> UInt8? in
             guard let value = UInt8(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "uint8Transform", expected: UInt8.self, actual: rawValue ?? "")
             }
@@ -1531,7 +1531,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint8?["O"]!, 123)
         
-        let uint16: [String: UInt16?]? = data.value(for: "uint16Transform", with: { (rawValue: String?) -> UInt16? in
+        let uint16: [String: UInt16?]? = data.optional(for: "uint16Transform", with: { (rawValue: String?) -> UInt16? in
             guard let value = UInt16(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "uint16Transform", expected: UInt16.self, actual: rawValue ?? "")
             }
@@ -1539,7 +1539,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint16?["O"]!, 12345)
         
-        let uint32: [String: UInt32?]? = data.value(for: "uint32Transform", with: { (rawValue: String?) -> UInt32? in
+        let uint32: [String: UInt32?]? = data.optional(for: "uint32Transform", with: { (rawValue: String?) -> UInt32? in
             guard let value = UInt32(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "uint32Transform", expected: UInt32.self, actual: rawValue ?? "")
             }
@@ -1547,7 +1547,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint32?["O"]!, 12345)
         
-        let uint64: [String: UInt64?]? = data.value(for: "uint64Transform", with: { (rawValue: String?) -> UInt64? in
+        let uint64: [String: UInt64?]? = data.optional(for: "uint64Transform", with: { (rawValue: String?) -> UInt64? in
             guard let value = UInt64(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "uint64Transform", expected: UInt64.self, actual: rawValue ?? "")
             }
@@ -1555,7 +1555,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         })
         XCTAssertEqual(uint64?["O"]!, 12345)
         
-        let url: [String: URL?]? = data.value(for: "urlTransform", with: { (rawValue: String?) -> URL? in
+        let url: [String: URL?]? = data.optional(for: "urlTransform", with: { (rawValue: String?) -> URL? in
             let urlValue = rawValue == "HOMEPAGE" ? "http://molbie.co" : (rawValue ?? "")
             guard let value = URL(string: urlValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "urlTransform", expected: URL.self, actual: rawValue ?? "")
@@ -1566,7 +1566,7 @@ class DictionaryTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(url?["O"]!?.absoluteString, "http://molbie.co")
         
         let formatter = shortDateformatter()
-        let date: [String: Date?]? = data.value(for: "dateTransform", with: { (rawValue: String?) -> Date? in
+        let date: [String: Date?]? = data.optional(for: "dateTransform", with: { (rawValue: String?) -> Date? in
             let value = rawValue ?? "11/18/2016"
             return formatter.date(from: value)!
         })

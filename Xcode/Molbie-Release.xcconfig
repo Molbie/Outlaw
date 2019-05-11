@@ -1,0 +1,22 @@
+//
+//  Molbie-Release.xcconfig
+//  MolbieCore
+//
+//  Created by Brian Mullen on 9/4/18.
+//  Copyright © 2018 Molbie LLC. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Molbie-Base.xcconfig"
+
+
+DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
+
+VALIDATE_PRODUCT = YES
+ENABLE_NS_ASSERTIONS = NO
+MTL_ENABLE_DEBUG_INFO = NO
+SWIFT_OPTIMIZATION_LEVEL = -O
+SWIFT_COMPILATION_MODE = wholemodule;
+VALIDATE_PRODUCT = YES

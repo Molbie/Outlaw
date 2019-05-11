@@ -6,6 +6,6 @@
         "float": 3.14,
         "string": "Hello, Outlaw!"
     },
-    "minValue": 1.17549e-38,
+    "minValue": 1.17549e-37,
     "maxValue": 3.40282e+38
 }

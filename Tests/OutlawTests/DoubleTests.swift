@@ -72,22 +72,22 @@ class DoubleTests: OutlawTestCase {
 // MARK: Optionals
     
     func testOptional() {
-        let value: Double? = data.value(for: "double")
+        let value: Double? = data.optional(for: "double")
         XCTAssertEqual(value, 3.14159265359)
     }
     
     func testOptionalNestedValue() {
-        let value: Double? = data.value(for: "object.double")
+        let value: Double? = data.optional(for: "object.double")
         XCTAssertEqual(value, 3.14159265359)
     }
     
     func testOptionalKeyNotFound() {
-        let value: Double? = data.value(for: "keyNotFound")
+        let value: Double? = data.optional(for: "keyNotFound")
         XCTAssertNil(value)
     }
     
     func testOptionalTypeMismatch() {
-        let value: Double? = data.value(for: "string")
+        let value: Double? = data.optional(for: "string")
         XCTAssertNil(value)
     }
     
@@ -123,14 +123,14 @@ class DoubleTests: OutlawTestCase {
     }
     
     func testTransformOptionalValue() {
-        let value: Double? = data.value(for: "transform", with: { (rawValue: String) -> Double? in
+        let value: Double? = data.optional(for: "transform", with: { (rawValue: String) -> Double? in
             return rawValue == "PI" ? 3.14 : 0
         })
         XCTAssertEqual(value, 3.14)
     }
     
     func testOptionalTransformOptionalValue() {
-        let value: Double? = data.value(for: "transform", with: { (rawValue: String?) -> Double? in
+        let value: Double? = data.optional(for: "transform", with: { (rawValue: String?) -> Double? in
             guard let rawValue = rawValue else { return nil }
             return rawValue == "PI" ? 3.14 : 0
         })

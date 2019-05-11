@@ -43,6 +43,7 @@ extension UInt: Value {
         return value
     }
 }
+
 extension UInt8: Value {
     public static func value(from object: Any) throws -> UInt8 {
         let value: UInt8
@@ -77,6 +78,7 @@ extension UInt8: Value {
         return value
     }
 }
+
 extension UInt16: Value {
     public static func value(from object: Any) throws -> UInt16 {
         let value: UInt16
@@ -111,6 +113,7 @@ extension UInt16: Value {
         return value
     }
 }
+
 extension UInt32: Value {
     public static func value(from object: Any) throws -> UInt32 {
         let value: UInt32
@@ -145,6 +148,7 @@ extension UInt32: Value {
         return value
     }
 }
+
 extension UInt64: Value {
     public static func value(from object: Any) throws -> UInt64 {
         let value: UInt64

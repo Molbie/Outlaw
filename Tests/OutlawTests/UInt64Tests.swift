@@ -72,22 +72,22 @@ class UInt64Tests: OutlawTestCase {
 // MARK: Optionals
     
     func testOptional() {
-        let value: UInt64? = data.value(for: "uint64")
+        let value: UInt64? = data.optional(for: "uint64")
         XCTAssertEqual(value, 64)
     }
     
     func testOptionalNestedValue() {
-        let value: UInt64? = data.value(for: "object.uint64")
+        let value: UInt64? = data.optional(for: "object.uint64")
         XCTAssertEqual(value, 64)
     }
     
     func testOptionalKeyNotFound() {
-        let value: UInt64? = data.value(for: "keyNotFound")
+        let value: UInt64? = data.optional(for: "keyNotFound")
         XCTAssertNil(value)
     }
     
     func testOptionalTypeMismatch() {
-        let value: UInt64? = data.value(for: "string")
+        let value: UInt64? = data.optional(for: "string")
         XCTAssertNil(value)
     }
     
@@ -129,14 +129,14 @@ class UInt64Tests: OutlawTestCase {
     }
     
     func testTransformOptionalValue() {
-        let value: UInt64? = data.value(for: "transform", with: { (rawValue: String) -> UInt64? in
+        let value: UInt64? = data.optional(for: "transform", with: { (rawValue: String) -> UInt64? in
             return UInt64(rawValue)
         })
         XCTAssertEqual(value, 12345)
     }
     
     func testOptionalTransformOptionalValue() {
-        let value: UInt64? = data.value(for: "transform", with: { (rawValue: String?) -> UInt64? in
+        let value: UInt64? = data.optional(for: "transform", with: { (rawValue: String?) -> UInt64? in
             guard let rawValue = rawValue else { return nil }
             return UInt64(rawValue)
         })

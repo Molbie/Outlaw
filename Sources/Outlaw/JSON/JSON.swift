@@ -57,12 +57,12 @@ public extension JSON {
         return try Array<V>.value(from: any)
     }
     
-    static func value<V>(from data: Data) -> [V]? {
+    static func optional<V>(from data: Data) -> [V]? {
         return try? self.value(from: data)
     }
     
     static func value<V>(from data: Data, or value: [V]) -> [V] {
-        guard let result: [V] = self.value(from: data) else { return value }
+        guard let result: [V] = self.optional(from: data) else { return value }
         return result
     }
     
@@ -71,12 +71,12 @@ public extension JSON {
         return try Dictionary<K, V>.value(from: any)
     }
     
-    static func value<K, V>(from data: Data) -> [K: V]? {
+    static func optional<K, V>(from data: Data) -> [K: V]? {
         return try? self.value(from: data)
     }
     
     static func value<K, V>(from data: Data, or value: [K: V]) -> [K: V] {
-        guard let result: [K: V] = self.value(from: data) else { return value }
+        guard let result: [K: V] = self.optional(from: data) else { return value }
         return result
     }
     
@@ -85,12 +85,12 @@ public extension JSON {
         return try Set<V>.value(from: any)
     }
     
-    static func value<V>(from data: Data) -> Set<V>? {
+    static func optional<V>(from data: Data) -> Set<V>? {
         return try? self.value(from: data)
     }
     
     static func value<V>(from data: Data, or value: Set<V>) -> Set<V> {
-        guard let result: Set<V> = self.value(from: data) else { return value }
+        guard let result: Set<V> = self.optional(from: data) else { return value }
         return result
     }
     
@@ -102,12 +102,12 @@ public extension JSON {
         return result
     }
     
-    static func value<V: Value>(from data: Data) -> V? {
+    static func optional<V: Value>(from data: Data) -> V? {
         return try? self.value(from: data)
     }
     
     static func value<V: Value>(from data: Data, or value: V) -> V {
-        guard let result: V = self.value(from: data) else { return value }
+        guard let result: V = self.optional(from: data) else { return value }
         return result
     }
 }
@@ -118,12 +118,12 @@ public extension JSON {
         return try Array<V>.mappedValue(from: any)
     }
     
-    static func value<V: Value>(from data: Data) -> [V]? {
+    static func optional<V: Value>(from data: Data) -> [V]? {
         return try? self.value(from: data)
     }
     
     static func value<V: Value>(from data: Data, or value: [V]) -> [V] {
-        guard let result: [V] = self.value(from: data) else { return value }
+        guard let result: [V] = self.optional(from: data) else { return value }
         return result
     }
     
@@ -132,12 +132,12 @@ public extension JSON {
         return try Dictionary<K, V>.mappedValue(from: any)
     }
     
-    static func value<K, V: Value>(from data: Data) -> [K: V]? {
+    static func optional<K, V: Value>(from data: Data) -> [K: V]? {
         return try? self.value(from: data)
     }
     
     static func value<K, V: Value>(from data: Data, or value: [K: V]) -> [K: V] {
-        guard let result: [K: V] = self.value(from: data) else { return value }
+        guard let result: [K: V] = self.optional(from: data) else { return value }
         return result
     }
     
@@ -146,12 +146,12 @@ public extension JSON {
         return try Set<V>.mappedValue(from: any)
     }
     
-    static func value<V: Value>(from data: Data) -> Set<V>? {
+    static func optional<V: Value>(from data: Data) -> Set<V>? {
         return try? self.value(from: data)
     }
     
     static func value<V: Value>(from data: Data, or value: Set<V>) -> Set<V> {
-        guard let result: Set<V> = self.value(from: data) else { return value }
+        guard let result: Set<V> = self.optional(from: data) else { return value }
         return result
     }
 }
@@ -165,12 +165,12 @@ public extension JSON {
         return try Array<V>.value(from: any)
     }
     
-    static func value<V>(from stream: InputStream) -> [V]? {
+    static func optional<V>(from stream: InputStream) -> [V]? {
         return try? self.value(from: stream)
     }
     
     static func value<V>(from stream: InputStream, or value: [V]) -> [V] {
-        guard let result: [V] = self.value(from: stream) else { return value }
+        guard let result: [V] = self.optional(from: stream) else { return value }
         return result
     }
     
@@ -179,12 +179,12 @@ public extension JSON {
         return try Dictionary<K, V>.value(from: any)
     }
     
-    static func value<K, V>(from stream: InputStream) -> [K: V]? {
+    static func optional<K, V>(from stream: InputStream) -> [K: V]? {
         return try? self.value(from: stream)
     }
     
     static func value<K, V>(from stream: InputStream, or value: [K: V]) -> [K: V] {
-        guard let result: [K: V] = self.value(from: stream) else { return value }
+        guard let result: [K: V] = self.optional(from: stream) else { return value }
         return result
     }
     
@@ -193,12 +193,12 @@ public extension JSON {
         return try Set<V>.value(from: any)
     }
     
-    static func value<V>(from stream: InputStream) -> Set<V>? {
+    static func optional<V>(from stream: InputStream) -> Set<V>? {
         return try? self.value(from: stream)
     }
     
     static func value<V>(from stream: InputStream, or value: Set<V>) -> Set<V> {
-        guard let result: Set<V> = self.value(from: stream) else { return value }
+        guard let result: Set<V> = self.optional(from: stream) else { return value }
         return result
     }
     
@@ -210,12 +210,12 @@ public extension JSON {
         return result
     }
     
-    static func value<V: Value>(from stream: InputStream) -> V? {
+    static func optional<V: Value>(from stream: InputStream) -> V? {
         return try? self.value(from: stream)
     }
     
     static func value<V: Value>(from stream: InputStream, or value: V) -> V {
-        guard let result: V = self.value(from: stream) else { return value }
+        guard let result: V = self.optional(from: stream) else { return value }
         return result
     }
 }
@@ -226,12 +226,12 @@ public extension JSON {
         return try Array<V>.mappedValue(from: any)
     }
     
-    static func value<V: Value>(from stream: InputStream) -> [V]? {
+    static func optional<V: Value>(from stream: InputStream) -> [V]? {
         return try? self.value(from: stream)
     }
     
     static func value<V: Value>(from stream: InputStream, or value: [V]) -> [V] {
-        guard let result: [V] = self.value(from: stream) else { return value }
+        guard let result: [V] = self.optional(from: stream) else { return value }
         return result
     }
     
@@ -240,12 +240,12 @@ public extension JSON {
         return try Dictionary<K, V>.mappedValue(from: any)
     }
     
-    static func value<K, V: Value>(from stream: InputStream) -> [K: V]? {
+    static func optional<K, V: Value>(from stream: InputStream) -> [K: V]? {
         return try? self.value(from: stream)
     }
     
     static func value<K, V: Value>(from stream: InputStream, or value: [K: V]) -> [K: V] {
-        guard let result: [K: V] = self.value(from: stream) else { return value }
+        guard let result: [K: V] = self.optional(from: stream) else { return value }
         return result
     }
     
@@ -254,12 +254,12 @@ public extension JSON {
         return try Set<V>.mappedValue(from: any)
     }
     
-    static func value<V: Value>(from stream: InputStream) -> Set<V>? {
+    static func optional<V: Value>(from stream: InputStream) -> Set<V>? {
         return try? self.value(from: stream)
     }
     
     static func value<V: Value>(from stream: InputStream, or value: Set<V>) -> Set<V> {
-        guard let result: Set<V> = self.value(from: stream) else { return value }
+        guard let result: Set<V> = self.optional(from: stream) else { return value }
         return result
     }
 }
@@ -275,12 +275,12 @@ public extension JSON {
         return try self.value(from: data)
     }
     
-    static func value<V>(from string: String, using encoding: String.Encoding = .utf8) -> [V]? {
+    static func optional<V>(from string: String, using encoding: String.Encoding = .utf8) -> [V]? {
         return try? self.value(from: string, using: encoding)
     }
     
     static func value<V>(from string: String, using encoding: String.Encoding = .utf8, or value: [V]) -> [V] {
-        guard let result: [V] = self.value(from: string, using: encoding) else { return value }
+        guard let result: [V] = self.optional(from: string, using: encoding) else { return value }
         return result
     }
     
@@ -291,12 +291,12 @@ public extension JSON {
         return try self.value(from: data)
     }
     
-    static func value<K, V>(from string: String, using encoding: String.Encoding = .utf8) -> [K: V]? {
+    static func optional<K, V>(from string: String, using encoding: String.Encoding = .utf8) -> [K: V]? {
         return try? self.value(from: string, using: encoding)
     }
     
     static func value<K, V>(from string: String, using encoding: String.Encoding = .utf8, or value: [K: V]) -> [K: V] {
-        guard let result: [K: V] = self.value(from: string, using: encoding) else { return value }
+        guard let result: [K: V] = self.optional(from: string, using: encoding) else { return value }
         return result
     }
     
@@ -307,12 +307,12 @@ public extension JSON {
         return try self.value(from: data)
     }
     
-    static func value<V>(from string: String, using encoding: String.Encoding = .utf8) -> Set<V>? {
+    static func optional<V>(from string: String, using encoding: String.Encoding = .utf8) -> Set<V>? {
         return try? self.value(from: string, using: encoding)
     }
     
     static func value<V>(from string: String, using encoding: String.Encoding = .utf8, or value: Set<V>) -> Set<V> {
-        guard let result: Set<V> = self.value(from: string, using: encoding) else { return value }
+        guard let result: Set<V> = self.optional(from: string, using: encoding) else { return value }
         return result
     }
     
@@ -323,12 +323,12 @@ public extension JSON {
         return try self.value(from: data)
     }
     
-    static func value<V: Value>(from string: String, using encoding: String.Encoding = .utf8) -> V? {
+    static func optional<V: Value>(from string: String, using encoding: String.Encoding = .utf8) -> V? {
         return try? self.value(from: string, using: encoding)
     }
     
     static func value<V: Value>(from string: String, using encoding: String.Encoding = .utf8, or value: V) -> V {
-        guard let result: V = self.value(from: string, using: encoding) else { return value }
+        guard let result: V = self.optional(from: string, using: encoding) else { return value }
         return result
     }
 }
@@ -341,12 +341,12 @@ public extension JSON {
         return try self.value(from: data)
     }
     
-    static func value<V: Value>(from string: String, using encoding: String.Encoding = .utf8) -> [V]? {
+    static func optional<V: Value>(from string: String, using encoding: String.Encoding = .utf8) -> [V]? {
         return try? self.value(from: string, using: encoding)
     }
     
     static func value<V: Value>(from string: String, using encoding: String.Encoding = .utf8, or value: [V]) -> [V] {
-        guard let result: [V] = self.value(from: string, using: encoding) else { return value }
+        guard let result: [V] = self.optional(from: string, using: encoding) else { return value }
         return result
     }
     
@@ -357,12 +357,12 @@ public extension JSON {
         return try self.value(from: data)
     }
     
-    static func value<K, V: Value>(from string: String, using encoding: String.Encoding = .utf8) -> [K: V]? {
+    static func optional<K, V: Value>(from string: String, using encoding: String.Encoding = .utf8) -> [K: V]? {
         return try? self.value(from: string, using: encoding)
     }
     
     static func value<K, V: Value>(from string: String, using encoding: String.Encoding = .utf8, or value: [K: V]) -> [K: V] {
-        guard let result: [K: V] = self.value(from: string, using: encoding) else { return value }
+        guard let result: [K: V] = self.optional(from: string, using: encoding) else { return value }
         return result
     }
     
@@ -373,12 +373,12 @@ public extension JSON {
         return try self.value(from: data)
     }
     
-    static func value<V: Value>(from string: String, using encoding: String.Encoding = .utf8) -> Set<V>? {
+    static func optional<V: Value>(from string: String, using encoding: String.Encoding = .utf8) -> Set<V>? {
         return try? self.value(from: string, using: encoding)
     }
     
     static func value<V: Value>(from string: String, using encoding: String.Encoding = .utf8, or value: Set<V>) -> Set<V> {
-        guard let result: Set<V> = self.value(from: string, using: encoding) else { return value }
+        guard let result: Set<V> = self.optional(from: string, using: encoding) else { return value }
         return result
     }
 }
@@ -392,12 +392,12 @@ public extension JSON {
         return try self.value(from: data)
     }
     
-    static func value<V>(from url: URL) -> [V]? {
+    static func optional<V>(from url: URL) -> [V]? {
         return try? self.value(from: url)
     }
     
     static func value<V>(from url: URL, or value: [V]) -> [V] {
-        guard let result: [V] = self.value(from: url) else { return value }
+        guard let result: [V] = self.optional(from: url) else { return value }
         return result
     }
     
@@ -406,12 +406,12 @@ public extension JSON {
         return try self.value(from: data)
     }
     
-    static func value<K, V>(from url: URL) -> [K: V]? {
+    static func optional<K, V>(from url: URL) -> [K: V]? {
         return try? self.value(from: url)
     }
     
     static func value<K, V>(from url: URL, or value: [K: V]) -> [K: V] {
-        guard let result: [K: V] = self.value(from: url) else { return value }
+        guard let result: [K: V] = self.optional(from: url) else { return value }
         return result
     }
     
@@ -420,12 +420,12 @@ public extension JSON {
         return try self.value(from: data)
     }
     
-    static func value<V>(from url: URL) -> Set<V>? {
+    static func optional<V>(from url: URL) -> Set<V>? {
         return try? self.value(from: url)
     }
     
     static func value<V>(from url: URL, or value: Set<V>) -> Set<V> {
-        guard let result: Set<V> = self.value(from: url) else { return value }
+        guard let result: Set<V> = self.optional(from: url) else { return value }
         return result
     }
     
@@ -434,12 +434,12 @@ public extension JSON {
         return try self.value(from: data)
     }
     
-    static func value<V: Value>(from url: URL) -> V? {
+    static func optional<V: Value>(from url: URL) -> V? {
         return try? self.value(from: url)
     }
     
     static func value<V: Value>(from url: URL, or value: V) -> V {
-        guard let result: V = self.value(from: url) else { return value }
+        guard let result: V = self.optional(from: url) else { return value }
         return result
     }
 }
@@ -450,12 +450,12 @@ public extension JSON {
         return try self.value(from: data)
     }
     
-    static func value<V: Value>(from url: URL) -> [V]? {
+    static func optional<V: Value>(from url: URL) -> [V]? {
         return try? self.value(from: url)
     }
     
     static func value<V: Value>(from url: URL, or value: [V]) -> [V] {
-        guard let result: [V] = self.value(from: url) else { return value }
+        guard let result: [V] = self.optional(from: url) else { return value }
         return result
     }
     
@@ -464,12 +464,12 @@ public extension JSON {
         return try self.value(from: data)
     }
     
-    static func value<K, V: Value>(from url: URL) -> [K: V]? {
+    static func optional<K, V: Value>(from url: URL) -> [K: V]? {
         return try? self.value(from: url)
     }
     
     static func value<K, V: Value>(from url: URL, or value: [K: V]) -> [K: V] {
-        guard let result: [K: V] = self.value(from: url) else { return value }
+        guard let result: [K: V] = self.optional(from: url) else { return value }
         return result
     }
     
@@ -478,12 +478,12 @@ public extension JSON {
         return try self.value(from: data)
     }
     
-    static func value<V: Value>(from url: URL) -> Set<V>? {
+    static func optional<V: Value>(from url: URL) -> Set<V>? {
         return try? self.value(from: url)
     }
     
     static func value<V: Value>(from url: URL, or value: Set<V>) -> Set<V> {
-        guard let result: Set<V> = self.value(from: url) else { return value }
+        guard let result: Set<V> = self.optional(from: url) else { return value }
         return result
     }
 }

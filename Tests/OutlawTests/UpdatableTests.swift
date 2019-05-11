@@ -88,28 +88,28 @@ class UpdatableTests: OutlawTestCase {
 
 extension Address: Updatable {
     mutating func update(with data: Extractable) throws {
-        if let street: String = data.value(for: "street") {
+        if let street: String = data.optional(for: "street") {
             self.street = street
         }
-        if let city: String = data.value(for: "city") {
+        if let city: String = data.optional(for: "city") {
             self.city = city
         }
     }
 }
 extension Person: Updatable {
     mutating func update(with data: Extractable) throws {
-        if let firstName: String = data.value(for: "first") {
+        if let firstName: String = data.optional(for: "first") {
             self.firstName = firstName
         }
-        if let lastName: String = data.value(for: "last") {
+        if let lastName: String = data.optional(for: "last") {
             self.lastName = lastName
         }
         if address != nil {
-            if let addressData: [String: Any] = data.value(for: "address") {
+            if let addressData: [String: Any] = data.optional(for: "address") {
                 try self.address?.update(with: addressData)
             }
         }
-        else if let address: Address = data.value(for: "address") {
+        else if let address: Address = data.optional(for: "address") {
             self.address = address
         }
     }

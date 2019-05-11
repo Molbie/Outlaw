@@ -242,17 +242,17 @@ class DeserializableTests: OutlawTestCase {
 // MARK: Optionals
     
     func testOptional() {
-        let personNoAddress: Person? = data.value(for: "personNoAddress")
+        let personNoAddress: Person? = data.optional(for: "personNoAddress")
         XCTAssertEqual(personNoAddress?.firstName, "Brian")
         XCTAssertEqual(personNoAddress?.lastName, "Mullen")
         XCTAssertNil(personNoAddress?.address)
         
-        let personNullAddress: Person? = data.value(for: "personNullAddress")
+        let personNullAddress: Person? = data.optional(for: "personNullAddress")
         XCTAssertEqual(personNullAddress?.firstName, "Brian")
         XCTAssertEqual(personNullAddress?.lastName, "Mullen")
         XCTAssertNil(personNullAddress?.address)
         
-        let personWithAddress: Person? = data.value(for: "personWithAddress")
+        let personWithAddress: Person? = data.optional(for: "personWithAddress")
         XCTAssertEqual(personWithAddress?.firstName, "Brian")
         XCTAssertEqual(personWithAddress?.lastName, "Mullen")
         XCTAssertNotNil(personWithAddress?.address)
@@ -261,19 +261,19 @@ class DeserializableTests: OutlawTestCase {
     }
     
     func testOptionalArray() {
-        let personNoAddress: [Person]? = data.value(for: "arrayNoAddress")
+        let personNoAddress: [Person]? = data.optional(for: "arrayNoAddress")
         XCTAssertEqual(personNoAddress?.count, 3)
         XCTAssertEqual(personNoAddress?[0].firstName, "Brian")
         XCTAssertEqual(personNoAddress?[0].lastName, "Mullen")
         XCTAssertNil(personNoAddress?[0].address)
         
-        let personNullAddress: [Person]? = data.value(for: "arrayNullAddress")
+        let personNullAddress: [Person]? = data.optional(for: "arrayNullAddress")
         XCTAssertEqual(personNullAddress?.count, 3)
         XCTAssertEqual(personNullAddress?[0].firstName, "Brian")
         XCTAssertEqual(personNullAddress?[0].lastName, "Mullen")
         XCTAssertNil(personNullAddress?[0].address)
         
-        let personWithAddress: [Person]? = data.value(for: "arrayWithAddress")
+        let personWithAddress: [Person]? = data.optional(for: "arrayWithAddress")
         XCTAssertEqual(personWithAddress?.count, 3)
         XCTAssertEqual(personWithAddress?[0].firstName, "Brian")
         XCTAssertEqual(personWithAddress?[0].lastName, "Mullen")
@@ -283,17 +283,17 @@ class DeserializableTests: OutlawTestCase {
     }
     
     func testOptionalDictionary() {
-        let personNoAddress: [String: Person]? = data.value(for: "dictionaryNoAddress")
+        let personNoAddress: [String: Person]? = data.optional(for: "dictionaryNoAddress")
         XCTAssertEqual(personNoAddress?["O"]?.firstName, "Brian")
         XCTAssertEqual(personNoAddress?["O"]?.lastName, "Mullen")
         XCTAssertNil(personNoAddress?["O"]?.address)
         
-        let personNullAddress: [String: Person]? = data.value(for: "dictionaryNullAddress")
+        let personNullAddress: [String: Person]? = data.optional(for: "dictionaryNullAddress")
         XCTAssertEqual(personNullAddress?["O"]?.firstName, "Brian")
         XCTAssertEqual(personNullAddress?["O"]?.lastName, "Mullen")
         XCTAssertNil(personNullAddress?["O"]?.address)
         
-        let personWithAddress: [String: Person]? = data.value(for: "dictionaryWithAddress")
+        let personWithAddress: [String: Person]? = data.optional(for: "dictionaryWithAddress")
         XCTAssertEqual(personWithAddress?["O"]?.firstName, "Brian")
         XCTAssertEqual(personWithAddress?["O"]?.lastName, "Mullen")
         XCTAssertNotNil(personWithAddress?["O"]?.address)
@@ -302,19 +302,19 @@ class DeserializableTests: OutlawTestCase {
     }
     
     func testOptionalSet() {
-        let personNoAddress: Set<Person>? = data.value(for: "setNoAddress")
+        let personNoAddress: Set<Person>? = data.optional(for: "setNoAddress")
         XCTAssertEqual(personNoAddress?.count, 1)
         XCTAssertEqual(personNoAddress?.first?.firstName, "Brian")
         XCTAssertEqual(personNoAddress?.first?.lastName, "Mullen")
         XCTAssertNil(personNoAddress?.first?.address)
         
-        let personNullAddress: Set<Person>? = data.value(for: "setNullAddress")
+        let personNullAddress: Set<Person>? = data.optional(for: "setNullAddress")
         XCTAssertEqual(personNullAddress?.count, 1)
         XCTAssertEqual(personNullAddress?.first?.firstName, "Brian")
         XCTAssertEqual(personNullAddress?.first?.lastName, "Mullen")
         XCTAssertNil(personNullAddress?.first?.address)
         
-        let personWithAddress: Set<Person>? = data.value(for: "setWithAddress")
+        let personWithAddress: Set<Person>? = data.optional(for: "setWithAddress")
         XCTAssertEqual(personWithAddress?.count, 1)
         XCTAssertEqual(personWithAddress?.first?.firstName, "Brian")
         XCTAssertEqual(personWithAddress?.first?.lastName, "Mullen")
@@ -324,17 +324,17 @@ class DeserializableTests: OutlawTestCase {
     }
     
     func testOptionalNestedValue() {
-        let personNoAddress: Person? = data.value(for: "object.personNoAddress")
+        let personNoAddress: Person? = data.optional(for: "object.personNoAddress")
         XCTAssertEqual(personNoAddress?.firstName, "Brian")
         XCTAssertEqual(personNoAddress?.lastName, "Mullen")
         XCTAssertNil(personNoAddress?.address)
         
-        let personNullAddress: Person? = data.value(for: "object.personNullAddress")
+        let personNullAddress: Person? = data.optional(for: "object.personNullAddress")
         XCTAssertEqual(personNullAddress?.firstName, "Brian")
         XCTAssertEqual(personNullAddress?.lastName, "Mullen")
         XCTAssertNil(personNullAddress?.address)
         
-        let personWithAddress: Person? = data.value(for: "object.personWithAddress")
+        let personWithAddress: Person? = data.optional(for: "object.personWithAddress")
         XCTAssertEqual(personWithAddress?.firstName, "Brian")
         XCTAssertEqual(personWithAddress?.lastName, "Mullen")
         XCTAssertNotNil(personWithAddress?.address)
@@ -343,19 +343,19 @@ class DeserializableTests: OutlawTestCase {
     }
     
     func testOptionalNestedArray() {
-        let personNoAddress: [Person]? = data.value(for: "object.arrayNoAddress")
+        let personNoAddress: [Person]? = data.optional(for: "object.arrayNoAddress")
         XCTAssertEqual(personNoAddress?.count, 3)
         XCTAssertEqual(personNoAddress?[0].firstName, "Brian")
         XCTAssertEqual(personNoAddress?[0].lastName, "Mullen")
         XCTAssertNil(personNoAddress?[0].address)
         
-        let personNullAddress: [Person]? = data.value(for: "object.arrayNullAddress")
+        let personNullAddress: [Person]? = data.optional(for: "object.arrayNullAddress")
         XCTAssertEqual(personNullAddress?.count, 3)
         XCTAssertEqual(personNullAddress?[0].firstName, "Brian")
         XCTAssertEqual(personNullAddress?[0].lastName, "Mullen")
         XCTAssertNil(personNullAddress?[0].address)
         
-        let personWithAddress: [Person]? = data.value(for: "object.arrayWithAddress")
+        let personWithAddress: [Person]? = data.optional(for: "object.arrayWithAddress")
         XCTAssertEqual(personWithAddress?.count, 3)
         XCTAssertEqual(personWithAddress?[0].firstName, "Brian")
         XCTAssertEqual(personWithAddress?[0].lastName, "Mullen")
@@ -365,17 +365,17 @@ class DeserializableTests: OutlawTestCase {
     }
     
     func testOptionalNestedDictionary() {
-        let personNoAddress: [String: Person]? = data.value(for: "object.dictionaryNoAddress")
+        let personNoAddress: [String: Person]? = data.optional(for: "object.dictionaryNoAddress")
         XCTAssertEqual(personNoAddress?["O"]?.firstName, "Brian")
         XCTAssertEqual(personNoAddress?["O"]?.lastName, "Mullen")
         XCTAssertNil(personNoAddress?["O"]?.address)
         
-        let personNullAddress: [String: Person]? = data.value(for: "object.dictionaryNullAddress")
+        let personNullAddress: [String: Person]? = data.optional(for: "object.dictionaryNullAddress")
         XCTAssertEqual(personNullAddress?["O"]?.firstName, "Brian")
         XCTAssertEqual(personNullAddress?["O"]?.lastName, "Mullen")
         XCTAssertNil(personNullAddress?["O"]?.address)
         
-        let personWithAddress: [String: Person]? = data.value(for: "object.dictionaryWithAddress")
+        let personWithAddress: [String: Person]? = data.optional(for: "object.dictionaryWithAddress")
         XCTAssertEqual(personWithAddress?["O"]?.firstName, "Brian")
         XCTAssertEqual(personWithAddress?["O"]?.lastName, "Mullen")
         XCTAssertNotNil(personWithAddress?["O"]?.address)
@@ -384,19 +384,19 @@ class DeserializableTests: OutlawTestCase {
     }
     
     func testOptionalNestedSet() {
-        let personNoAddress: Set<Person>? = data.value(for: "object.setNoAddress")
+        let personNoAddress: Set<Person>? = data.optional(for: "object.setNoAddress")
         XCTAssertEqual(personNoAddress?.count, 1)
         XCTAssertEqual(personNoAddress?.first?.firstName, "Brian")
         XCTAssertEqual(personNoAddress?.first?.lastName, "Mullen")
         XCTAssertNil(personNoAddress?.first?.address)
         
-        let personNullAddress: Set<Person>? = data.value(for: "object.setNullAddress")
+        let personNullAddress: Set<Person>? = data.optional(for: "object.setNullAddress")
         XCTAssertEqual(personNullAddress?.count, 1)
         XCTAssertEqual(personNullAddress?.first?.firstName, "Brian")
         XCTAssertEqual(personNullAddress?.first?.lastName, "Mullen")
         XCTAssertNil(personNullAddress?.first?.address)
         
-        let personWithAddress: Set<Person>? = data.value(for: "object.setWithAddress")
+        let personWithAddress: Set<Person>? = data.optional(for: "object.setWithAddress")
         XCTAssertEqual(personWithAddress?.count, 1)
         XCTAssertEqual(personWithAddress?.first?.firstName, "Brian")
         XCTAssertEqual(personWithAddress?.first?.lastName, "Mullen")
@@ -406,12 +406,12 @@ class DeserializableTests: OutlawTestCase {
     }
     
     func testOptionalKeyNotFound() {
-        let value: Person? = data.value(for: "keyNotFound")
+        let value: Person? = data.optional(for: "keyNotFound")
         XCTAssertNil(value)
     }
     
     func testOptionalTypeMismatch() {
-        let value: Person? = data.value(for: "string")
+        let value: Person? = data.optional(for: "string")
         XCTAssertNil(value)
     }
 }
@@ -429,6 +429,6 @@ extension Person: Deserializable {
     init(object data: Extractable) throws {
         firstName = try data.value(for: "first")
         lastName = try data.value(for: "last")
-        address = data.value(for: "address")
+        address = data.optional(for: "address")
     }
 }
