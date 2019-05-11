@@ -114,58 +114,58 @@ class EnumTests: OutlawTestCase {
 // MARK: Optionals
     
     func testOptional() {
-        let value: DayOfWeek? = data.value(for: "enum")
+        let value: DayOfWeek? = data.optional(for: "enum")
         XCTAssertEqual(value, .friday)
     }
     
     func testOptionalArray() {
-        let value: [DayOfWeek]? = data.value(for: "array")
+        let value: [DayOfWeek]? = data.optional(for: "array")
         XCTAssertEqual(value?.count, 7)
         XCTAssertEqual(value?.last, .saturday)
     }
     
     func testOptionalDictionary() {
-        let value: [String: DayOfWeek]? = data.value(for: "dictionary")
+        let value: [String: DayOfWeek]? = data.optional(for: "dictionary")
         XCTAssertEqual(value?.count, 7)
         XCTAssertEqual(value?["Sat"], .saturday)
     }
     
     func testOptionalSet() {
-        let value: Set<DayOfWeek>? = data.value(for: "set")
+        let value: Set<DayOfWeek>? = data.optional(for: "set")
         XCTAssertEqual(value?.count, 1)
         XCTAssertEqual(value?.first, .sunday)
     }
     
     func testOptionalNestedValue() {
-        let value: DayOfWeek? = data.value(for: "object.enum")
+        let value: DayOfWeek? = data.optional(for: "object.enum")
         XCTAssertEqual(value, .friday)
     }
     
     func testOptionalNestedArray() {
-        let value: [DayOfWeek]? = data.value(for: "object.array")
+        let value: [DayOfWeek]? = data.optional(for: "object.array")
         XCTAssertEqual(value?.count, 7)
         XCTAssertEqual(value?.last, .saturday)
     }
     
     func testOptionalNestedDictionary() {
-        let value: [String: DayOfWeek]? = data.value(for: "object.dictionary")
+        let value: [String: DayOfWeek]? = data.optional(for: "object.dictionary")
         XCTAssertEqual(value?.count, 7)
         XCTAssertEqual(value?["Sat"], .saturday)
     }
     
     func testOptionalNestedSet() {
-        let value: Set<DayOfWeek>? = data.value(for: "object.set")
+        let value: Set<DayOfWeek>? = data.optional(for: "object.set")
         XCTAssertEqual(value?.count, 1)
         XCTAssertEqual(value?.first, .sunday)
     }
     
     func testOptionalKeyNotFound() {
-        let value: DayOfWeek? = data.value(for: "keyNotFound")
+        let value: DayOfWeek? = data.optional(for: "keyNotFound")
         XCTAssertNil(value)
     }
     
     func testOptionalTypeMismatch() {
-        let value: DayOfWeek? = data.value(for: "string")
+        let value: DayOfWeek? = data.optional(for: "string")
         XCTAssertNil(value)
     }
 }

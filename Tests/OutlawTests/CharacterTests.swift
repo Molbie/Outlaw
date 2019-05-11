@@ -70,22 +70,22 @@ class CharacterTests: OutlawTestCase {
 // MARK: Optionals
     
     func testOptional() {
-        let value: Character? = data.value(for: "character")
+        let value: Character? = data.optional(for: "character")
         XCTAssertEqual(value, "O")
     }
     
     func testOptionalNestedValue() {
-        let value: Character? = data.value(for: "object.character")
+        let value: Character? = data.optional(for: "object.character")
         XCTAssertEqual(value, "O")
     }
     
     func testOptionalKeyNotFound() {
-        let value: Character? = data.value(for: "keyNotFound")
+        let value: Character? = data.optional(for: "keyNotFound")
         XCTAssertNil(value)
     }
     
     func testOptionalTypeMismatch() {
-        let value: Character? = data.value(for: "bool")
+        let value: Character? = data.optional(for: "bool")
         XCTAssertNil(value)
     }
     
@@ -108,14 +108,14 @@ class CharacterTests: OutlawTestCase {
     }
     
     func testTransformOptionalValue() {
-        let value: Character? = data.value(for: "transform", with: { (rawValue: Bool) -> Character? in
+        let value: Character? = data.optional(for: "transform", with: { (rawValue: Bool) -> Character? in
             return rawValue ? "1" : "0"
         })
         XCTAssertEqual(value, "1")
     }
     
     func testOptionalTransformOptionalValue() {
-        let value: Character? = data.value(for: "transform", with: { (rawValue: Bool?) -> Character? in
+        let value: Character? = data.optional(for: "transform", with: { (rawValue: Bool?) -> Character? in
             guard let rawValue = rawValue else { return nil }
             return rawValue ? "1" : "0"
         })

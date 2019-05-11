@@ -1,0 +1,51 @@
+//
+//  Moblie-Conditionals.xcconfig
+//  MolbieCore
+//
+//  Created by Brian Mullen on 9/4/18.
+//  Copyright © 2018 Molbie LLC. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// Desktop vs Mobile
+MOLBIE_DESKTOP =
+MOLBIE_DESKTOP[sdk=mac*] = IS_DESKTOP
+MOLBIE_DESKTOP_GCC =
+MOLBIE_DESKTOP_GCC[sdk=mac*] = IS_DESKTOP=1
+
+MOLBIE_MOBILE = IS_MOBILE
+MOLBIE_MOBILE[sdk=mac*] =
+MOLBIE_MOBILE_GCC = IS_MOBILE=1
+MOLBIE_MOBILE_GCC[sdk=mac*] =
+
+// Device vs Simulator
+MOLBIE_DEVICE = IS_DEVICE
+MOLBIE_DEVICE[sdk=*simulator] =
+MOLBIE_DEVICE_GCC = IS_DEVICE=1
+MOLBIE_DEVICE_GCC[sdk=*simulator] =
+
+MOLBIE_SIM =
+MOLBIE_SIM[sdk=*simulator] = IS_SIMULATOR
+MOLBIE_SIM_GCC =
+MOLBIE_SIM_GCC[sdk=*simulator] = IS_SIMULATOR=1
+
+// Various mobile platforms
+MOLBIE_PLATFORM =
+MOLBIE_PLATFORM[sdk=mac*] = IS_MACOS
+MOLBIE_PLATFORM[sdk=iphone*] = IS_IOS
+MOLBIE_PLATFORM[sdk=appletv*] = IS_TVOS
+MOLBIE_PLATFORM[sdk=watch*] = IS_WATCHOS
+MOLBIE_PLATFORM_GCC =
+MOLBIE_PLATFORM_GCC[sdk=mac*] = IS_MACOS=1
+MOLBIE_PLATFORM_GCC[sdk=iphone*] = IS_IOS=1
+MOLBIE_PLATFORM_GCC[sdk=appletv*] = IS_TVOS=1
+MOLBIE_PLATFORM_GCC[sdk=watch*] = IS_WATCHOS=1
+
+// Conditionals
+MOLBIE_CONDITIONALS = $(MOLBIE_DESKTOP) $(MOLBIE_MOBILE) $(MOLBIE_DEVICE) $(MOLBIE_SIM) $(MOLBIE_PLATFORM)
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = $(inherited) $(MOLBIE_CONDITIONALS)
+
+MOLBIE_CONDITIONALS_GCC = $(MOLBIE_DESKTOP_GCC) $(MOLBIE_MOBILE_GCC) $(MOLBIE_DEVICE_GCC) $(MOLBIE_SIM_GCC) $(MOLBIE_PLATFORM_GCC)
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) $(MOLBIE_CONDITIONALS_GCC)

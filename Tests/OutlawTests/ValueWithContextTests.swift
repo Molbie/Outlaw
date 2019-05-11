@@ -89,7 +89,7 @@ extension Person2: ValueWithContext {
         var person = newObjectContext.newPerson2()
         person.firstName = try objectData.value(for: "first")
         person.lastName = try objectData.value(for: "last")
-        person.address = objectData.value(for: "address", using: newObjectContext)
+        person.address = objectData.optional(for: "address", using: newObjectContext)
         
         return person
     }

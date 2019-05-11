@@ -72,22 +72,22 @@ class Int32Tests: OutlawTestCase {
 // MARK: Optionals
     
     func testOptional() {
-        let value: Int32? = data.value(for: "int32")
+        let value: Int32? = data.optional(for: "int32")
         XCTAssertEqual(value, -32)
     }
     
     func testOptionalNestedValue() {
-        let value: Int32? = data.value(for: "object.int32")
+        let value: Int32? = data.optional(for: "object.int32")
         XCTAssertEqual(value, -32)
     }
     
     func testOptionalKeyNotFound() {
-        let value: Int32? = data.value(for: "keyNotFound")
+        let value: Int32? = data.optional(for: "keyNotFound")
         XCTAssertNil(value)
     }
     
     func testOptionalTypeMismatch() {
-        let value: Int32? = data.value(for: "string")
+        let value: Int32? = data.optional(for: "string")
         XCTAssertNil(value)
     }
     
@@ -128,14 +128,14 @@ class Int32Tests: OutlawTestCase {
     }
     
     func testTransformOptionalValue() {
-        let value: Int32? = data.value(for: "transform", with: { (rawValue: String) -> Int32? in
+        let value: Int32? = data.optional(for: "transform", with: { (rawValue: String) -> Int32? in
             return Int32(rawValue)
         })
         XCTAssertEqual(value, 12345)
     }
     
     func testOptionalTransformOptionalValue() {
-        let value: Int32? = data.value(for: "transform", with: { (rawValue: String?) -> Int32? in
+        let value: Int32? = data.optional(for: "transform", with: { (rawValue: String?) -> Int32? in
             guard let rawValue = rawValue else { return nil }
             return Int32(rawValue)
         })

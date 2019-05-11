@@ -26,12 +26,12 @@ public extension IndexExtractable {
         }
     }
     
-    func value<V: ValueWithContext>(for index: Index, using context: V.Context) -> V? {
+    func optional<V: ValueWithContext>(for index: Index, using context: V.Context) -> V? {
         return try? self.value(for: index, using: context)
     }
     
     func value<V: ValueWithContext>(for index: Index, using context: V.Context, or value: V) -> V {
-        guard let result: V = self.value(for: index, using: context) else { return value }
+        guard let result: V = self.optional(for: index, using: context) else { return value }
         return result
     }
 }
@@ -50,12 +50,12 @@ public extension IndexExtractable {
         }
     }
     
-    func value<V: ValueWithContext>(for index: Index, using context: V.Context) -> [V]? {
+    func optional<V: ValueWithContext>(for index: Index, using context: V.Context) -> [V]? {
         return try? self.value(for: index, using: context)
     }
     
     func value<V: ValueWithContext>(for index: Index, using context: V.Context, or value: [V]) -> [V] {
-        guard let result: [V] = self.value(for: index, using: context) else { return value }
+        guard let result: [V] = self.optional(for: index, using: context) else { return value }
         return result
     }
 }
@@ -74,12 +74,12 @@ public extension IndexExtractable {
         }
     }
     
-    func value<V: ValueWithContext>(for index: Index, using context: V.Context) -> [V?]? {
+    func optional<V: ValueWithContext>(for index: Index, using context: V.Context) -> [V?]? {
         return try? self.value(for: index, using: context)
     }
     
     func value<V: ValueWithContext>(for index: Index, using context: V.Context, or value: [V?]) -> [V?] {
-        guard let result: [V?] = self.value(for: index, using: context) else { return value }
+        guard let result: [V?] = self.optional(for: index, using: context) else { return value }
         return result
     }
 }
@@ -98,12 +98,12 @@ public extension IndexExtractable {
         }
     }
     
-    func value<K, V: ValueWithContext>(for index: Index, using context: V.Context) -> [K: V]? {
+    func optional<K, V: ValueWithContext>(for index: Index, using context: V.Context) -> [K: V]? {
         return try? self.value(for: index, using: context)
     }
     
     func value<K, V: ValueWithContext>(for index: Index, using context: V.Context, or value: [K: V]) -> [K: V] {
-        guard let result: [K: V] = self.value(for: index, using: context) else { return value }
+        guard let result: [K: V] = self.optional(for: index, using: context) else { return value }
         return result
     }
 }
@@ -122,12 +122,12 @@ public extension IndexExtractable {
         }
     }
     
-    func value<K, V: ValueWithContext>(for index: Index, using context: V.Context) -> [K: V?]? {
+    func optional<K, V: ValueWithContext>(for index: Index, using context: V.Context) -> [K: V?]? {
         return try? self.value(for: index, using: context)
     }
     
     func value<K, V: ValueWithContext>(for index: Index, using context: V.Context, or value: [K: V?]) -> [K: V?] {
-        guard let result: [K: V?] = self.value(for: index, using: context) else { return value }
+        guard let result: [K: V?] = self.optional(for: index, using: context) else { return value }
         return result
     }
 }
@@ -146,12 +146,12 @@ public extension IndexExtractable {
         }
     }
     
-    func value<V: ValueWithContext>(for index: Index, using context: V.Context) -> Set<V>? {
+    func optional<V: ValueWithContext>(for index: Index, using context: V.Context) -> Set<V>? {
         return try? self.value(for: index, using: context)
     }
     
     func value<V: ValueWithContext>(for index: Index, using context: V.Context, or value: Set<V>) -> Set<V> {
-        guard let result: Set<V> = self.value(for: index, using: context) else { return value }
+        guard let result: Set<V> = self.optional(for: index, using: context) else { return value }
         return result
     }
 }

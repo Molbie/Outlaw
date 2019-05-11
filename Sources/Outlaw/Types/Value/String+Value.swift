@@ -10,6 +10,7 @@ import Foundation
 
 
 extension String: Value {}
+
 extension Character: Value {
     public static func value(from object: Any) throws -> Character {
         guard let value = object as? String else {

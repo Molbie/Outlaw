@@ -207,154 +207,154 @@ class SetTests: OutlawTestCase, DateTesting {
 // MARK: Optionals
     
     func testOptional() {
-        let bool: Set<Bool>? = data.value(for: "bool")
+        let bool: Set<Bool>? = data.optional(for: "bool")
         XCTAssertEqual(bool?.count, 2)
         XCTAssertEqual(bool?.contains(true), true)
         XCTAssertEqual(bool?.contains(false), true)
         
-        let string: Set<String>? = data.value(for: "string")
+        let string: Set<String>? = data.optional(for: "string")
         XCTAssertEqual(string?.count, 1)
         XCTAssertEqual(string?.contains("Hello, Outlaw!"), true)
         
-        let character: Set<Character>? = data.value(for: "character")
+        let character: Set<Character>? = data.optional(for: "character")
         XCTAssertEqual(character?.count, 1)
         XCTAssertEqual(character?.contains("O"), true)
         
-        let float: Set<Float>? = data.value(for: "float")
+        let float: Set<Float>? = data.optional(for: "float")
         XCTAssertEqual(float?.count, 1)
         XCTAssertEqual(float?.contains(3.14), true)
         
-        let double: Set<Double>? = data.value(for: "double")
+        let double: Set<Double>? = data.optional(for: "double")
         XCTAssertEqual(double?.count, 1)
         XCTAssertEqual(double?.contains(3.14159265359), true)
         
-        let int: Set<Int>? = data.value(for: "int")
+        let int: Set<Int>? = data.optional(for: "int")
         XCTAssertEqual(int?.count, 1)
         XCTAssertEqual(int?.contains(-3), true)
         
-        let int8: Set<Int8>? = data.value(for: "int8")
+        let int8: Set<Int8>? = data.optional(for: "int8")
         XCTAssertEqual(int8?.count, 1)
         XCTAssertEqual(int8?.contains(-8), true)
         
-        let int16: Set<Int16>? = data.value(for: "int16")
+        let int16: Set<Int16>? = data.optional(for: "int16")
         XCTAssertEqual(int16?.count, 1)
         XCTAssertEqual(int16?.contains(-16), true)
         
-        let int32: Set<Int32>? = data.value(for: "int32")
+        let int32: Set<Int32>? = data.optional(for: "int32")
         XCTAssertEqual(int32?.count, 1)
         XCTAssertEqual(int32?.contains(-32), true)
         
-        let int64: Set<Int64>? = data.value(for: "int64")
+        let int64: Set<Int64>? = data.optional(for: "int64")
         XCTAssertEqual(int64?.count, 1)
         XCTAssertEqual(int64?.contains(-64), true)
         
-        let uint: Set<UInt>? = data.value(for: "uint")
+        let uint: Set<UInt>? = data.optional(for: "uint")
         XCTAssertEqual(uint?.count, 1)
         XCTAssertEqual(uint?.contains(3), true)
         
-        let uint8: Set<UInt8>? = data.value(for: "uint8")
+        let uint8: Set<UInt8>? = data.optional(for: "uint8")
         XCTAssertEqual(uint8?.count, 1)
         XCTAssertEqual(uint8?.contains(8), true)
         
-        let uint16: Set<UInt16>? = data.value(for: "uint16")
+        let uint16: Set<UInt16>? = data.optional(for: "uint16")
         XCTAssertEqual(uint16?.count, 1)
         XCTAssertEqual(uint16?.contains(16), true)
         
-        let uint32: Set<UInt32>? = data.value(for: "uint32")
+        let uint32: Set<UInt32>? = data.optional(for: "uint32")
         XCTAssertEqual(uint32?.count, 1)
         XCTAssertEqual(uint32?.contains(32), true)
         
-        let uint64: Set<UInt64>? = data.value(for: "uint64")
+        let uint64: Set<UInt64>? = data.optional(for: "uint64")
         XCTAssertEqual(uint64?.count, 1)
         XCTAssertEqual(uint64?.contains(64), true)
         
-        let url: Set<URL>? = data.value(for: "url")
+        let url: Set<URL>? = data.optional(for: "url")
         XCTAssertEqual(url?.count, 1)
         XCTAssertEqual(url?.contains(URL(string: "https://developer.apple.com/")!), true)
         
-        let date: Set<Date>? = data.value(for: "date")
+        let date: Set<Date>? = data.optional(for: "date")
         XCTAssertEqual(date?.count, 1)
         XCTAssertEqual(formatDate(date!.first!), formatDate(dateForAssert()))
     }
     
     func testOptionalNestedValue() {
-        let bool: Set<Bool>? = data.value(for: "object.bool")
+        let bool: Set<Bool>? = data.optional(for: "object.bool")
         XCTAssertEqual(bool?.count, 2)
         XCTAssertEqual(bool?.contains(true), true)
         XCTAssertEqual(bool?.contains(false), true)
         
-        let string: Set<String>? = data.value(for: "object.string")
+        let string: Set<String>? = data.optional(for: "object.string")
         XCTAssertEqual(string?.count, 1)
         XCTAssertEqual(string?.contains("Hello, Outlaw!"), true)
         
-        let character: Set<Character>? = data.value(for: "object.character")
+        let character: Set<Character>? = data.optional(for: "object.character")
         XCTAssertEqual(character?.count, 1)
         XCTAssertEqual(character?.contains("O"), true)
         
-        let float: Set<Float>? = data.value(for: "object.float")
+        let float: Set<Float>? = data.optional(for: "object.float")
         XCTAssertEqual(float?.count, 1)
         XCTAssertEqual(float?.contains(3.14), true)
         
-        let double: Set<Double>? = data.value(for: "object.double")
+        let double: Set<Double>? = data.optional(for: "object.double")
         XCTAssertEqual(double?.count, 1)
         XCTAssertEqual(double?.contains(3.14159265359), true)
         
-        let int: Set<Int>? = data.value(for: "object.int")
+        let int: Set<Int>? = data.optional(for: "object.int")
         XCTAssertEqual(int?.count, 1)
         XCTAssertEqual(int?.contains(-3), true)
         
-        let int8: Set<Int8>? = data.value(for: "object.int8")
+        let int8: Set<Int8>? = data.optional(for: "object.int8")
         XCTAssertEqual(int8?.count, 1)
         XCTAssertEqual(int8?.contains(-8), true)
         
-        let int16: Set<Int16>? = data.value(for: "object.int16")
+        let int16: Set<Int16>? = data.optional(for: "object.int16")
         XCTAssertEqual(int16?.count, 1)
         XCTAssertEqual(int16?.contains(-16), true)
         
-        let int32: Set<Int32>? = data.value(for: "object.int32")
+        let int32: Set<Int32>? = data.optional(for: "object.int32")
         XCTAssertEqual(int32?.count, 1)
         XCTAssertEqual(int32?.contains(-32), true)
         
-        let int64: Set<Int64>? = data.value(for: "object.int64")
+        let int64: Set<Int64>? = data.optional(for: "object.int64")
         XCTAssertEqual(int64?.count, 1)
         XCTAssertEqual(int64?.contains(-64), true)
         
-        let uint: Set<UInt>? = data.value(for: "object.uint")
+        let uint: Set<UInt>? = data.optional(for: "object.uint")
         XCTAssertEqual(uint?.count, 1)
         XCTAssertEqual(uint?.contains(3), true)
         
-        let uint8: Set<UInt8>? = data.value(for: "object.uint8")
+        let uint8: Set<UInt8>? = data.optional(for: "object.uint8")
         XCTAssertEqual(uint8?.count, 1)
         XCTAssertEqual(uint8?.contains(8), true)
         
-        let uint16: Set<UInt16>? = data.value(for: "object.uint16")
+        let uint16: Set<UInt16>? = data.optional(for: "object.uint16")
         XCTAssertEqual(uint16?.count, 1)
         XCTAssertEqual(uint16?.contains(16), true)
         
-        let uint32: Set<UInt32>? = data.value(for: "object.uint32")
+        let uint32: Set<UInt32>? = data.optional(for: "object.uint32")
         XCTAssertEqual(uint32?.count, 1)
         XCTAssertEqual(uint32?.contains(32), true)
         
-        let uint64: Set<UInt64>? = data.value(for: "object.uint64")
+        let uint64: Set<UInt64>? = data.optional(for: "object.uint64")
         XCTAssertEqual(uint64?.count, 1)
         XCTAssertEqual(uint64?.contains(64), true)
         
-        let url: Set<URL>? = data.value(for: "object.url")
+        let url: Set<URL>? = data.optional(for: "object.url")
         XCTAssertEqual(url?.count, 1)
         XCTAssertEqual(url?.contains(URL(string: "https://developer.apple.com/")!), true)
         
-        let date: Set<Date>? = data.value(for: "object.date")
+        let date: Set<Date>? = data.optional(for: "object.date")
         XCTAssertEqual(date?.count, 1)
         XCTAssertEqual(formatDate(date!.first!), formatDate(dateForAssert()))
     }
     
     func testOptionalKeyNotFound() {
-        let value: Set<Int>? = data.value(for: "keyNotFound")
+        let value: Set<Int>? = data.optional(for: "keyNotFound")
         XCTAssertNil(value)
     }
     
     func testOptionalTypeMismatch() {
-        let value: Set<Int>? = data.value(for: "object")
+        let value: Set<Int>? = data.optional(for: "object")
         XCTAssertNil(value)
     }
     
@@ -650,37 +650,37 @@ class SetTests: OutlawTestCase, DateTesting {
     }
 
     func testTransformOptionalValue() {
-        let bool: Set<Bool>? = data.value(for: "boolTransform", with: { (rawValue: String) -> Bool in
+        let bool: Set<Bool>? = data.optional(for: "boolTransform", with: { (rawValue: String) -> Bool in
             return rawValue == "TRUE"
         })
         XCTAssertEqual(bool?.count, 1)
         XCTAssertEqual(bool?.first, true)
         
-        let string: Set<String>? = data.value(for: "stringTransform", with: { (rawValue: Bool) -> String in
+        let string: Set<String>? = data.optional(for: "stringTransform", with: { (rawValue: Bool) -> String in
             return rawValue ? "TRUE" : "FALSE"
         })
         XCTAssertEqual(string?.count, 1)
         XCTAssertEqual(string?.first, "TRUE")
         
-        let character: Set<Character>? = data.value(for: "characterTransform", with: { (rawValue: Bool) -> Character in
+        let character: Set<Character>? = data.optional(for: "characterTransform", with: { (rawValue: Bool) -> Character in
             return rawValue ? "1" : "0"
         })
         XCTAssertEqual(character?.count, 1)
         XCTAssertEqual(character?.first, "1")
         
-        let float: Set<Float>? = data.value(for: "floatTransform", with: { (rawValue: String) -> Float in
+        let float: Set<Float>? = data.optional(for: "floatTransform", with: { (rawValue: String) -> Float in
             return rawValue == "PI" ? 3.14 : 0
         })
         XCTAssertEqual(float?.count, 1)
         XCTAssertEqual(float?.first, 3.14)
         
-        let double: Set<Double>? = data.value(for: "doubleTransform", with: { (rawValue: String) -> Double in
+        let double: Set<Double>? = data.optional(for: "doubleTransform", with: { (rawValue: String) -> Double in
             return rawValue == "PI" ? 3.14 : 0
         })
         XCTAssertEqual(double?.count, 1)
         XCTAssertEqual(double?.first, 3.14)
         
-        let int: Set<Int>? = data.value(for: "intTransform", with: { (rawValue: String) -> Int in
+        let int: Set<Int>? = data.optional(for: "intTransform", with: { (rawValue: String) -> Int in
             guard let value = Int(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "intTransform", expected: Int.self, actual: rawValue)
             }
@@ -689,7 +689,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(int?.count, 1)
         XCTAssertEqual(int?.first, 12345)
         
-        let int8: Set<Int8>? = data.value(for: "int8Transform", with: { (rawValue: String) -> Int8 in
+        let int8: Set<Int8>? = data.optional(for: "int8Transform", with: { (rawValue: String) -> Int8 in
             guard let value = Int8(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "int8Transform", expected: Int8.self, actual: rawValue)
             }
@@ -698,7 +698,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(int8?.count, 1)
         XCTAssertEqual(int8?.first, 123)
         
-        let int16: Set<Int16>? = data.value(for: "int16Transform", with: { (rawValue: String) -> Int16 in
+        let int16: Set<Int16>? = data.optional(for: "int16Transform", with: { (rawValue: String) -> Int16 in
             guard let value = Int16(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "int16Transform", expected: Int16.self, actual: rawValue)
             }
@@ -707,7 +707,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(int16?.count, 1)
         XCTAssertEqual(int16?.first, 12345)
         
-        let int32: Set<Int32>? = data.value(for: "int32Transform", with: { (rawValue: String) -> Int32 in
+        let int32: Set<Int32>? = data.optional(for: "int32Transform", with: { (rawValue: String) -> Int32 in
             guard let value = Int32(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "int32Transform", expected: Int32.self, actual: rawValue)
             }
@@ -716,7 +716,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(int32?.count, 1)
         XCTAssertEqual(int32?.first, 12345)
         
-        let int64: Set<Int64>? = data.value(for: "int64Transform", with: { (rawValue: String) -> Int64 in
+        let int64: Set<Int64>? = data.optional(for: "int64Transform", with: { (rawValue: String) -> Int64 in
             guard let value = Int64(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "int64Transform", expected: Int64.self, actual: rawValue)
             }
@@ -725,7 +725,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(int64?.count, 1)
         XCTAssertEqual(int64?.first, 12345)
         
-        let uint: Set<UInt>? = data.value(for: "uintTransform", with: { (rawValue: String) -> UInt in
+        let uint: Set<UInt>? = data.optional(for: "uintTransform", with: { (rawValue: String) -> UInt in
             guard let value = UInt(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "uintTransform", expected: UInt.self, actual: rawValue)
             }
@@ -734,7 +734,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(uint?.count, 1)
         XCTAssertEqual(uint?.first, 12345)
         
-        let uint8: Set<UInt8>? = data.value(for: "uint8Transform", with: { (rawValue: String) -> UInt8 in
+        let uint8: Set<UInt8>? = data.optional(for: "uint8Transform", with: { (rawValue: String) -> UInt8 in
             guard let value = UInt8(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "uint8Transform", expected: UInt8.self, actual: rawValue)
             }
@@ -743,7 +743,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(uint8?.count, 1)
         XCTAssertEqual(uint8?.first, 123)
         
-        let uint16: Set<UInt16>? = data.value(for: "uint16Transform", with: { (rawValue: String) -> UInt16 in
+        let uint16: Set<UInt16>? = data.optional(for: "uint16Transform", with: { (rawValue: String) -> UInt16 in
             guard let value = UInt16(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "uint16Transform", expected: UInt16.self, actual: rawValue)
             }
@@ -752,7 +752,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(uint16?.count, 1)
         XCTAssertEqual(uint16?.first, 12345)
         
-        let uint32: Set<UInt32>? = data.value(for: "uint32Transform", with: { (rawValue: String) -> UInt32 in
+        let uint32: Set<UInt32>? = data.optional(for: "uint32Transform", with: { (rawValue: String) -> UInt32 in
             guard let value = UInt32(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "uint32Transform", expected: UInt32.self, actual: rawValue)
             }
@@ -761,7 +761,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(uint32?.count, 1)
         XCTAssertEqual(uint32?.first, 12345)
         
-        let uint64: Set<UInt64>? = data.value(for: "uint64Transform", with: { (rawValue: String) -> UInt64 in
+        let uint64: Set<UInt64>? = data.optional(for: "uint64Transform", with: { (rawValue: String) -> UInt64 in
             guard let value = UInt64(rawValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "uint64Transform", expected: UInt64.self, actual: rawValue)
             }
@@ -770,7 +770,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(uint64?.count, 1)
         XCTAssertEqual(uint64?.first, 12345)
         
-        let url: Set<URL>? = data.value(for: "urlTransform", with: { (rawValue: String) -> URL in
+        let url: Set<URL>? = data.optional(for: "urlTransform", with: { (rawValue: String) -> URL in
             let urlValue = rawValue == "HOMEPAGE" ? "http://molbie.co" : rawValue
             guard let value = URL(string: urlValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "urlTransform", expected: URL.self, actual: rawValue)
@@ -782,7 +782,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(url?.first?.absoluteString, "http://molbie.co")
         
         let formatter = shortDateformatter()
-        let date: Set<Date>? = data.value(for: "dateTransform", with: { (rawValue: String) -> Date in
+        let date: Set<Date>? = data.optional(for: "dateTransform", with: { (rawValue: String) -> Date in
             return formatter.date(from: rawValue)!
         })
         XCTAssertEqual(date?.count, 1)
@@ -790,41 +790,41 @@ class SetTests: OutlawTestCase, DateTesting {
     }
     
     func testOptionalTransformOptionalValue() {
-        let bool: Set<Bool>? = data.value(for: "boolTransform", with: { (rawValue: String?) -> Bool in
+        let bool: Set<Bool>? = data.optional(for: "boolTransform", with: { (rawValue: String?) -> Bool in
             return rawValue == "TRUE"
         })
         XCTAssertEqual(bool?.count, 1)
         XCTAssertEqual(bool?.first, true)
         
-        let string: Set<String>? = data.value(for: "stringTransform", with: { (rawValue: Bool?) -> String in
+        let string: Set<String>? = data.optional(for: "stringTransform", with: { (rawValue: Bool?) -> String in
             let value = rawValue ?? false
             return value ? "TRUE" : "FALSE"
         })
         XCTAssertEqual(string?.count, 1)
         XCTAssertEqual(string?.first, "TRUE")
         
-        let character: Set<Character>? = data.value(for: "characterTransform", with: { (rawValue: Bool?) -> Character in
+        let character: Set<Character>? = data.optional(for: "characterTransform", with: { (rawValue: Bool?) -> Character in
             let value = rawValue ?? false
             return value ? "1" : "0"
         })
         XCTAssertEqual(character?.count, 1)
         XCTAssertEqual(character?.first, "1")
         
-        let float: Set<Float>? = data.value(for: "floatTransform", with: { (rawValue: String?) -> Float in
+        let float: Set<Float>? = data.optional(for: "floatTransform", with: { (rawValue: String?) -> Float in
             let value = rawValue ?? ""
             return value == "PI" ? 3.14 : 0
         })
         XCTAssertEqual(float?.count, 1)
         XCTAssertEqual(float?.first, 3.14)
         
-        let double: Set<Double>? = data.value(for: "doubleTransform", with: { (rawValue: String?) -> Double in
+        let double: Set<Double>? = data.optional(for: "doubleTransform", with: { (rawValue: String?) -> Double in
             let value = rawValue ?? ""
             return value == "PI" ? 3.14 : 0
         })
         XCTAssertEqual(double?.count, 1)
         XCTAssertEqual(double?.first, 3.14)
         
-        let int: Set<Int>? = data.value(for: "intTransform", with: { (rawValue: String?) -> Int in
+        let int: Set<Int>? = data.optional(for: "intTransform", with: { (rawValue: String?) -> Int in
             guard let value = Int(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "intTransform", expected: Int.self, actual: rawValue ?? "")
             }
@@ -833,7 +833,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(int?.count, 1)
         XCTAssertEqual(int?.first, 12345)
         
-        let int8: Set<Int8>? = data.value(for: "int8Transform", with: { (rawValue: String?) -> Int8 in
+        let int8: Set<Int8>? = data.optional(for: "int8Transform", with: { (rawValue: String?) -> Int8 in
             guard let value = Int8(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "int8Transform", expected: Int8.self, actual: rawValue ?? "")
             }
@@ -842,7 +842,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(int8?.count, 1)
         XCTAssertEqual(int8?.first, 123)
         
-        let int16: Set<Int16>? = data.value(for: "int16Transform", with: { (rawValue: String?) -> Int16 in
+        let int16: Set<Int16>? = data.optional(for: "int16Transform", with: { (rawValue: String?) -> Int16 in
             guard let value = Int16(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "int16Transform", expected: Int16.self, actual: rawValue ?? "")
             }
@@ -851,7 +851,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(int16?.count, 1)
         XCTAssertEqual(int16?.first, 12345)
         
-        let int32: Set<Int32>? = data.value(for: "int32Transform", with: { (rawValue: String?) -> Int32 in
+        let int32: Set<Int32>? = data.optional(for: "int32Transform", with: { (rawValue: String?) -> Int32 in
             guard let value = Int32(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "int32Transform", expected: Int32.self, actual: rawValue ?? "")
             }
@@ -860,7 +860,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(int32?.count, 1)
         XCTAssertEqual(int32?.first, 12345)
         
-        let int64: Set<Int64>? = data.value(for: "int64Transform", with: { (rawValue: String?) -> Int64 in
+        let int64: Set<Int64>? = data.optional(for: "int64Transform", with: { (rawValue: String?) -> Int64 in
             guard let value = Int64(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "int64Transform", expected: Int64.self, actual: rawValue ?? "")
             }
@@ -869,7 +869,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(int64?.count, 1)
         XCTAssertEqual(int64?.first, 12345)
         
-        let uint: Set<UInt>? = data.value(for: "uintTransform", with: { (rawValue: String?) -> UInt in
+        let uint: Set<UInt>? = data.optional(for: "uintTransform", with: { (rawValue: String?) -> UInt in
             guard let value = UInt(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "uintTransform", expected: UInt.self, actual: rawValue ?? "")
             }
@@ -878,7 +878,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(uint?.count, 1)
         XCTAssertEqual(uint?.first, 12345)
         
-        let uint8: Set<UInt8>? = data.value(for: "uint8Transform", with: { (rawValue: String?) -> UInt8 in
+        let uint8: Set<UInt8>? = data.optional(for: "uint8Transform", with: { (rawValue: String?) -> UInt8 in
             guard let value = UInt8(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "uint8Transform", expected: UInt8.self, actual: rawValue ?? "")
             }
@@ -887,7 +887,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(uint8?.count, 1)
         XCTAssertEqual(uint8?.first, 123)
         
-        let uint16: Set<UInt16>? = data.value(for: "uint16Transform", with: { (rawValue: String?) -> UInt16 in
+        let uint16: Set<UInt16>? = data.optional(for: "uint16Transform", with: { (rawValue: String?) -> UInt16 in
             guard let value = UInt16(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "uint16Transform", expected: UInt16.self, actual: rawValue ?? "")
             }
@@ -896,7 +896,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(uint16?.count, 1)
         XCTAssertEqual(uint16?.first, 12345)
         
-        let uint32: Set<UInt32>? = data.value(for: "uint32Transform", with: { (rawValue: String?) -> UInt32 in
+        let uint32: Set<UInt32>? = data.optional(for: "uint32Transform", with: { (rawValue: String?) -> UInt32 in
             guard let value = UInt32(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "uint32Transform", expected: UInt32.self, actual: rawValue ?? "")
             }
@@ -905,7 +905,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(uint32?.count, 1)
         XCTAssertEqual(uint32?.first, 12345)
         
-        let uint64: Set<UInt64>? = data.value(for: "uint64Transform", with: { (rawValue: String?) -> UInt64 in
+        let uint64: Set<UInt64>? = data.optional(for: "uint64Transform", with: { (rawValue: String?) -> UInt64 in
             guard let value = UInt64(rawValue ?? "") else {
                 throw OutlawError.typeMismatchWithKey(key: "uint64Transform", expected: UInt64.self, actual: rawValue ?? "")
             }
@@ -914,7 +914,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(uint64?.count, 1)
         XCTAssertEqual(uint64?.first, 12345)
         
-        let url: Set<URL>? = data.value(for: "urlTransform", with: { (rawValue: String?) -> URL in
+        let url: Set<URL>? = data.optional(for: "urlTransform", with: { (rawValue: String?) -> URL in
             let urlValue = rawValue == "HOMEPAGE" ? "http://molbie.co" : (rawValue ?? "")
             guard let value = URL(string: urlValue) else {
                 throw OutlawError.typeMismatchWithKey(key: "urlTransform", expected: URL.self, actual: rawValue ?? "")
@@ -926,7 +926,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(url?.first?.absoluteString, "http://molbie.co")
         
         let formatter = shortDateformatter()
-        let date: Set<Date>? = data.value(for: "dateTransform", with: { (rawValue: String?) -> Date in
+        let date: Set<Date>? = data.optional(for: "dateTransform", with: { (rawValue: String?) -> Date in
             let value = rawValue ?? "11/18/2016"
             return formatter.date(from: value)!
         })
@@ -1155,97 +1155,97 @@ class SetTests: OutlawTestCase, DateTesting {
     }
     
     func testTransformOptionalValueOfOptionals() {
-        let bool: Set<Bool>? = data.value(for: "boolTransform", with: { (rawValue: String) -> Bool? in
+        let bool: Set<Bool>? = data.optional(for: "boolTransform", with: { (rawValue: String) -> Bool? in
             return rawValue == "TRUE"
         })
         XCTAssertEqual(bool?.count, 1)
         XCTAssertEqual(bool?.first, true)
         
-        let string: Set<String>? = data.value(for: "stringTransform", with: { (rawValue: Bool) -> String? in
+        let string: Set<String>? = data.optional(for: "stringTransform", with: { (rawValue: Bool) -> String? in
             return rawValue ? "TRUE" : "FALSE"
         })
         XCTAssertEqual(string?.count, 1)
         XCTAssertEqual(string?.first, "TRUE")
         
-        let character: Set<Character>? = data.value(for: "characterTransform", with: { (rawValue: Bool) -> Character? in
+        let character: Set<Character>? = data.optional(for: "characterTransform", with: { (rawValue: Bool) -> Character? in
             return rawValue ? "1" : "0"
         })
         XCTAssertEqual(character?.count, 1)
         XCTAssertEqual(character?.first, "1")
         
-        let float: Set<Float>? = data.value(for: "floatTransform", with: { (rawValue: String) -> Float? in
+        let float: Set<Float>? = data.optional(for: "floatTransform", with: { (rawValue: String) -> Float? in
             return rawValue == "PI" ? 3.14 : 0
         })
         XCTAssertEqual(float?.count, 1)
         XCTAssertEqual(float?.first, 3.14)
         
-        let double: Set<Double>? = data.value(for: "doubleTransform", with: { (rawValue: String) -> Double? in
+        let double: Set<Double>? = data.optional(for: "doubleTransform", with: { (rawValue: String) -> Double? in
             return rawValue == "PI" ? 3.14 : 0
         })
         XCTAssertEqual(double?.count, 1)
         XCTAssertEqual(double?.first, 3.14)
         
-        let int: Set<Int>? = data.value(for: "intTransform", with: { (rawValue: String) -> Int? in
+        let int: Set<Int>? = data.optional(for: "intTransform", with: { (rawValue: String) -> Int? in
             return Int(rawValue)
         })
         XCTAssertEqual(int?.count, 1)
         XCTAssertEqual(int?.first, 12345)
         
-        let int8: Set<Int8>? = data.value(for: "int8Transform", with: { (rawValue: String) -> Int8? in
+        let int8: Set<Int8>? = data.optional(for: "int8Transform", with: { (rawValue: String) -> Int8? in
             return Int8(rawValue)
         })
         XCTAssertEqual(int8?.count, 1)
         XCTAssertEqual(int8?.first, 123)
         
-        let int16: Set<Int16>? = data.value(for: "int16Transform", with: { (rawValue: String) -> Int16? in
+        let int16: Set<Int16>? = data.optional(for: "int16Transform", with: { (rawValue: String) -> Int16? in
             return Int16(rawValue)
         })
         XCTAssertEqual(int16?.count, 1)
         XCTAssertEqual(int16?.first, 12345)
         
-        let int32: Set<Int32>? = data.value(for: "int32Transform", with: { (rawValue: String) -> Int32? in
+        let int32: Set<Int32>? = data.optional(for: "int32Transform", with: { (rawValue: String) -> Int32? in
             return Int32(rawValue)
         })
         XCTAssertEqual(int32?.count, 1)
         XCTAssertEqual(int32?.first, 12345)
         
-        let int64: Set<Int64>? = data.value(for: "int64Transform", with: { (rawValue: String) -> Int64? in
+        let int64: Set<Int64>? = data.optional(for: "int64Transform", with: { (rawValue: String) -> Int64? in
             return Int64(rawValue)
         })
         XCTAssertEqual(int64?.count, 1)
         XCTAssertEqual(int64?.first, 12345)
         
-        let uint: Set<UInt>? = data.value(for: "uintTransform", with: { (rawValue: String) -> UInt? in
+        let uint: Set<UInt>? = data.optional(for: "uintTransform", with: { (rawValue: String) -> UInt? in
             return UInt(rawValue)
         })
         XCTAssertEqual(uint?.count, 1)
         XCTAssertEqual(uint?.first, 12345)
         
-        let uint8: Set<UInt8>? = data.value(for: "uint8Transform", with: { (rawValue: String) -> UInt8? in
+        let uint8: Set<UInt8>? = data.optional(for: "uint8Transform", with: { (rawValue: String) -> UInt8? in
             return UInt8(rawValue)
         })
         XCTAssertEqual(uint8?.count, 1)
         XCTAssertEqual(uint8?.first, 123)
         
-        let uint16: Set<UInt16>? = data.value(for: "uint16Transform", with: { (rawValue: String) -> UInt16? in
+        let uint16: Set<UInt16>? = data.optional(for: "uint16Transform", with: { (rawValue: String) -> UInt16? in
             return UInt16(rawValue)
         })
         XCTAssertEqual(uint16?.count, 1)
         XCTAssertEqual(uint16?.first, 12345)
         
-        let uint32: Set<UInt32>? = data.value(for: "uint32Transform", with: { (rawValue: String) -> UInt32? in
+        let uint32: Set<UInt32>? = data.optional(for: "uint32Transform", with: { (rawValue: String) -> UInt32? in
             return UInt32(rawValue)
         })
         XCTAssertEqual(uint32?.count, 1)
         XCTAssertEqual(uint32?.first, 12345)
         
-        let uint64: Set<UInt64>? = data.value(for: "uint64Transform", with: { (rawValue: String) -> UInt64? in
+        let uint64: Set<UInt64>? = data.optional(for: "uint64Transform", with: { (rawValue: String) -> UInt64? in
             return UInt64(rawValue)
         })
         XCTAssertEqual(uint64?.count, 1)
         XCTAssertEqual(uint64?.first, 12345)
         
-        let url: Set<URL>? = data.value(for: "urlTransform", with: { (rawValue: String) -> URL? in
+        let url: Set<URL>? = data.optional(for: "urlTransform", with: { (rawValue: String) -> URL? in
             let urlValue = rawValue == "HOMEPAGE" ? "http://molbie.co" : rawValue
             return URL(string: urlValue)
         })
@@ -1253,7 +1253,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(url?.first?.absoluteString, "http://molbie.co")
         
         let formatter = shortDateformatter()
-        let date: Set<Date>? = data.value(for: "dateTransform", with: { (rawValue: String) -> Date? in
+        let date: Set<Date>? = data.optional(for: "dateTransform", with: { (rawValue: String) -> Date? in
             return formatter.date(from: rawValue)!
         })
         XCTAssertEqual(date?.count, 1)
@@ -1261,101 +1261,101 @@ class SetTests: OutlawTestCase, DateTesting {
     }
     
     func testOptionalTransformOptionalValueOfOptionals() {
-        let bool: Set<Bool>? = data.value(for: "boolTransform", with: { (rawValue: String?) -> Bool? in
+        let bool: Set<Bool>? = data.optional(for: "boolTransform", with: { (rawValue: String?) -> Bool? in
             return rawValue == "TRUE"
         })
         XCTAssertEqual(bool?.count, 1)
         XCTAssertEqual(bool?.first, true)
         
-        let string: Set<String>? = data.value(for: "stringTransform", with: { (rawValue: Bool?) -> String? in
+        let string: Set<String>? = data.optional(for: "stringTransform", with: { (rawValue: Bool?) -> String? in
             let value = rawValue ?? false
             return value ? "TRUE" : "FALSE"
         })
         XCTAssertEqual(string?.count, 1)
         XCTAssertEqual(string?.first, "TRUE")
         
-        let character: Set<Character>? = data.value(for: "characterTransform", with: { (rawValue: Bool?) -> Character? in
+        let character: Set<Character>? = data.optional(for: "characterTransform", with: { (rawValue: Bool?) -> Character? in
             let value = rawValue ?? false
             return value ? "1" : "0"
         })
         XCTAssertEqual(character?.count, 1)
         XCTAssertEqual(character?.first, "1")
         
-        let float: Set<Float>? = data.value(for: "floatTransform", with: { (rawValue: String?) -> Float? in
+        let float: Set<Float>? = data.optional(for: "floatTransform", with: { (rawValue: String?) -> Float? in
             let value = rawValue ?? ""
             return value == "PI" ? 3.14 : 0
         })
         XCTAssertEqual(float?.count, 1)
         XCTAssertEqual(float?.first, 3.14)
         
-        let double: Set<Double>? = data.value(for: "doubleTransform", with: { (rawValue: String?) -> Double? in
+        let double: Set<Double>? = data.optional(for: "doubleTransform", with: { (rawValue: String?) -> Double? in
             let value = rawValue ?? ""
             return value == "PI" ? 3.14 : 0
         })
         XCTAssertEqual(double?.count, 1)
         XCTAssertEqual(double?.first, 3.14)
         
-        let int: Set<Int>? = data.value(for: "intTransform", with: { (rawValue: String?) -> Int? in
+        let int: Set<Int>? = data.optional(for: "intTransform", with: { (rawValue: String?) -> Int? in
             return Int(rawValue ?? "")
         })
         XCTAssertEqual(int?.count, 1)
         XCTAssertEqual(int?.first, 12345)
         
-        let int8: Set<Int8>? = data.value(for: "int8Transform", with: { (rawValue: String?) -> Int8? in
+        let int8: Set<Int8>? = data.optional(for: "int8Transform", with: { (rawValue: String?) -> Int8? in
             return Int8(rawValue ?? "")
         })
         XCTAssertEqual(int8?.count, 1)
         XCTAssertEqual(int8?.first, 123)
         
-        let int16: Set<Int16>? = data.value(for: "int16Transform", with: { (rawValue: String?) -> Int16? in
+        let int16: Set<Int16>? = data.optional(for: "int16Transform", with: { (rawValue: String?) -> Int16? in
             return Int16(rawValue ?? "")
         })
         XCTAssertEqual(int16?.count, 1)
         XCTAssertEqual(int16?.first, 12345)
         
-        let int32: Set<Int32>? = data.value(for: "int32Transform", with: { (rawValue: String?) -> Int32? in
+        let int32: Set<Int32>? = data.optional(for: "int32Transform", with: { (rawValue: String?) -> Int32? in
             return Int32(rawValue ?? "")
         })
         XCTAssertEqual(int32?.count, 1)
         XCTAssertEqual(int32?.first, 12345)
         
-        let int64: Set<Int64>? = data.value(for: "int64Transform", with: { (rawValue: String?) -> Int64? in
+        let int64: Set<Int64>? = data.optional(for: "int64Transform", with: { (rawValue: String?) -> Int64? in
             return Int64(rawValue ?? "")
         })
         XCTAssertEqual(int64?.count, 1)
         XCTAssertEqual(int64?.first, 12345)
         
-        let uint: Set<UInt>? = data.value(for: "uintTransform", with: { (rawValue: String?) -> UInt? in
+        let uint: Set<UInt>? = data.optional(for: "uintTransform", with: { (rawValue: String?) -> UInt? in
             return UInt(rawValue ?? "")
         })
         XCTAssertEqual(uint?.count, 1)
         XCTAssertEqual(uint?.first, 12345)
         
-        let uint8: Set<UInt8>? = data.value(for: "uint8Transform", with: { (rawValue: String?) -> UInt8? in
+        let uint8: Set<UInt8>? = data.optional(for: "uint8Transform", with: { (rawValue: String?) -> UInt8? in
             return UInt8(rawValue ?? "")
         })
         XCTAssertEqual(uint8?.count, 1)
         XCTAssertEqual(uint8?.first, 123)
         
-        let uint16: Set<UInt16>? = data.value(for: "uint16Transform", with: { (rawValue: String?) -> UInt16? in
+        let uint16: Set<UInt16>? = data.optional(for: "uint16Transform", with: { (rawValue: String?) -> UInt16? in
             return UInt16(rawValue ?? "")
         })
         XCTAssertEqual(uint16?.count, 1)
         XCTAssertEqual(uint16?.first, 12345)
         
-        let uint32: Set<UInt32>? = data.value(for: "uint32Transform", with: { (rawValue: String?) -> UInt32? in
+        let uint32: Set<UInt32>? = data.optional(for: "uint32Transform", with: { (rawValue: String?) -> UInt32? in
             return UInt32(rawValue ?? "")
         })
         XCTAssertEqual(uint32?.count, 1)
         XCTAssertEqual(uint32?.first, 12345)
         
-        let uint64: Set<UInt64>? = data.value(for: "uint64Transform", with: { (rawValue: String?) -> UInt64? in
+        let uint64: Set<UInt64>? = data.optional(for: "uint64Transform", with: { (rawValue: String?) -> UInt64? in
             return UInt64(rawValue ?? "")
         })
         XCTAssertEqual(uint64?.count, 1)
         XCTAssertEqual(uint64?.first, 12345)
         
-        let url: Set<URL>? = data.value(for: "urlTransform", with: { (rawValue: String?) -> URL? in
+        let url: Set<URL>? = data.optional(for: "urlTransform", with: { (rawValue: String?) -> URL? in
             let urlValue = rawValue == "HOMEPAGE" ? "http://molbie.co" : (rawValue ?? "")
             return URL(string: urlValue)
         })
@@ -1363,7 +1363,7 @@ class SetTests: OutlawTestCase, DateTesting {
         XCTAssertEqual(url?.first?.absoluteString, "http://molbie.co")
         
         let formatter = shortDateformatter()
-        let date: Set<Date>? = data.value(for: "dateTransform", with: { (rawValue: String?) -> Date? in
+        let date: Set<Date>? = data.optional(for: "dateTransform", with: { (rawValue: String?) -> Date? in
             let value = rawValue ?? "11/18/2016"
             return formatter.date(from: value)!
         })

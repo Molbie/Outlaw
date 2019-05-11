@@ -72,22 +72,22 @@ class UIntTests: OutlawTestCase {
 // MARK: Optionals
     
     func testOptional() {
-        let value: UInt? = data.value(for: "uint")
+        let value: UInt? = data.optional(for: "uint")
         XCTAssertEqual(value, 3)
     }
     
     func testOptionalNestedValue() {
-        let value: UInt? = data.value(for: "object.uint")
+        let value: UInt? = data.optional(for: "object.uint")
         XCTAssertEqual(value, 3)
     }
     
     func testOptionalKeyNotFound() {
-        let value: UInt? = data.value(for: "keyNotFound")
+        let value: UInt? = data.optional(for: "keyNotFound")
         XCTAssertNil(value)
     }
     
     func testOptionalTypeMismatch() {
-        let value: UInt? = data.value(for: "string")
+        let value: UInt? = data.optional(for: "string")
         XCTAssertNil(value)
     }
     
@@ -129,14 +129,14 @@ class UIntTests: OutlawTestCase {
     }
     
     func testTransformOptionalValue() {
-        let value: UInt? = data.value(for: "transform", with: { (rawValue: String) -> UInt? in
+        let value: UInt? = data.optional(for: "transform", with: { (rawValue: String) -> UInt? in
             return UInt(rawValue)
         })
         XCTAssertEqual(value, 12345)
     }
     
     func testOptionalTransformOptionalValue() {
-        let value: UInt? = data.value(for: "transform", with: { (rawValue: String?) -> UInt? in
+        let value: UInt? = data.optional(for: "transform", with: { (rawValue: String?) -> UInt? in
             guard let rawValue = rawValue else { return nil }
             return UInt(rawValue)
         })

@@ -26,12 +26,12 @@ public extension IndexExtractable {
         }
     }
     
-    func value<V: Value>(for index: Index) -> V? {
+    func optional<V: Value>(for index: Index) -> V? {
         return try? self.value(for: index)
     }
     
     func value<V: Value>(for index: Index, or value: V) -> V {
-        guard let result: V = self.value(for: index) else { return value }
+        guard let result: V = self.optional(for: index) else { return value }
         return result
     }
 }
@@ -46,17 +46,17 @@ public extension IndexExtractable {
     }
     
     func value<V: Value, T>(for index: Index, with transform:(V?) throws -> T) throws -> T {
-        let rawValue: V? = self.value(for: index)
+        let rawValue: V? = self.optional(for: index)
         return try transform(rawValue)
     }
     
-    func value<V: Value, T>(for index: Index, with transform:(V) -> T?) -> T? {
+    func optional<V: Value, T>(for index: Index, with transform:(V) -> T?) -> T? {
         guard let rawValue: V = try? self.value(for: index) else { return nil }
         return transform(rawValue)
     }
     
-    func value<V: Value, T>(for index: Index, with transform:(V?) -> T?) -> T? {
-        let rawValue: V? = self.value(for: index)
+    func optional<V: Value, T>(for index: Index, with transform:(V?) -> T?) -> T? {
+        let rawValue: V? = self.optional(for: index)
         return transform(rawValue)
     }
 }
@@ -75,12 +75,12 @@ public extension IndexExtractable {
         }
     }
     
-    func value<V: Value>(for index: Index) -> [V]? {
+    func optional<V: Value>(for index: Index) -> [V]? {
         return try? self.value(for: index)
     }
     
     func value<V: Value>(for index: Index, or value: [V]) -> [V] {
-        guard let result: [V] = self.value(for: index) else { return value }
+        guard let result: [V] = self.optional(for: index) else { return value }
         return result
     }
 }
@@ -99,7 +99,7 @@ public extension IndexExtractable {
         }
     }
     
-    func value<V: Value, T>(for index: Index, with transform:(V) throws -> T) -> [T]? {
+    func optional<V: Value, T>(for index: Index, with transform:(V) throws -> T) -> [T]? {
         return try? self.value(for: index, with: transform)
     }
     
@@ -113,7 +113,7 @@ public extension IndexExtractable {
         }
     }
     
-    func value<V: Value, T>(for index: Index, with transform:(V?) throws -> T) -> [T]? {
+    func optional<V: Value, T>(for index: Index, with transform:(V?) throws -> T) -> [T]? {
         return try? self.value(for: index, with: transform)
     }
 }
@@ -132,12 +132,12 @@ public extension IndexExtractable {
         }
     }
     
-    func value<V: Value>(for index: Index) -> [V?]? {
+    func optional<V: Value>(for index: Index) -> [V?]? {
         return try? self.value(for: index)
     }
     
     func value<V: Value>(for index: Index, or value: [V?]) -> [V?] {
-        guard let result: [V?] = self.value(for: index) else { return value }
+        guard let result: [V?] = self.optional(for: index) else { return value }
         return result
     }
 }
@@ -156,7 +156,7 @@ public extension IndexExtractable {
         }
     }
     
-    func value<V: Value, T>(for index: Index, with transform:(V) -> T?) -> [T?]? {
+    func optional<V: Value, T>(for index: Index, with transform:(V) -> T?) -> [T?]? {
         return try? self.value(for: index, with: transform)
     }
     
@@ -170,7 +170,7 @@ public extension IndexExtractable {
         }
     }
     
-    func value<V: Value, T>(for index: Index, with transform:(V?) -> T?) -> [T?]? {
+    func optional<V: Value, T>(for index: Index, with transform:(V?) -> T?) -> [T?]? {
         return try? self.value(for: index, with: transform)
     }
 }
@@ -189,12 +189,12 @@ public extension IndexExtractable {
         }
     }
     
-    func value<K, V: Value>(for index: Index) -> [K: V]? {
+    func optional<K, V: Value>(for index: Index) -> [K: V]? {
         return try? self.value(for: index)
     }
     
     func value<K, V: Value>(for index: Index, or value: [K: V]) -> [K: V] {
-        guard let result: [K: V] = self.value(for: index) else { return value }
+        guard let result: [K: V] = self.optional(for: index) else { return value }
         return result
     }
 }
@@ -213,7 +213,7 @@ public extension IndexExtractable {
         }
     }
     
-    func value<K, V: Value, T>(for index: Index, with transform:(V) throws -> T) -> [K: T]? {
+    func optional<K, V: Value, T>(for index: Index, with transform:(V) throws -> T) -> [K: T]? {
         return try? self.value(for: index, with: transform)
     }
     
@@ -227,7 +227,7 @@ public extension IndexExtractable {
         }
     }
     
-    func value<K, V: Value, T>(for index: Index, with transform:(V?) throws -> T) -> [K: T]? {
+    func optional<K, V: Value, T>(for index: Index, with transform:(V?) throws -> T) -> [K: T]? {
         return try? self.value(for: index, with: transform)
     }
 }
@@ -246,12 +246,12 @@ public extension IndexExtractable {
         }
     }
     
-    func value<K, V: Value>(for index: Index) -> [K: V?]? {
+    func optional<K, V: Value>(for index: Index) -> [K: V?]? {
         return try? self.value(for: index)
     }
     
     func value<K, V: Value>(for index: Index, or value: [K: V?]) -> [K: V?] {
-        guard let result: [K: V?] = self.value(for: index) else { return value }
+        guard let result: [K: V?] = self.optional(for: index) else { return value }
         return result
     }
 }
@@ -270,7 +270,7 @@ public extension IndexExtractable {
         }
     }
     
-    func value<K, V: Value, T>(for index: Index, with transform:(V) -> T?) -> [K: T?]? {
+    func optional<K, V: Value, T>(for index: Index, with transform:(V) -> T?) -> [K: T?]? {
         return try? self.value(for: index)
     }
     
@@ -284,7 +284,7 @@ public extension IndexExtractable {
         }
     }
     
-    func value<K, V: Value, T>(for index: Index, with transform:(V?) -> T?) -> [K: T?]? {
+    func optional<K, V: Value, T>(for index: Index, with transform:(V?) -> T?) -> [K: T?]? {
         return try? self.value(for: index)
     }
 }
@@ -303,12 +303,12 @@ public extension IndexExtractable {
         }
     }
     
-    func value<V: Value>(for index: Index) -> Set<V>? {
+    func optional<V: Value>(for index: Index) -> Set<V>? {
         return try? self.value(for: index)
     }
     
     func value<V: Value>(for index: Index, or value: Set<V>) -> Set<V> {
-        guard let result: Set<V> = self.value(for: index) else { return value }
+        guard let result: Set<V> = self.optional(for: index) else { return value }
         return result
     }
 }
@@ -327,7 +327,7 @@ public extension IndexExtractable {
         }
     }
     
-    func value<V: Value & Hashable, T>(for index: Index, with transform:(V) throws -> T) -> Set<T>? {
+    func optional<V: Value & Hashable, T>(for index: Index, with transform:(V) throws -> T) -> Set<T>? {
         return try? self.value(for: index, with: transform)
     }
     
@@ -341,7 +341,7 @@ public extension IndexExtractable {
         }
     }
     
-    func value<V: Value & Hashable, T>(for index: Index, with transform:(V?) throws -> T) -> Set<T>? {
+    func optional<V: Value & Hashable, T>(for index: Index, with transform:(V?) throws -> T) -> Set<T>? {
         return try? self.value(for: index, with: transform)
     }
     
@@ -355,7 +355,7 @@ public extension IndexExtractable {
         }
     }
     
-    func value<V: Value & Hashable, T>(for index: Index, with transform:(V) -> T?) -> Set<T>? {
+    func optional<V: Value & Hashable, T>(for index: Index, with transform:(V) -> T?) -> Set<T>? {
         return try? self.value(for: index, with: transform)
     }
     
@@ -369,7 +369,7 @@ public extension IndexExtractable {
         }
     }
     
-    func value<V: Value & Hashable, T>(for index: Index, with transform:(V?) -> T?) -> Set<T>? {
+    func optional<V: Value & Hashable, T>(for index: Index, with transform:(V?) -> T?) -> Set<T>? {
         return try? self.value(for: index, with: transform)
     }
 }

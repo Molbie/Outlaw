@@ -70,22 +70,22 @@ class DateTests: OutlawTestCase, DateTesting {
 // MARK: Optionals
     
     func testOptional() {
-        let value: Date? = data.value(for: "date")
+        let value: Date? = data.optional(for: "date")
         XCTAssertEqual(formatDate(value!), formatDate(dateForAssert()))
     }
     
     func testOptionalNestedValue() {
-        let value: Date? = data.value(for: "object.date")
+        let value: Date? = data.optional(for: "object.date")
         XCTAssertEqual(formatDate(value!), formatDate(dateForAssert()))
     }
     
     func testOptionalKeyNotFound() {
-        let value: Date? = data.value(for: "keyNotFound")
+        let value: Date? = data.optional(for: "keyNotFound")
         XCTAssertNil(value)
     }
     
     func testOptionalTypeMismatch() {
-        let value: Date? = data.value(for: "bool")
+        let value: Date? = data.optional(for: "bool")
         XCTAssertNil(value)
     }
     
@@ -117,14 +117,14 @@ class DateTests: OutlawTestCase, DateTesting {
     func testTransformOptionalValue() {
         let formatter = shortDateformatter()
         
-        let value: Date? = data.value(for: "transform", with: formatter.date)
+        let value: Date? = data.optional(for: "transform", with: formatter.date)
         XCTAssertEqual(formatShortDate(value!), formatShortDate(shortDateForAssert()))
     }
     
     func testOptionalTransformOptionalValue() {
         let formatter = shortDateformatter()
         
-        let value: Date? = data.value(for: "transform", with: { (rawValue: String?) -> Date? in
+        let value: Date? = data.optional(for: "transform", with: { (rawValue: String?) -> Date? in
             guard let rawValue = rawValue else { return nil }
             return formatter.date(from: rawValue)
         })

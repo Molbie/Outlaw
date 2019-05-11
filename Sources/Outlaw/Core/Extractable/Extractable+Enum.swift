@@ -21,12 +21,12 @@ public extension Extractable {
         return value
     }
     
-    func value<E: RawRepresentable>(for key: Key) -> E? where E.RawValue: Value {
+    func optional<E: RawRepresentable>(for key: Key) -> E? where E.RawValue: Value {
         return try? self.value(for: key)
     }
     
     func value<E: RawRepresentable>(for key: Key, or value: E) -> E where E.RawValue: Value {
-        guard let result: E = self.value(for: key) else { return value }
+        guard let result: E = self.optional(for: key) else { return value }
         return result
     }
 }
@@ -45,12 +45,12 @@ public extension Extractable {
         }
     }
     
-    func value<E: RawRepresentable>(for key: Key) -> [E]? where E.RawValue: Value {
+    func optional<E: RawRepresentable>(for key: Key) -> [E]? where E.RawValue: Value {
         return try? self.value(for: key)
     }
     
     func value<E: RawRepresentable>(for key: Key, or value: [E]) -> [E] where E.RawValue: Value {
-        guard let result: [E] = self.value(for: key) else { return value }
+        guard let result: [E] = self.optional(for: key) else { return value }
         return result
     }
 }
@@ -76,12 +76,12 @@ public extension Extractable {
         }
     }
     
-    func value<K, V: RawRepresentable>(for key: Key) -> [K: V]? where V.RawValue: Value {
+    func optional<K, V: RawRepresentable>(for key: Key) -> [K: V]? where V.RawValue: Value {
         return try? self.value(for: key)
     }
     
     func value<K, V: RawRepresentable>(for key: Key, or value: [K: V]) -> [K: V] where V.RawValue: Value {
-        guard let result: [K: V] = self.value(for: key) else { return value }
+        guard let result: [K: V] = self.optional(for: key) else { return value }
         return result
     }
 }
@@ -101,12 +101,12 @@ public extension Extractable {
         return Set<E>(enumArray)
     }
     
-    func value<E: RawRepresentable>(for key: Key) -> Set<E>? where E.RawValue: Value {
+    func optional<E: RawRepresentable>(for key: Key) -> Set<E>? where E.RawValue: Value {
         return try? self.value(for: key)
     }
     
     func value<E: RawRepresentable>(for key: Key, or value: Set<E>) -> Set<E> where E.RawValue: Value {
-        guard let result: Set<E> = self.value(for: key) else { return value }
+        guard let result: Set<E> = self.optional(for: key) else { return value }
         return result
     }
 }

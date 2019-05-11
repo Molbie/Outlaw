@@ -72,22 +72,22 @@ class UInt8Tests: OutlawTestCase {
 // MARK: Optionals
     
     func testOptional() {
-        let value: UInt8? = data.value(for: "uint8")
+        let value: UInt8? = data.optional(for: "uint8")
         XCTAssertEqual(value, 8)
     }
     
     func testOptionalNestedValue() {
-        let value: UInt8? = data.value(for: "object.uint8")
+        let value: UInt8? = data.optional(for: "object.uint8")
         XCTAssertEqual(value, 8)
     }
     
     func testOptionalKeyNotFound() {
-        let value: UInt8? = data.value(for: "keyNotFound")
+        let value: UInt8? = data.optional(for: "keyNotFound")
         XCTAssertNil(value)
     }
     
     func testOptionalTypeMismatch() {
-        let value: UInt8? = data.value(for: "string")
+        let value: UInt8? = data.optional(for: "string")
         XCTAssertNil(value)
     }
     
@@ -128,14 +128,14 @@ class UInt8Tests: OutlawTestCase {
     }
     
     func testTransformOptionalValue() {
-        let value: UInt8? = data.value(for: "transform", with: { (rawValue: String) -> UInt8? in
+        let value: UInt8? = data.optional(for: "transform", with: { (rawValue: String) -> UInt8? in
             return UInt8(rawValue)
         })
         XCTAssertEqual(value, 123)
     }
     
     func testOptionalTransformOptionalValue() {
-        let value: UInt8? = data.value(for: "transform", with: { (rawValue: String?) -> UInt8? in
+        let value: UInt8? = data.optional(for: "transform", with: { (rawValue: String?) -> UInt8? in
             guard let rawValue = rawValue else { return nil }
             return UInt8(rawValue)
         })

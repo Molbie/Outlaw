@@ -70,22 +70,22 @@ class BoolTests: OutlawTestCase {
 // MARK: Optionals
     
     func testOptional() {
-        let value: Bool? = data.value(for: "bool")
+        let value: Bool? = data.optional(for: "bool")
         XCTAssertEqual(value, true)
     }
     
     func testOptionalNestedValue() {
-        let value: Bool? = data.value(for: "object.bool")
+        let value: Bool? = data.optional(for: "object.bool")
         XCTAssertEqual(value, true)
     }
     
     func testOptionalKeyNotFound() {
-        let value: Bool? = data.value(for: "keyNotFound")
+        let value: Bool? = data.optional(for: "keyNotFound")
         XCTAssertNil(value)
     }
     
     func testOptionalTypeMismatch() {
-        let value: Bool? = data.value(for: "string")
+        let value: Bool? = data.optional(for: "string")
         XCTAssertNil(value)
     }
     
@@ -107,14 +107,14 @@ class BoolTests: OutlawTestCase {
     }
     
     func testTransformOptionalValue() {
-        let value: Bool? = data.value(for: "transform", with: { (rawValue: String) -> Bool? in
+        let value: Bool? = data.optional(for: "transform", with: { (rawValue: String) -> Bool? in
             return rawValue == "TRUE"
         })
         XCTAssertEqual(value, true)
     }
     
     func testOptionalTransformOptionalValue() {
-        let value: Bool? = data.value(for: "transform", with: { (rawValue: String?) -> Bool? in
+        let value: Bool? = data.optional(for: "transform", with: { (rawValue: String?) -> Bool? in
             return rawValue == "TRUE"
         })
         XCTAssertEqual(value, true)

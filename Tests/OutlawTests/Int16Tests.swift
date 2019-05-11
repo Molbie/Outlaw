@@ -72,22 +72,22 @@ class Int16Tests: OutlawTestCase {
 // MARK: Optionals
     
     func testOptional() {
-        let value: Int16? = data.value(for: "int16")
+        let value: Int16? = data.optional(for: "int16")
         XCTAssertEqual(value, -16)
     }
     
     func testOptionalNestedValue() {
-        let value: Int16? = data.value(for: "object.int16")
+        let value: Int16? = data.optional(for: "object.int16")
         XCTAssertEqual(value, -16)
     }
     
     func testOptionalKeyNotFound() {
-        let value: Int16? = data.value(for: "keyNotFound")
+        let value: Int16? = data.optional(for: "keyNotFound")
         XCTAssertNil(value)
     }
     
     func testOptionalTypeMismatch() {
-        let value: Int16? = data.value(for: "string")
+        let value: Int16? = data.optional(for: "string")
         XCTAssertNil(value)
     }
     
@@ -128,14 +128,14 @@ class Int16Tests: OutlawTestCase {
     }
     
     func testTransformOptionalValue() {
-        let value: Int16? = data.value(for: "transform", with: { (rawValue: String) -> Int16? in
+        let value: Int16? = data.optional(for: "transform", with: { (rawValue: String) -> Int16? in
             return Int16(rawValue)
         })
         XCTAssertEqual(value, 12345)
     }
     
     func testOptionalTransformOptionalValue() {
-        let value: Int16? = data.value(for: "transform", with: { (rawValue: String?) -> Int16? in
+        let value: Int16? = data.optional(for: "transform", with: { (rawValue: String?) -> Int16? in
             guard let rawValue = rawValue else { return nil }
             return Int16(rawValue)
         })
