@@ -17,7 +17,7 @@ env:
     - DESTINATION="arch=x86_64"                      SCHEME="$FRAMEWORK_SCHEME" SDK="$OSX_SDK"
 
 before_install:
-  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+  - gem install xcpretty -no-ri-no-rdoc --no-document --quiet
 
 script:
   - set -o pipefail
