@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name						= "Outlaw"
-  s.version						= "2.0.1"
+  s.version						= "4.1.0"
   s.summary						= "Outlaw is a simple, lightweight framework for safely extracting values from [String: Any]"
   s.description					= <<-DESC
                    					In Swift, we all deal with JSON, plists, and various forms of [String: Any]. Outlaw provides various ways to deal with these in an expressive and type safe way. Outlaw will help you write declarative, performant, error handled code using the power of Protocol Oriented Programming™.
